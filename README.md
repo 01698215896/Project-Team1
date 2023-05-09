@@ -19,7 +19,7 @@ Student1455752      Vũ Phạm Trường Giang
 
 ============================
 
-eProject documentation at https://github.com/cuoilen007/test/tree/main/document
+eProject documentation at https://github.com/01698215896/Project-Team1.git
 
 ============================
 
