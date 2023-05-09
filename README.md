@@ -1,5 +1,4 @@
-SoundBlast
-============================
+# SoundBlast
 
 eProject-2023 Batch no: T1.2302.M0
 
@@ -9,13 +8,13 @@ Project title: SoundBlast
 
 3 collaborators:
 
-Student1448340      Cho In Yeong
+Student1448340 Cho In Yeong
 
-Student1448250      Lê Văn Linh
+Student1448250 Lê Văn Linh
 
-Student1455760      Vũ Hoàng Tiến
+Student1455760 Vũ Hoàng Tiến
 
-Student1455752      Vũ Phạm Trường Giang
+Student1455752 Vũ Phạm Trường Giang
 
 ============================
 
@@ -23,7 +22,7 @@ eProject documentation at https://github.com/01698215896/Project-Team1.git
 
 ============================
 
-eProject published at https://lnnhi1310.github.io/Kitchen-Appliances/index.html
+eProject published at https://01698215896.github.io/Project-Team1/
 
 ============================
 
