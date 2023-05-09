@@ -6,7 +6,7 @@ Project title: SoundBlast
 
 ========> Group 01 <=========
 
-3 collaborators:
+4 collaborators:
 
 Student1448340 Cho In Yeong
 
