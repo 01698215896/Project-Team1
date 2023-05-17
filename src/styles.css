@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
+@import "ngx-toastr/toastr";
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+  background: rgb(19, 11, 32);
+  padding-right: 50px;
+}
+.containers {
+  margin-left: 370px;
+}
+.toast-custom {
+  width: 300px;
+
+  background-color: rgba(255, 0, 0, 0.8);
+  padding: 10px 20px;
+  color: #fff;
+  border-left: 5px solid #fff;
+  border-right: 5px solid #fff;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3); /* Bóng đổ */
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

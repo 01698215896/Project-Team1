@@ -1,0 +1,148 @@
+.body {
+  background: rgb(19, 11, 32);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.logo {
+  font-family: "Cookie", cursive;
+  text-align: center;
+}
+.logo p {
+  font-size: 30px;
+}
+.navbar1 {
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: hsla(0, 0%, 100%, 0.05);
+  z-index: 100;
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+  padding: 15px 10px;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  display: block;
+}
+li:hover {
+  background: rgba(125, 125, 125, 0.442);
+  border-left: 4px solid #9b4de0;
+  transition: 0.2s ease-in-out;
+}
+i {
+  padding: 0 20px;
+}
+
+.login button {
+  margin-top: 20px;
+  width: 80%;
+  border: none;
+  padding: 10px 0;
+  font-size: 25px;
+  background: linear-gradient(to right, #9b4de0, #aa06a5da);
+  border-radius: 20px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin-left: 30px;
+}
+.login button:hover {
+  box-shadow: 0 0 15px #9b4de057, 0 0 15px #9b4de057;
+}
+.border1 {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+.search {
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  z-index: 99;
+  background: rgb(19, 11, 32);
+}
+.arrow i {
+  font-size: 20px;
+  color: #fff;
+}
+.searchIP input {
+  width: 500px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background: rgba(125, 125, 125, 0.442);
+  padding: 12px 10px 12px 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  color: #fff;
+}
+.searchIP input::placeholder {
+  color: #fff;
+}
+.searchIP i {
+  padding-left: 10px;
+  position: absolute;
+  font-size: 20px;
+  color: #fff;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.newPlay {
+  background: #130c1c;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bao1 {
+  display: flex;
+  align-items: center;
+}
+.text {
+  color: #fff;
+  margin: 0 20px;
+  font-size: 20px;
+}
+.text p:nth-child(2) {
+  color: #ffffff6e;
+  font-size: 18px;
+}
+audio {
+  width: 600px;
+  margin-left: 100px;
+}
+audio::-webkit-media-controls-panel {
+  background: linear-gradient(to right, #9b4de0, #aa06a5da);
+}
