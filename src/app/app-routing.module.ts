@@ -14,7 +14,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AlbumComponent } from './components/album/album.component';
 
 const routes: Routes = [
-  { path: '', component: TopsearchComponent },
+  { path: '/', component: TopsearchComponent },
   { path: 'banphathanh', component: BanphathanhComponent },
   { path: 'login', component: LoginComponent },
   { path: 'trending', component: TrendingComponent },
