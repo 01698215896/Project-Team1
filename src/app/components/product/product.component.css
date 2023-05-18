@@ -5,6 +5,7 @@
   justify-content: space-between;
 }
 .itemProduct {
+  width: 450px;
   text-align: center;
   position: fixed;
 }
@@ -199,10 +200,12 @@ audio::-webkit-media-controls-panel {
   .listproduct {
     margin-left: 380px;
   }
-
+.allproduct{
+  grid-template-columns: 100%;
+}
   
   .newPlay {
-    width: 50%;
+    width: 30%;
     bottom: 110px;
     right: 10px;
     left: unset;
@@ -232,6 +235,13 @@ audio::-webkit-media-controls-panel {
 
   .allproduct{
     grid-template-columns: 100%;
+  }
+  .itemProduct{
+  
+    position: unset;
+  }
+  .listproduct {
+    margin: 0;
   }
 
   .newPlay {
