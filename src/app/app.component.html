@@ -7,54 +7,59 @@
       <ul>
         <li class="active">
           <a routerLink="trending">
-            <i class="fa-solid fa-house"></i>Trending Now</a
+            <i class="fa-solid fa-house"></i> <p class="none"> Trending Now</p></a
           >
         </li>
         <li>
           <a routerLink="listtrending"
-            ><i class="fa-solid fa-sliders"></i>Top Charts</a
+            ><i class="fa-solid fa-sliders"></i> <p class="none"> Top Charts</p></a
           >
         </li>
         <li>
           <a routerLink="banphathanh">
-            <i class="fa-solid fa-spinner"></i>New Releases</a
+            <i class="fa-solid fa-spinner"></i> <p class="none"> New Releases</p></a
           >
         </li>
         <li>
-          <a routerLink="album"><i class="fa-solid fa-camera-retro"></i>Latest Albums</a>
+          <a routerLink="album"><i class="fa-solid fa-camera-retro"></i> <p class="none">Latest Albums</p> </a>
         </li>
         <li>
-          <a routerLink="home"><i class="fa-brands fa-teamspeak"></i>Genres</a>
+          <a routerLink="home"><i class="fa-brands fa-teamspeak"></i> <p class="none"> Genres</p></a>
         </li>
         <li>
-          <a routerLink="home"> <i class="fa-solid fa-music"></i>Old Song</a>
+          <a routerLink="home"> <i class="fa-solid fa-music"></i> <p class="none"> Old Song</p></a>
         </li>
         <li>
           <a routerLink="toparti"
-            ><i class="fa-solid fa-chart-simple"></i>Top Artists</a
+            ><i class="fa-solid fa-chart-simple"></i> <p class="none">Top Artists</p> </a
           >
         </li>
         <li>
           <a routerLink="topsearch"
-            ><i class="fa-brands fa-intercom"></i>Top Searched Songs</a
+            ><i class="fa-brands fa-intercom"></i> <p class="none"> Top Searched Songs</p></a
           >
         </li>
       </ul>
     </div>
     <div class="login">
-      <ul class="border1">
-        <li><a href="">LANGUAGES</a></li>
+      <ul class="border1" class="none">
+        <li><a href="" >LANGUAGES</a></li>
       </ul>
-      <button *ngIf="!isUserLoggedIn" routerLink="login">
-        Login
-      </button>
-      <button *ngIf="isUserLoggedIn" (click)="logout()">Logout</button>
+      <div class="respo">
+        <button *ngIf="!isUserLoggedIn" routerLink="login">
+          Login
+        </button>
+        <button *ngIf="isUserLoggedIn" (click)="logout()">Logout</button>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="search">
   <div class="containers">
+    <div class="logo bb">
+      <a routerLink="home"><p style="color: #fff; margin-top: 20px;">Sound Club</p></a>
+    </div>
     <div class="arrow">
       <i class="fa-solid fa-arrow-left"></i>
       <i class="fa-solid fa-arrow-right"></i>

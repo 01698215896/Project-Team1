@@ -148,3 +148,6 @@ p {
     background: linear-gradient(to right, #9b4de0, #aa06a5da);
   }
   
+  @media screen and (max-width: 820px) {}
+
+@media screen and (max-width: 480px) {}
