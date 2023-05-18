@@ -8,6 +8,7 @@
   font-family: "Cookie", cursive;
   text-align: center;
 }
+
 .logo p {
   font-size: 30px;
 }
@@ -31,7 +32,11 @@ a {
   text-decoration: none;
   color: #fff;
   font-size: 18px;
-  display: block;
+  display:inline-flex;
+  align-items: center;
+}
+a p{
+  margin: 0;
 }
 li:hover {
   background: rgba(125, 125, 125, 0.442);
@@ -146,6 +151,9 @@ audio {
 audio::-webkit-media-controls-panel {
   background: linear-gradient(to right, #9b4de0, #aa06a5da);
 }
+.bb{
+  display: none;
+}
 
 /* responsive */
 @media screen and (max-width: 820px) {
@@ -196,9 +204,12 @@ audio::-webkit-media-controls-panel {
   .border1 {
     border: none;
   }
+  a p{
+    margin: 0;
+  }
   li:hover {
     background: #9b4de0;
-    transform: translateY(-10px);
+    transform: translateY(-6px);
     box-shadow: 0 0 15px #9b4de06a;
     transition: 0.2s ease-in-out;
   }
@@ -222,7 +233,7 @@ audio::-webkit-media-controls-panel {
     margin-left: 25px;
   }
   .searchIP input {
-    width: 500px;
+    width: 450px;
   }
   .arrow {
     display: none;
@@ -234,9 +245,9 @@ audio::-webkit-media-controls-panel {
 
 @media screen and (max-width: 480px) {
   .navbar1 {
-    width: 80px;
+    width: fit-content;
     padding: 10px;
-    height: 600px;
+    height: fit-content;
     top: 50%;
     transform: translateY(-50%);
     right: 0;
@@ -248,25 +259,26 @@ audio::-webkit-media-controls-panel {
     border-radius: 40px;
     box-shadow: 0 0 15px #9b4de0;
   }
-  .showNav {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+  a p{
+    margin: 0;
   }
+ 
   ul{
     margin: 0;
   }
   ul li {
-    float: left;
-    margin: 5px;
+    float: unset;
+    padding: 0;
+    margin: 0;
   }
   ul li a i {
-    font-size: 25px;
+    font-size: 16px;
+    padding: 0;
   }
 
   li {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -286,18 +298,19 @@ audio::-webkit-media-controls-panel {
   }
   li:hover {
     background: #9b4de0;
-    transform: translateY(-10px);
+    transform: translateX(-6px);
     box-shadow: 0 0 15px #9b4de06a;
     transition: 0.2s ease-in-out;
   }
   .respo {
     position: fixed;
-    top: -255px;
-    bottom: unset;
-    right: 0;
-    /* display: none; */
+    top: -160px;
+    right: 20px;
   }
- 
+  .respo button {
+    width: fit-content;
+    padding: 0 20px;
+  }
   .search {
     border-bottom: 1px solid #fff;
     padding: 0;
@@ -309,7 +322,8 @@ audio::-webkit-media-controls-panel {
     margin-left: 25px;
   }
   .searchIP input {
-    width: 200px;
+    width: 170px;
+    height: 40px;
   }
   .arrow {
     display: none;
