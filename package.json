@@ -1,6 +1,7 @@
 {
   "name": "project",
   "version": "0.0.0",
+  "homepage": "https://01698215896.github.io/Project-Team1/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",

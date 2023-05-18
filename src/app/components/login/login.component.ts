@@ -23,7 +23,7 @@ export class LoginComponent {
       .pushData(registerForm.value)
       .subscribe((data) => console.log(data));
     registerForm.reset();
-    alert('register Successfully');
+    this.toastr.success('Registered successfully','Success',{toastClass:'toast-custom'})
     // this.router.navigate(['trending'])
   }
 
