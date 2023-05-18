@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'listtrending', component: ListtrendingComponent},
   { path: 'toparti', component: TopartiComponent },
   { path: 'topsearch', component: TopsearchComponent },
-  { path: 'admin', component: AdminComponent, canActivate: [CheckuserGuard]},
+  { path: 'admin', component: AdminComponent, canActivate: [CheckuserGuard], pathMatch: 'prefix'},
   { path: 'product', component: ProductComponent }, 
   { path: 'showlisttrending', component: ShowlisttrendingComponent }, 
   { path: 'album', component: AlbumComponent }, 
