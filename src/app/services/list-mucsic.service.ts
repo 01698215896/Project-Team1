@@ -11,57 +11,57 @@ export class ListMucsicService {
   constructor(private http: HttpClient) {}
 
   getApi(): Observable<Array<ListMucsic>> {
-    return this.http.get<Array<ListMucsic>>('http://localhost:3000/listMucsic');
+    return this.http.get<Array<ListMucsic>>('https://apiuser-self.vercel.app/listMucsic');
   }
   getApi1(): Observable<Array<ListMucsic>> {
-    return this.http.get<Array<ListMucsic>>('http://localhost:3000/listMucsic1');
+    return this.http.get<Array<ListMucsic>>('https://apiuser-self.vercel.app/listMucsic1');
   }
 
   fetchapi(data: string): Observable<Array<ListMucsic>> {
-    return this.http.get<Array<ListMucsic>>('http://localhost:3000/' + data);
+    return this.http.get<Array<ListMucsic>>('https://apiuser-self.vercel.app/' + data);
   }
   fetchapiMS(data: string, id:number): Observable<any> {
-    return this.http.get('http://localhost:3000/' + data + '/' + id);
+    return this.http.get('https://apiuser-self.vercel.app/' + data + '/' + id);
   }
   fetchapi1(): Observable<Array<ListMucsic>> {
-    return this.http.get<Array<ListMucsic>>('http://localhost:3000/tatca');
+    return this.http.get<Array<ListMucsic>>('https://apiuser-self.vercel.app/tatca');
   }
   fetchapi1a(data : number): Observable<ListMucsic> {
-    return this.http.get<ListMucsic>('http://localhost:3000/tatca/' + data);
+    return this.http.get<ListMucsic>('https://apiuser-self.vercel.app/tatca/' + data);
   }
   fetchapi11(data: number): Observable<ListMucsic> {
-    return this.http.get<ListMucsic>('http://localhost:3000/tatca/'+ data );
+    return this.http.get<ListMucsic>('https://apiuser-self.vercel.app/tatca/'+ data );
   }
 
   playmusic(id: number): Observable<ListMucsic> {
-    return this.http.get<ListMucsic>(`http://localhost:3000/listMucsic/${id}`);
+    return this.http.get<ListMucsic>(`https://apiuser-self.vercel.app/listMucsic/${id}`);
   }
   playmusicvn(id: number): Observable<ListMucsic> {
-    return this.http.get<ListMucsic>(`http://localhost:3000/vietnam/${id}`);
+    return this.http.get<ListMucsic>(`https://apiuser-self.vercel.app/vietnam/${id}`);
   }
 
   pushData(data: any): Observable <any> {
-    return this.http.post('http://localhost:3000/user',data);
+    return this.http.post('https://apiuser-self.vercel.app/user',data);
   }
   update(id: string,data: any): Observable<any> {
     console.log(id,data)
-    return this.http.put('http://localhost:3000/user/' + id, data);
+    return this.http.put('https://apiuser-self.vercel.app/user/' + id, data);
   }
   
   getData(): Observable <any> {
-    return this.http.get('http://localhost:3000/user');
+    return this.http.get('https://apiuser-self.vercel.app/user');
   }
   getData1(id: string): Observable <any> {
-    return this.http.get<Array<User>>('http://localhost:3000/user/' + id);
+    return this.http.get<Array<User>>('https://apiuser-self.vercel.app/user/' + id);
   }
   getUser(data: any): Observable <any> {
-    return this.http.get('http://localhost:3000/user/' + data);
+    return this.http.get('https://apiuser-self.vercel.app/user/' + data);
   }
 
   checklogin(){
     return sessionStorage.getItem('username');
   }
   deleteuser(id : string): Observable <any>{
-    return this.http.delete('http://localhost:3000/user/'+ id);
+    return this.http.delete('https://apiuser-self.vercel.app/user/'+ id);
   }
 }
