@@ -21,6 +21,8 @@ export class ListtrendingComponent implements OnInit {
   currentSong: string = '';
   url: string = '';
   casy: string = '';
+  id: number =0;
+
   currentSongimg: string = '';
   @ViewChild('css', { static: true }) css!: ElementRef;
 
@@ -89,6 +91,7 @@ export class ListtrendingComponent implements OnInit {
       console.log(song);
       this.currentSong = song.name;
       this.url = song.img;
+      this.id = song.id;
       this.casy = song.casy;
       this.currentSongimg = song.url;
       this.renderer.setStyle(
@@ -97,9 +100,12 @@ export class ListtrendingComponent implements OnInit {
         'translateX(0)'
       );
     });
+    this.service.playmusic(id).subscribe((data) => {
+      sessionStorage.setItem('musicplay', JSON.stringify(data));
+    });
   }
 
-  product() {
-    this.router.navigate(['product']);
+  product(id:number){
+    this.router.navigate(['musicplay'])
   }
 }

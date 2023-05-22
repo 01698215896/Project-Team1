@@ -18,6 +18,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShowlisttrendingComponent } from './components/showlisttrending/showlisttrending.component';
 import { AlbumComponent } from './components/album/album.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { MediaComponent } from './components/media/media.component';
+import { GenresComponent } from './components/genres/genres.component';
+import { MusicplayComponent } from './components/musicplay/musicplay.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     ShowlisttrendingComponent,
     AlbumComponent,
     ProfileComponent,
+    MediaComponent,
+    GenresComponent,
+    MusicplayComponent,
   ],
   imports: [
     BrowserModule,

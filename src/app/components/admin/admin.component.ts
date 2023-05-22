@@ -24,19 +24,24 @@ export class AdminComponent implements OnInit {
       id: '',
       email: '',
       username: '',
-      password: ''
+      password: '',
+      face: '',
+      git: '',
+      twitter: '',
+      youtube: '',
+      insta: '',
     };
   }
 
   @ViewChild('toggleElement') toggleElement!: ElementRef;
-
+  isUserLoggedIn = true;
+  selectedUser = new User();
   constructor(
     private service: ListMucsicService,
     private renderer: Renderer2,
     private toast: ToastrService
   ) {}
-  isUserLoggedIn = true;
-  selectedUser =new User() ;
+  
   check1 = true;
 
   ngOnInit(): void {
@@ -49,33 +54,34 @@ export class AdminComponent implements OnInit {
       this.service.getData().subscribe((data) => {
         this.data1 = data;
       });
-      this.toast.success('Data deleted successfully', 'Success',{toastClass:'toast-custom'});
+      this.toast.success('Data deleted successfully', 'Success', {
+        toastClass: 'toast-custom',
+      });
     });
   }
 
   add() {
     this.isUserLoggedIn = false;
     this.check1 = true;
-
   }
   cancel() {
     this.isUserLoggedIn = true;
   }
   newuser(registerForm: NgForm) {
-    this.service.pushData(registerForm.value).subscribe((res) => {});
+    this.service.pushData(registerForm.value).subscribe((res) => {console.log(res)});
     this.service.getData().subscribe((data) => {
       this.data1 = data;
-      
     });
-    this.toast.success('Add New User successfully', 'Success',{toastClass:'toast-custom'});
+    this.toast.success('Add New User successfully', 'Success', {
+      toastClass: 'toast-custom',
+    });
     this.isUserLoggedIn = true;
-    this.resetForm()
+    this.resetForm();
   }
   edituser(id: string) {
     this.check1 = false;
     this.service.getData1(id).subscribe((data) => {
       this.selectedUser = data;
-      
     });
     this.isUserLoggedIn = false;
   }
@@ -91,8 +97,11 @@ export class AdminComponent implements OnInit {
   // }
 
   update1(registerForm: NgForm) {
-    this.service.update(registerForm.value.id, registerForm.value ).subscribe(data => {
+    this.service
+      .update(registerForm.value.id, registerForm.value)
+      .subscribe((data) => {});
+    this.toast.success('Update User successfully', 'Success', {
+      toastClass: 'toast-custom',
     });
-    this.toast.success('Update User successfully', 'Success',{toastClass:'toast-custom'});
   }
 }

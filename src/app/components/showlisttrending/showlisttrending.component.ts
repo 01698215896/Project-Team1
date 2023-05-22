@@ -18,6 +18,8 @@ export class ShowlisttrendingComponent implements OnInit {
   casy: string='';
   url: string='';
   currentSongimg: string='';
+  id: number =0;
+
 
   constructor(private service: ListMucsicService, private router: Router, private renderer: Renderer2){}
 
@@ -38,6 +40,8 @@ export class ShowlisttrendingComponent implements OnInit {
       this.url = song.img;
       this.currentSongimg = song.url;
       this.casy = song.casy;
+      this.id = song.id;
+
       this.renderer.setStyle(
         this.css.nativeElement,
         'transform',
@@ -45,12 +49,16 @@ export class ShowlisttrendingComponent implements OnInit {
       );
     });
     this.renderer.setStyle(this.css.nativeElement, 'transform', 'translateX(0)');
+    this.service.playmusic(id).subscribe((data) => {
+      sessionStorage.setItem('musicplay', JSON.stringify(data));
+    });
   }
   linkproduct(){
     this.router.navigate(['product'])
   }
-  product(){
-    this.router.navigate(['product'])
+  product(id:number){
+   
+    this.router.navigate(['musicplay'])
   }
 
 }

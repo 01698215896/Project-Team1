@@ -3,20 +3,20 @@
     <div class="user">
       <div class="userbao">
         <div class="hinh">
-          <img src="assets/img/bai1.jpg" alt="" />
+          <img src="{{ img }}" alt="" />
         </div>
         <div class="usertext">
-          <h1 class="h1">Hoang Tien</h1>
+          <h1 class="h1"></h1>
           <p>Full Stack Developer</p>
           <p>Ha Huy Giap, Quan 12, TP.HCM</p>
         </div>
-        <button>Edit Account</button>
+        <button (click)="add(id)">Edit Account</button>
         <div class="icon">
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-twitter"></i>
-          <i class="fa-brands fa-github"></i>
-          <i class="fa-brands fa-youtube"></i>
+          <a href="{{ face }}"  target="_blank"><i class="fa-brands fa-facebook"></i></a>
+          <a href="{{ insta }}" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="{{ twitter }}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          <a href="{{ git }}" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="{{ youtube }}" target="_blank"><i class="fa-brands fa-youtube"></i></a>
         </div>
       </div>
     </div>
@@ -27,28 +27,78 @@
           <tbody>
             <tr>
               <th>Fullname</th>
-              <td>Hoang Tien</td>
+              <td>{{ firstName }} {{ lastName }}</td>
             </tr>
+
             <tr>
               <th>Username</th>
-              <td>hoangtien147</td>
+              <td>{{ id }}</td>
             </tr>
             <tr>
               <th>Password</th>
-              <td>12345</td>
+              <td>{{ password }}</td>
             </tr>
             <tr>
               <th>Email</th>
-              <td>hoangtien147@gmail.com</td>
-            </tr>
-            <tr>
-              <th>Active</th>
-              <td>Active Success</td>
+              <td>{{ email }}</td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="thongtin"></div>
     </div>
+
+
+    <div class="tabAdd" #toggleElement *ngIf="!isUserLoggedIn">
+      <div class="showadd">
+        <div id="taomoiform" >
+          <form #registerForm="ngForm" >
+            <div class="formIP">
+              <input type="text" name="firstName" [(ngModel)]="selectedUser.firstName" placeholder="Firstname..." style="padding-left: 10px;margin-right: 10px;">
+              <input type="text" name="lastName" [(ngModel)]="selectedUser.lastName" placeholder="Lastname..." style="padding-left: 10px;margin-left: 10px;">
+            </div>
+            <div class="formIP">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" name="id" [(ngModel)]="selectedUser.id" placeholder="Username..." disabled>
+            </div>
+            <div class="formIP">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" name="email" [(ngModel)]="selectedUser.email" placeholder="Email...">
+            </div>
+            <div class="formIP">
+              <i class="fa-solid fa-key"></i>
+              <input type="password" name="password" [(ngModel)]="selectedUser.password" placeholder="Password...">
+            </div>
+            <div class="formIP">
+              <i class="fa-brands fa-facebook"></i>
+              <input type="text" name="face" [(ngModel)]="selectedUser.face" placeholder="Facebook...">
+            </div>
+            <div class="formIP">
+              <i class="fa-brands fa-youtube"></i>
+              <input type="text" name="youtube" [(ngModel)]="selectedUser.youtube" placeholder="Youtube...">
+            </div>
+            <div class="formIP">
+              <i class="fa-brands fa-github"></i>
+              <input type="text" name="git" [(ngModel)]="selectedUser.git" placeholder="Github...">
+            </div>
+            <div class="formIP">
+              <i class="fa-brands fa-twitter"></i>
+              <input type="text" name="twitter" [(ngModel)]="selectedUser.twitter" placeholder="Twitter...">
+            </div>
+            <div class="formIP">
+              <i class="fa-brands fa-instagram"></i>
+              <input type="text" name="insta" [(ngModel)]="selectedUser.insta" placeholder="Instagram...">
+            </div>
+            <div class="link">
+              <button class="nnn" (click)="cancel()">Cancel</button>
+              
+              <button type="submit" class="nnn" (click)="update1(registerForm)">Update</button>
+            </div>
+          </form>
+                        
+      </div> 
+      </div>
+    </div>
+
   </div>
 </div>

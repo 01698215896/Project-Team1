@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient , HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ListMucsic } from '../models/list-mucsic';
@@ -43,14 +43,21 @@ export class ListMucsicService {
   pushData(data: any): Observable <any> {
     return this.http.post('https://apiuser-self.vercel.app/user',data);
   }
+  
+
+  
+
+  updatalink(id: string,data: any): Observable<any> {
+    return this.http.put('https://apiuser-git-main-01698215896.vercel.app/user/' + id, data);
+  }
   update(id: string,data: any): Observable<any> {
-    console.log(id,data)
     return this.http.put('https://apiuser-self.vercel.app/user/' + id, data);
   }
   
   getData(): Observable <any> {
     return this.http.get('https://apiuser-self.vercel.app/user');
   }
+ 
   getData1(id: string): Observable <any> {
     return this.http.get<Array<User>>('https://apiuser-self.vercel.app/user/' + id);
   }
@@ -59,7 +66,7 @@ export class ListMucsicService {
   }
 
   checklogin(){
-    return sessionStorage.getItem('username');
+    return localStorage.getItem('username');
   }
   deleteuser(id : string): Observable <any>{
     return this.http.delete('https://apiuser-self.vercel.app/user/'+ id);

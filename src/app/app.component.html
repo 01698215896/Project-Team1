@@ -1,73 +1,109 @@
 <div class="body">
   <div class="navbar1">
     <div class="logo">
-      <a routerLink="/"><p style="color: #fff; margin-top: 20px;">Sound Club</p></a>
+      <a routerLink="/"
+        ><p style="color: #fff; margin-top: 20px">Sound Club</p></a
+      >
     </div>
     <div class="showNav">
-      <ul>
+      <ul class="ooo">
         <li class="active">
           <a routerLink="/trending">
-            <i class="fa-solid fa-house"></i> <p class="none"> Trending Now</p></a
+            <i class="fa-solid fa-house"></i>
+            <p class="none">Trending Now</p></a
           >
         </li>
         <li>
           <a routerLink="/listtrending"
-            ><i class="fa-solid fa-sliders"></i> <p class="none"> Top Charts</p></a
+            ><i class="fa-solid fa-sliders"></i>
+            <p class="none">Top Charts</p></a
           >
         </li>
         <li>
           <a routerLink="/banphathanh">
-            <i class="fa-solid fa-spinner"></i> <p class="none"> New Releases</p></a
+            <i class="fa-solid fa-spinner"></i>
+            <p class="none">New Releases</p></a
           >
         </li>
         <li>
-          <a routerLink="/album"><i class="fa-solid fa-camera-retro"></i> <p class="none">Latest Albums</p> </a>
+          <a routerLink="/album"
+            ><i class="fa-solid fa-camera-retro"></i>
+            <p class="none">Latest Albums</p>
+          </a>
         </li>
         <li>
-          <a routerLink="/home"><i class="fa-brands fa-teamspeak"></i> <p class="none"> Genres</p></a>
+          <a routerLink="/genres"
+            ><i class="fa-brands fa-teamspeak"></i>
+            <p class="none">Genres</p></a
+          >
         </li>
         <li>
-          <a routerLink="/home"> <i class="fa-solid fa-music"></i> <p class="none"> Old Song</p></a>
+          <a routerLink="/genres">
+            <i class="fa-solid fa-music"></i>
+            <p class="none">Old Song</p></a
+          >
         </li>
         <li>
           <a routerLink="/toparti"
-            ><i class="fa-solid fa-chart-simple"></i> <p class="none">Top Artists</p> </a
-          >
+            ><i class="fa-solid fa-chart-simple"></i>
+            <p class="none">Top Artists</p>
+          </a>
         </li>
         <li>
           <a routerLink="/topsearch"
-            ><i class="fa-brands fa-intercom"></i> <p class="none"> Top Searched Songs</p></a
+            ><i class="fa-brands fa-intercom"></i>
+            <p class="none">Top Searched Songs</p></a
+          >
+        </li>
+        <li>
+          <a routerLink="/product" 
+            ><i class="fa-brands fa-intercom"></i>
+            <p class="none">PlayList</p></a
           >
         </li>
       </ul>
     </div>
     <div class="login">
       <ul class="border1" class="none">
-        <li><a href="" >LANGUAGES</a></li>
+        <li><a href="">LANGUAGES</a></li>
       </ul>
-      <div class="respo">
-        <button *ngIf="!isUserLoggedIn" routerLink="/login">
-          Login
-        </button>
-        <button *ngIf="isUserLoggedIn" (click)="logout()">Logout</button>
-      </div>
     </div>
   </div>
 </div>
 
 <div class="search">
   <div class="containers">
-    <div class="logo bb">
-      <a routerLink="/home"><p style="color: #fff; ">Sound Club</p></a>
+    <div class="containerss">
+      <div class="logo bb">
+        <a routerLink="/home"><p style="color: #fff">Sound Club</p></a>
+      </div>
+      <div class="arrow">
+        <i class="fa-solid fa-arrow-left"></i>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+
+      <div class="searchIP">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" placeholder="Search..." />
+      </div>
+      <div class="profile" #check>
+        <div class="imgUser">
+          <img src="assets/img/bai1.jpg" alt="" />
+        </div>
+        <div class="box_option">
+          <div class="box_option-arrow"></div>
+          <div class="box_option-text">
+            <ul>
+              <li><a class="ee" href="" routerLink="profile"> Profile </a></li>
+              <li><a class="ee" href="" (click)="logout()"> Logout </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="respo"#block>
+        <button *ngIf="!isUserLoggedIn" routerLink="/login">Login</button>
+      </div>
     </div>
-    <div class="arrow">
-      <i class="fa-solid fa-arrow-left"></i>
-      <i class="fa-solid fa-arrow-right"></i>
-    </div>
-  </div>
-  <div class="searchIP">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <input type="search" placeholder="Search..." />
   </div>
 </div>
 

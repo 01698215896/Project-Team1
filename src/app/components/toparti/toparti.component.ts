@@ -12,6 +12,8 @@ export class TopartiComponent implements OnInit {
   @ViewChild('css', {static: true}) css!:ElementRef;
 
   list: any;
+  id: number =0;
+
   activeTab = 0;
   currentSong: string='';
   casy: string='';
@@ -40,6 +42,8 @@ export class TopartiComponent implements OnInit {
       console.log(song);
       this.currentSong = song.name;
       this.url = song.img;
+      this.id = song.id;
+
       this.currentSongimg = song.url;
       this.casy = song.casy;
       this.renderer.setStyle(
@@ -49,8 +53,12 @@ export class TopartiComponent implements OnInit {
       );
     });
     this.renderer.setStyle(this.css.nativeElement, 'transform', 'translateX(0)');
+    this.service.playmusic(id).subscribe((data) => {
+      sessionStorage.setItem('musicplay', JSON.stringify(data));
+    });
   }
-  product(){
-    this.router.navigate(['product'])
+  product(id:number){
+  
+    this.router.navigate(['musicplay'])
   }
 }

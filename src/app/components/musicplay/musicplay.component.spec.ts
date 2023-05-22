@@ -1,17 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfileComponent } from './profile.component';
+import { MusicplayComponent } from './musicplay.component';
 
-describe('ProfileComponent', () => {
-  
-  let component: ProfileComponent;
-  let fixture: ComponentFixture<ProfileComponent>;
+describe('MusicplayComponent', () => {
+  let component: MusicplayComponent;
+  let fixture: ComponentFixture<MusicplayComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ProfileComponent]
+      declarations: [MusicplayComponent]
     });
-    fixture = TestBed.createComponent(ProfileComponent);
+    fixture = TestBed.createComponent(MusicplayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

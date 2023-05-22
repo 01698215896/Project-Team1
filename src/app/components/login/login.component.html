@@ -10,16 +10,16 @@
           <h1 [class.active]="activeTab === 1" (click)="setActiveTab(1)">Resgiter</h1>
         </div>
         <div class="chung">
-           
+
                 <div id="loginform" *ngIf="activeTab === 0">
                     <form #loginf="ngForm" (ngSubmit)="login(loginf)">
                         <div class="formIP">
                             <i class="fa-solid fa-user"></i>
-                            <input type="text" name="id" ngModel placeholder="Username...">
+                            <input type="text" name="id" ngModel placeholder="Username..." required>
                         </div>
                         <div class="formIP">
                             <i class="fa-solid fa-key"></i>
-                            <input type="password" name="password" ngModel placeholder="Password...">
+                            <input type="password" name="password" ngModel placeholder="Password..." required>
                         </div>
                         <div class="link">
                             <button type="submit">Login</button>

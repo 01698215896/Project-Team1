@@ -1,0 +1,85 @@
+<div class="containers">
+    <div class="box">
+        <div class="box1">
+          <div class="chung">
+            <div id="taomoiform">
+              
+                <h1>Update Avatar</h1>
+                <div class="formIP">
+                    
+                  <!-- img -->
+                  
+                  <div class="avt1"[class.active]="activeTab === 0" (click)="setActiveTab(0)">
+                      <img src="assets/img/1.jpg" alt="" (click)="clickimg('assets/img/1.jpg')">
+                      
+                  </div>
+                  <div class="avt1"[class.active]="activeTab === 1" (click)="setActiveTab(1)">
+                      <img src="assets/img/2.jpg" alt="" (click)="clickimg('assets/img/2.jpg')">
+                  </div>
+                  <div class="avt1"[class.active]="activeTab === 2" (click)="setActiveTab(2)">
+                      <img src="assets/img/3.jpg" alt="" (click)="clickimg('assets/img/3.jpg')">
+                  </div>
+                  <div class="avt1"[class.active]="activeTab === 3" (click)="setActiveTab(3)">
+                      <img src="assets/img/4.jpg" alt="" (click)="clickimg('assets/img/4.jpg')">
+                  </div>
+                  <div class="avt1"[class.active]="activeTab === 4" (click)="setActiveTab(4)">
+                      <img src="assets/img/5.jpg" alt="" (click)="clickimg('assets/img/5.jpg')">
+                  </div>
+                  <div class="avt1"[class.active]="activeTab === 5" (click)="setActiveTab(5)">
+                      <img src="assets/img/6.jpg" alt="" (click)="clickimg('assets/img/6.jpg')">
+                  </div>
+                  <div class="avt1"[class.active]="activeTab === 6" (click)="setActiveTab(6)">
+                      <img src="assets/img/7.jpg" alt="" (click)="clickimg('assets/img/7.jpg')">
+                  </div>
+                  
+                </div>
+                <h1>Update Link Social</h1>
+              
+
+                <form #addlinkuser="ngForm" (ngSubmit)="addlink(addlinkuser)">
+                <div class="formIP1">
+                  <i class="fa-brands fa-facebook"></i>
+                  <input type="text" name="face" ngModel placeholder="Facebook" />
+                </div>
+                <div class="formIP1">
+                  <i class="fa-brands fa-github"></i>
+                  <input type="text" name="git" ngModel placeholder="Github" />
+                </div>
+                <div class="formIP1">
+                  <i class="fa-brands fa-youtube"></i>
+                  <input
+                    type="text"
+                    name="youtube"
+                    ngModel
+                    placeholder="Youtube"
+                  />
+                </div>
+                <div class="formIP1">
+                  <i class="fa-brands fa-twitter"></i>
+                  <input
+                    type="text"
+                    name="twitter"
+                    ngModel
+                    placeholder="Twitter"
+                  />
+                </div>
+                <div class="formIP1">
+                  <i class="fa-brands fa-instagram"></i>
+                  <input
+                    type="text"
+                    name="insta"
+                    ngModel
+                    placeholder="Instagram"
+                  />
+                </div>
+                <div class="link">
+                  <button  routerLink="">Back</button>
+                  <button type="submit" >Save</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</div>

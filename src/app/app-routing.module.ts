@@ -12,6 +12,9 @@ import { ProductComponent } from './components/product/product.component';
 import { ShowlisttrendingComponent } from './components/showlisttrending/showlisttrending.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AlbumComponent } from './components/album/album.component';
+import { MediaComponent } from './components/media/media.component';
+import { GenresComponent } from './components/genres/genres.component';
+import { MusicplayComponent } from './components/musicplay/musicplay.component';
 
 const routes: Routes = [
   { path: '', component: TopsearchComponent },
@@ -22,10 +25,13 @@ const routes: Routes = [
   { path: 'toparti', component: TopartiComponent },
   { path: 'topsearch', component: TopsearchComponent },
   { path: 'admin', component: AdminComponent, canActivate: [CheckuserGuard], pathMatch: 'prefix'},
-  { path: 'product', component: ProductComponent }, 
+  { path: 'product', component: ProductComponent , canActivate: [CheckuserGuard], pathMatch: 'prefix'}, 
   { path: 'showlisttrending', component: ShowlisttrendingComponent }, 
   { path: 'album', component: AlbumComponent }, 
   { path: 'profile', component: ProfileComponent }, 
+  { path: 'media', component: MediaComponent }, 
+  { path: 'genres', component: GenresComponent }, 
+  { path: 'musicplay', component: MusicplayComponent }, 
 ];
 
 @NgModule({
