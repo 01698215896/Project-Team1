@@ -9,6 +9,7 @@ export class MusicplayComponent implements OnInit {
   name: string='';
   casy: string='';
   title: string='';
+  url: string='';
   img: string='';
 
   ngOnInit(): void {
@@ -21,6 +22,8 @@ export class MusicplayComponent implements OnInit {
       this.casy = list.casy;
       this.title = list.title;
       this.img = list.img;
+      this.url = list.url;
+      console.log(this.url)
       return list;
       
     }

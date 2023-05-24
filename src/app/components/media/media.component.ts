@@ -46,7 +46,7 @@ export class MediaComponent implements OnInit {
         toastClass: 'toast-custom',
       });
 
-    // window.location.href = 'profile';
+    window.location.href = 'profile';
     
   }
 

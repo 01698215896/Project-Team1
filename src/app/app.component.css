@@ -24,7 +24,7 @@
 ul.ooo {
   padding: 0;
 }
-ul.ooo >li {
+ul.ooo > li {
   list-style: none;
   padding: 15px 10px;
 }
@@ -47,7 +47,7 @@ i {
   padding: 0 20px;
 }
 
- button.btnn {
+button.btnn {
   border: none;
   font-size: 22px;
   background: linear-gradient(to right, #9b4de0, #aa06a5da);
@@ -58,7 +58,7 @@ i {
   transition: 0.3s ease-in-out;
   padding: 5px 20px;
 }
- button.btnn:hover {
+button.btnn:hover {
   box-shadow: 0 0 15px #9b4de057, 0 0 15px #9b4de057;
 }
 .border1 {
@@ -156,20 +156,19 @@ audio::-webkit-media-controls-panel {
 .profile {
   display: none;
 }
-.profile:hover .box_option{
-   transform: translateX(0);
-
+.profile:hover .box_option {
+  transform: translateX(0);
 }
-ul{
+ul {
   padding: 0;
 }
-ul li{
+ul > li {
   list-style: none;
   text-align: left;
   transition: 0.2s ease-in-out;
 }
-ul li:hover a.ee{
-color: #9b4de0;
+ul >li:hover> a.ee {
+  color: #9b4de0;
 }
 .profile .imgUser {
   width: 50px;
@@ -185,14 +184,13 @@ color: #9b4de0;
   transform: scale(110%);
 }
 
-
 .profile .imgUser img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.box_option{
+.box_option {
   width: 120px;
   height: fit-content;
   background: #130c1c;
@@ -208,12 +206,11 @@ color: #9b4de0;
   line-height: 40px;
 }
 
-
-.box_option-text{
+.box_option-text {
   display: flex;
   flex-direction: column;
 }
-.box_option::before{
+.box_option::before {
   position: absolute;
   top: -16px;
   right: 8px;
@@ -230,17 +227,17 @@ color: #9b4de0;
   align-items: center;
 }
 
-.chatbox{
+.chatbox {
   position: fixed;
   bottom: 90px;
   right: 30px;
   z-index: 1000;
 }
-.iconchatbox{
+.iconchatbox {
   text-align: end;
   margin-top: 10px;
 }
-button#btn_chatbox{
+button#btn_chatbox {
   background: #130c1c;
   padding: 5px 25px;
   border: 3px solid #fff;
@@ -249,13 +246,12 @@ button#btn_chatbox{
   font-size: 20px;
   font-weight: 500;
   transition: 0.3s ease-in-out;
-
 }
-button#btn_chatbox:hover{
+button#btn_chatbox:hover {
   background: #ffffff3f;
   border-color: #9b4de0;
 }
-.bodychatbox{
+.bodychatbox {
   width: 300px;
   height: 400px;
   background: #fff;
@@ -263,21 +259,19 @@ button#btn_chatbox:hover{
   z-index: 100;
   padding: 15px;
   display: none;
-
 }
-.send_btn input{
+.send_btn input {
   border: none;
   outline: none;
   font-size: 14px;
 }
-form{
+form {
   position: relative;
   width: 100%;
   height: 86%;
 }
 
-
-.send_btn{
+.send_btn {
   border: 1px solid #33333368;
   border-radius: 10px;
   padding: 3px;
@@ -290,7 +284,7 @@ form{
   left: 0;
   background: #fff;
 }
-.send_btn button{
+.send_btn button {
   border: none;
   background: green;
   font-weight: 500;
@@ -298,7 +292,7 @@ form{
   padding: 4px 10px;
   color: #fff;
 }
-.showchat{
+.showchat {
   width: 100%;
   height: 250px;
   overflow: hidden;
@@ -311,18 +305,18 @@ form{
   background-color: #565555;
   border-radius: 30px;
 }
-.showchat1{
+.showchat1 {
   border-radius: 10px;
   margin: 10px 0;
   padding: 10px;
   color: #fff;
   background: rgba(0, 0, 255, 0.44);
 }
-.showchat2{
+.showchat2 {
   background: rgba(45, 45, 46, 0.44);
 }
 
-.titlechat{
+.titlechat {
   width: 100%;
   padding: 5px 0;
   display: flex;
@@ -330,12 +324,13 @@ form{
   align-items: center;
   border-bottom: 1px solid #9b4de0;
 }
-.hinh_title{
-  width: 40px;height: 40px;
+.hinh_title {
+  width: 40px;
+  height: 40px;
   overflow: hidden;
   border-radius: 50%;
 }
-.hinh_title img{
+.hinh_title img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -410,7 +405,7 @@ form{
     padding: 25px 20px;
     display: flex;
     align-items: center;
-    
+
     background-color: #130c1c;
   }
   .searchIP {
@@ -480,7 +475,7 @@ form{
   .border1 {
     border: none;
   }
-  li:hover {
+  ul.ooo > li:hover {
     background: #9b4de0;
     transform: translateX(-6px);
     box-shadow: 0 0 15px #9b4de06a;
@@ -490,8 +485,7 @@ form{
   .respo button {
     width: fit-content;
     padding: 0 15px;
-    margin-left: 15px;
-
+    margin-left: 30px;
   }
   .search {
     border-bottom: 1px solid #fff;
@@ -513,5 +507,13 @@ form{
   }
   .bb {
     display: block;
+  }
+
+  .chatbox {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    right: unset;
+    z-index: 1000;
   }
 }

@@ -24,11 +24,11 @@ export class LoginComponent {
   }
   register(registerForm: NgForm) {
     if (registerForm.valid) {
-      if (registerForm.value.password !== registerForm.value.confirmPassword) {
-        this.toastr.error('Password or ConfirmPassword no', 'Error', {
-          toastClass: 'toast-custom',
-        });
-      }
+      // if (registerForm.value.password !== registerForm.value.confirmPassword) {
+      //   this.toastr.error('Password or ConfirmPassword no', 'Error', {
+      //     toastClass: 'toast-custom',
+      //   });
+      // }
 
       this.service
         .pushData(registerForm.value)

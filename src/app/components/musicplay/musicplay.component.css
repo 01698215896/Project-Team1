@@ -112,3 +112,23 @@ h2{
     transform: rotate(360deg);
   }
 }
+
+
+@media screen and (max-width: 820px) {}
+@media screen and (max-width: 480px) {
+  .containerss {
+    padding-top: 80px;
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 40;
+    height: unset;
+    width: 100%;
+  }
+  .box_img-img1 {
+    width: 280px;
+    height: 280px;
+  }
+  .box_content{
+    height: 500px;
+  }
+}

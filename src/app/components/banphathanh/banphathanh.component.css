@@ -262,8 +262,11 @@ audio::-webkit-media-controls-panel {
   background: url(/assets/img/bai1.jpg) no-repeat center/cover;
 }
 .phathanh1{
-  width: 100%;
+  width: 95%;
   margin-top: 20px;
+}
+.item1 .id p {
+  font-size: 20px;
 }
 .background{
   height:unset;

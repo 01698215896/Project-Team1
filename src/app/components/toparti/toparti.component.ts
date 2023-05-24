@@ -30,6 +30,7 @@ export class TopartiComponent implements OnInit {
   all(data: string, num: number) {
     this.service.fetchapi(data).subscribe((res) => {
       this.list = res;
+      
     });
     
     this.activeTab = num;

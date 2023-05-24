@@ -16,6 +16,9 @@ export class ListMucsicService {
   getApi1(): Observable<Array<ListMucsic>> {
     return this.http.get<Array<ListMucsic>>('https://apiuser-self.vercel.app/listMucsic');
   }
+  getApi11(): Observable<Array<ListMucsic>> {
+    return this.http.get<Array<ListMucsic>>('https://apiuser-self.vercel.app/listMucsic1');
+  }
 
   fetchapi(data: string): Observable<Array<ListMucsic>> {
     return this.http.get<Array<ListMucsic>>('https://apiuser-self.vercel.app/' + data);
@@ -36,9 +39,13 @@ export class ListMucsicService {
   playmusic(id: number): Observable<ListMucsic> {
     return this.http.get<ListMucsic>(`https://apiuser-self.vercel.app/listMucsic/${id}`);
   }
+  playmusic1(linkApi: string ,id: number): Observable<ListMucsic> {
+    return this.http.get<ListMucsic>(`https://apiuser-self.vercel.app/${linkApi}/${id}`);
+  }
   playmusicvn(id: number): Observable<ListMucsic> {
     return this.http.get<ListMucsic>(`https://apiuser-self.vercel.app/vietnam/${id}`);
   }
+
 
   pushData(data: any): Observable <any> {
     console.log(data);

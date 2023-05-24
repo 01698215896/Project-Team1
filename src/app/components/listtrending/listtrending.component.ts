@@ -34,7 +34,7 @@ export class ListtrendingComponent implements OnInit {
   list1: Array<ListMucsic> = new Array<ListMucsic>();
   user: { name: string; vote: number }[] = [];
   ngOnInit(): void {
-    this.service.getApi1().subscribe((res) => {
+    this.service.getApi11().subscribe((res) => {
       this.user = res.map((item) => ({ name: item.name, vote: item.vote }));
       var myChart = new Chart('myChart', {
         type: 'bar',
@@ -86,7 +86,7 @@ export class ListtrendingComponent implements OnInit {
     });
   }
   playM(id: number) {
-    this.service.fetchapi1a(id).subscribe((res) => {
+    this.service.fetchapiMS('tatca', id).subscribe((res) => {
       const song = res;
       console.log(song);
       this.currentSong = song.name;
@@ -100,7 +100,7 @@ export class ListtrendingComponent implements OnInit {
         'translateX(0)'
       );
     });
-    this.service.playmusic(id).subscribe((data) => {
+    this.service.fetchapiMS('tatca', id).subscribe((data) => {
       sessionStorage.setItem('musicplay', JSON.stringify(data));
     });
   }

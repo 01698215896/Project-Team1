@@ -20,6 +20,7 @@ export class ProductComponent implements OnInit {
   currentSong: string = '';
   casy: string = '';
   url: string = '';
+  id:number = 0;
   currentSongimg: string = '';
   listMucsic: Array<ListMucsic> = new Array<ListMucsic>();
   @ViewChild('css', { static: true }) css!: ElementRef;
@@ -36,11 +37,12 @@ export class ProductComponent implements OnInit {
     });
   }
   showmusic(id: number) {
-    this.service.fetchapi11(id).subscribe((data) => {
+    this.service.playmusic1('tatca',id).subscribe((data) => {
       this.currentSong = data.name;
       this.url = data.img;
       this.currentSongimg = data.url;
       this.casy = data.casy;
+      sessionStorage.setItem('musicplay', JSON.stringify(data));
     });
 
     this.renderer.setStyle(
@@ -57,5 +59,9 @@ export class ProductComponent implements OnInit {
       this.router.navigate(['login']);
       return false;
     }
+  }
+  product(id:Number){
+  
+    this.router.navigate(['musicplay'])
   }
 }

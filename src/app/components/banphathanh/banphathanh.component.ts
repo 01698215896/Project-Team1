@@ -64,7 +64,8 @@ export class BanphathanhComponent implements OnInit {
       'transform',
       'translateX(0)'
     );
-    this.service.playmusic(id).subscribe((data) => {
+    this.service.playmusic1(linkApi,id).subscribe((data) => {
+      console.log(data);
       sessionStorage.setItem('musicplay', JSON.stringify(data));
     });
     
@@ -83,8 +84,6 @@ export class BanphathanhComponent implements OnInit {
   }
 
   product(id: number) {
-    
-
     this.router.navigate(['musicplay']);
   }
 }
