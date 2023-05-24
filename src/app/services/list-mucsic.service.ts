@@ -41,34 +41,39 @@ export class ListMucsicService {
   }
 
   pushData(data: any): Observable <any> {
-    return this.http.post('https://apiuser-self.vercel.app/user',data);
+    console.log(data);
+    return this.http.post('https://odd-gold-bighorn-sheep-boot.cyclic.app/users',data);
   }
   
 
   
 
   updatalink(id: string,data: any): Observable<any> {
-    return this.http.put('https://apiuser-git-main-01698215896.vercel.app/user/' + id, data);
+    return this.http.put('https://odd-gold-bighorn-sheep-boot.cyclic.app/users/' + id, data);
   }
-  update(id: string,data: any): Observable<any> {
-    return this.http.put('https://apiuser-self.vercel.app/user/' + id, data);
+  update(id:any,data: any): Observable<any> {
+    return this.http.put('https://odd-gold-bighorn-sheep-boot.cyclic.app/users/' + id, data);
   }
   
   getData(): Observable <any> {
-    return this.http.get('https://apiuser-self.vercel.app/user');
+    return this.http.get('https://odd-gold-bighorn-sheep-boot.cyclic.app/users/');
   }
  
-  getData1(id: string): Observable <any> {
-    return this.http.get<Array<User>>('https://apiuser-self.vercel.app/user/' + id);
+  getData1(id : any): Observable <any> {
+    return this.http.get<Array<User>>('https://odd-gold-bighorn-sheep-boot.cyclic.app/users/' + id);
   }
   getUser(data: any): Observable <any> {
-    return this.http.get('https://apiuser-self.vercel.app/user/' + data);
+    return this.http.get('https://odd-gold-bighorn-sheep-boot.cyclic.app/users/' + data);
   }
 
   checklogin(){
     return localStorage.getItem('username');
   }
-  deleteuser(id : string): Observable <any>{
-    return this.http.delete('https://apiuser-self.vercel.app/user/'+ id);
+  deleteuser(id : any): Observable <any>{
+    return this.http.delete('https://odd-gold-bighorn-sheep-boot.cyclic.app/users/'+ id);
+  }
+
+  sendmessage(message : string) {
+    return this.http.post('https://apichatbox.onrender.com/message', {prompt: message});
   }
 }

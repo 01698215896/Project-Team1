@@ -10,4 +10,5 @@ export class User {
   twitter: string = '';
   youtube: string = '';
   insta: string = '';
+  _id: string = '';
 }

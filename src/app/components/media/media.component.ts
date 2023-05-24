@@ -38,15 +38,15 @@ export class MediaComponent implements OnInit {
   }
 
   addlink(addlinkuser: NgForm) {
-    this.list = addlinkuser.value;
-      console.log(this.id);
-      this.service.update(this.id, addlinkuser.value).subscribe((data) => {console.log(data)});
+    const idd = localStorage.getItem('idUser');
+    console.log(idd)
+    console.log(addlinkuser.value);
+      this.service.update(idd, addlinkuser.value).subscribe((data) => {console.log(data)});
       this.toastr.success('Update User successfully', 'Success', {
         toastClass: 'toast-custom',
       });
 
-    sessionStorage.setItem('listmedia', JSON.stringify(this.list));
-    window.location.href = '/profile';
+    // window.location.href = 'profile';
     
   }
 

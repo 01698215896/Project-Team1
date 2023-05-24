@@ -203,6 +203,9 @@ audio::-webkit-media-controls-panel {
 .allproduct{
   grid-template-columns: 100%;
 }
+.none{
+  display: none;
+}
   
   .newPlay {
     width: 30%;
@@ -232,16 +235,32 @@ audio::-webkit-media-controls-panel {
 }
 
 @media screen and (max-width: 480px) {
-
+  .id p{
+    padding: 0;
+  }
+  .listproduct {
+    width: unset;
+    margin-left: 0;
+  }
+  .allproduct{
+    grid-template-columns: 100%;
+  }
   .allproduct{
     grid-template-columns: 100%;
   }
   .itemProduct{
-  
+    width: unset;
     position: unset;
+  }
+  .none{
+    display: none;
   }
   .listproduct {
     margin: 0;
+  }
+  .listItem {
+    grid-template-columns: 100%;
+    justify-content: unset;
   }
 
   .newPlay {

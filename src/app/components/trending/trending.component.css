@@ -73,9 +73,10 @@ h1{
 @media screen and (max-width: 480px) {
     .listItem{
         display: grid;
-        grid-template-columns: 48% 48%;
-        justify-content: space-between;
+        grid-template-columns: 100%;
         gap:20;
+        padding-right: 35px;
+
     }
     .item1{
         width: 100%;

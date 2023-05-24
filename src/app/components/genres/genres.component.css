@@ -69,6 +69,7 @@
       display: grid;
       grid-template-columns: 100%;
       gap:20;
+      padding: 0 35px 0 0;
     }
     .item{
       width: 100%;

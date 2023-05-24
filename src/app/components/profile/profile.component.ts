@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
       firstName: '',
       lastName: '',
       id: '',
+      _id: '',
       email: '',
       username: '',
       password: '',
@@ -28,6 +29,7 @@ export class ProfileComponent implements OnInit {
       youtube: '',
       insta: '',
     };
+
   }
   @ViewChild('toggleElement') toggleElement!: ElementRef;
   isUserLoggedIn = true;
@@ -41,6 +43,7 @@ export class ProfileComponent implements OnInit {
   id: string = '';
   face: string = '';
   git: string = '';
+  idd: string = '';
   twitter: string = '';
   youtube: string = '';
   insta: string = '';
@@ -50,32 +53,35 @@ export class ProfileComponent implements OnInit {
   showDataImg: any;
 
   ngOnInit(): void {
+    
     const idUser = localStorage.getItem('idUser');
+    console.log(idUser);
     this.service.getUser(idUser).subscribe((res) => {
       this.showDataUser = res;
+      console.log(this.showDataUser);
       this.firstName = this.showDataUser.firstName;
       this.lastName = this.showDataUser.lastName;
       this.email = this.showDataUser.email;
       this.password = this.showDataUser.password;
       this.id = this.showDataUser.id;
+      this.face = this.showDataUser.face;
+      this.git = this.showDataUser.git;
+      this.twitter = this.showDataUser.twitter;
+      this.youtube = this.showDataUser.youtube;
+      this.insta = this.showDataUser.insta;
     });
-    const listmedia = sessionStorage.getItem('listmedia');
-    if (listmedia) {
-      const list = JSON.parse(listmedia);
-      this.face = list.face;
-      this.git = list.git;
-      this.twitter = list.twitter;
-      this.insta = list.insta;
-      this.youtube = list.youtube;
-    }
+    
     const img = sessionStorage.getItem('img');
     if (img) {
       this.img = img;
     }
   }
-  add(id: string) {
+  add() {
+ 
+    const idd = localStorage.getItem('idUser');
+     
     this.check1 = false;
-    this.service.getData1(id).subscribe((data) => {
+    this.service.getData1(idd).subscribe((data) => {
       this.selectedUser = data;
       console.log(this.selectedUser)
     });
@@ -83,8 +89,10 @@ export class ProfileComponent implements OnInit {
   }
  
   update1(registerForm: NgForm) {
+    const idd = localStorage.getItem('idUser');
+
     this.service
-      .update(registerForm.value.id, registerForm.value)
+      .update(idd, registerForm.value)
       .subscribe((data) => {});
     this.toastr.success('Update User successfully', 'Success', {
       toastClass: 'toast-custom',

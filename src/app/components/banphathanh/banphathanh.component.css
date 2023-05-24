@@ -2,16 +2,14 @@
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 100vh;
   overflow: hidden;
 }
 .background .hinh{
   overflow: hidden;
   position: absolute;
   filter: blur(15px);
-  width: 100%;
-  height: 100%;
-  opacity: .5;
+
+  /* opacity: .5; */
   background: url(/assets/img/bai1.jpg) no-repeat center/cover;
 }
 .background .hinh img{
@@ -37,7 +35,7 @@ h1{
 .phathanh1 {
   padding: 10px;
   border-radius: 10px;
-  backdrop-filter: blur(100px);
+  /* backdrop-filter: blur(100px); */
   box-shadow: 0 0 15px rgba(0, 0,0,.4);
 }
 .listMusic::-webkit-scrollbar {
@@ -264,7 +262,7 @@ audio::-webkit-media-controls-panel {
   background: url(/assets/img/bai1.jpg) no-repeat center/cover;
 }
 .phathanh1{
-  margin-right: 40px;
+  width: 100%;
   margin-top: 20px;
 }
 .background{

@@ -22,6 +22,7 @@ export class AdminComponent implements OnInit {
       firstName: '',
       lastName: '',
       id: '',
+      _id: '',
       email: '',
       username: '',
       password: '',
@@ -49,8 +50,9 @@ export class AdminComponent implements OnInit {
       this.data1 = data;
     });
   }
-  delete(data: string) {
-    this.service.deleteuser(data).subscribe((data) => {
+  delete(id: string) {
+
+    this.service.deleteuser(id).subscribe((data) => {
       this.service.getData().subscribe((data) => {
         this.data1 = data;
       });
@@ -68,20 +70,29 @@ export class AdminComponent implements OnInit {
     this.isUserLoggedIn = true;
   }
   newuser(registerForm: NgForm) {
-    this.service.pushData(registerForm.value).subscribe((res) => {console.log(res)});
-    this.service.getData().subscribe((data) => {
-      this.data1 = data;
+    this.service.pushData(registerForm.value).subscribe((res) =>{
+      this.service.getData().subscribe((data) => {
+        this.data1 = data;
+      });
+      this.toast.success('Add New User successfully', 'Success', {
+        toastClass: 'toast-custom',
+      });
     });
-    this.toast.success('Add New User successfully', 'Success', {
-      toastClass: 'toast-custom',
-    });
+   
     this.isUserLoggedIn = true;
     this.resetForm();
   }
   edituser(id: string) {
+    console.log(id)
     this.check1 = false;
     this.service.getData1(id).subscribe((data) => {
       this.selectedUser = data;
+      this.service.getData().subscribe((data) => {
+        this.data1 = data;
+      });
+      this.toast.success('Add New User successfully', 'Success', {
+        toastClass: 'toast-custom',
+      });
     });
     this.isUserLoggedIn = false;
   }
@@ -99,7 +110,14 @@ export class AdminComponent implements OnInit {
   update1(registerForm: NgForm) {
     this.service
       .update(registerForm.value.id, registerForm.value)
-      .subscribe((data) => {});
+      .subscribe((data) => {
+        this.service.getData().subscribe((data) => {
+          this.data1 = data;
+        });
+        this.toast.success('Add New User successfully', 'Success', {
+          toastClass: 'toast-custom',
+        });
+      });
     this.toast.success('Update User successfully', 'Success', {
       toastClass: 'toast-custom',
     });

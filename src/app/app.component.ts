@@ -1,6 +1,13 @@
 import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ListMucsicService } from './services/list-mucsic.service';
+
+export interface Message {
+  type: string;
+  message: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -9,24 +16,28 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AppComponent implements OnInit {
   isUserLoggedIn = false;
-
+  message: Message[] = [];
+  chatform: any;
+  checkopen = false;
   constructor(
     private toastrService: ToastrService,
     private router: Router,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private service: ListMucsicService
   ) {
     if (localStorage.getItem('username')) {
       this.isUserLoggedIn = true;
     }
+    // this.sendmessage("tôi muốn tìm những bài hat hay nhất việt nam?")
   }
 
   @ViewChild('block', { static: true }) block!: ElementRef;
   @ViewChild('check', { static: true }) check!: ElementRef;
+  @ViewChild('open', { static: true }) open!: ElementRef;
 
   ngOnInit(): void {
     if (localStorage.getItem('username')) {
       this.addStyles();
-
     }
   }
 
@@ -45,5 +56,27 @@ export class AppComponent implements OnInit {
     this.renderer.setStyle(this.check.nativeElement, 'display', 'none');
     this.renderer.setStyle(this.block.nativeElement, 'display', 'block');
   }
- 
+
+  sendmessage(sendform: Message) {
+    this.message.push({
+      type: 'user',
+      message: sendform.message,
+    });
+
+    this.service.sendmessage(sendform.message).subscribe(res => {
+      console.log(res);
+      this.message.push({
+        type: 'client',
+        message: (res as any).message,
+      });
+    });
+  }
+  openchat(){
+    this.renderer.setStyle(this.open.nativeElement, 'display', 'block');
+    this.checkopen = true;
+  }
+  closechat(){
+    this.renderer.setStyle(this.open.nativeElement, 'display', 'none');
+
+  }
 }

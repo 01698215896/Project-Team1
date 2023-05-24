@@ -188,7 +188,10 @@ audio::-webkit-media-controls-panel {
     border: 1px solid #aa06a5da;
     cursor: pointer;
 }
+  .title ul{
   
+    padding: 0;
+  }
   .toparti h1{
     font-size: 35px;
   }

@@ -56,7 +56,7 @@
           >
         </li>
         <li>
-          <a routerLink="/product" 
+          <a routerLink="/product"
             ><i class="fa-brands fa-intercom"></i>
             <p class="none">PlayList</p></a
           >
@@ -75,7 +75,7 @@
   <div class="containers">
     <div class="containerss">
       <div class="logo bb">
-        <a routerLink="/home"><p style="color: #fff">Sound Club</p></a>
+        <a routerLink=""><p style="color: #fff">Sound Club</p></a>
       </div>
       <div class="arrow">
         <i class="fa-solid fa-arrow-left"></i>
@@ -86,7 +86,11 @@
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="search" placeholder="Search..." />
       </div>
-      <div class="profile" #check>
+
+      <div class="respo" #block>
+        <button *ngIf="!isUserLoggedIn" routerLink="/login" class="btnn">Login</button>
+      </div>
+      <div class="profile" style="margin-left: 40px" #check>
         <div class="imgUser">
           <img src="assets/img/bai1.jpg" alt="" />
         </div>
@@ -100,11 +104,36 @@
           </div>
         </div>
       </div>
-      <div class="respo"#block>
-        <button *ngIf="!isUserLoggedIn" routerLink="/login">Login</button>
-      </div>
     </div>
   </div>
 </div>
+<div class="chatbox">
+  <div class="bodychatbox"  #open>
+    <div class="titlechat">
+      <div class="titlechatbox">
+        <div class="hinh_title">
+          <img src="assets/img/bai1.jpg" alt="">
+        </div>
 
+      </div>
+      <h1 style="font-size: 18px; font-weight: 500; color: #9b4de0;">ChatBox Sound Club</h1>
+      <button (click)="closechat()" style="background: none;border: none;"><i class="fa-solid fa-circle-xmark" style="width: 30px;height: 30px;font-size: 18px; color: #9b4de0;"></i></button>
+    </div>
+    <form  #sendform="ngForm" (ngSubmit)="sendmessage(sendform.value);sendform.reset()">
+      <div class="showchat" *ngIf="checkopen">
+        <div class="showchat1" *ngFor="let x of message" >
+          {{x.message}}
+        </div>
+      </div>
+      <div class="send_btn">
+        <input type="text" ngModel name="message" placeholder="Message...">
+        <button type="submit">Send</button>
+      </div>
+    </form>
+  </div>
+  <div class="iconchatbox">
+    <button id="btn_chatbox" (click)="openchat()"  > Chat Now</button>
+    
+  </div>
+</div>
 <router-outlet></router-outlet>

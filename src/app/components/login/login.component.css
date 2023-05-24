@@ -126,9 +126,10 @@ a i {
     padding: 0;
   }
   input {
-    height: 30px;
+    height: 36px;
     padding-left: 35px;
     padding-right: 15px;
+    font-size: 15px;
   }
   .box1 {
     margin-top: 50px;

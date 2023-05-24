@@ -205,6 +205,10 @@ audio::-webkit-media-controls-panel {
   .id p{
     padding: 0;
   }
+  .containers{
+    padding: 0;
+    margin: 0;
+  }
   
   .carousel-inner{
     height: 250px;
@@ -231,11 +235,11 @@ audio::-webkit-media-controls-panel {
     bottom: 10px;
     right: 10px;
     left: unset;
-    padding: 12px;
     border-radius: 10px;
     border-left: 4px solid #aa06a5da;
     cursor: pointer;
     overflow: hidden;
+    /* position: relative; */
   }
   .bao1 {
     grid-template-columns: 100%;
