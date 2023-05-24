@@ -23,7 +23,7 @@ h3.h3style{
   height: 400px;
   overflow: hidden;
   border-radius: 15px;
-  background: url(/assets/img/bai1.jpg) no-repeat center/cover;
+  background: url(/src/assets/img/bai1.jpg) no-repeat center/cover;
   margin: 0 auto;
 }
 .itemProduct .img img {

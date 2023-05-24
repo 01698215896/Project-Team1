@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: url(/assets/img/bg2.jpg) no-repeat center/cover;
+    background: url(/src/assets/img/bg2.jpg) no-repeat center/cover;
     padding: 0 30px;
   }
   .box1 {

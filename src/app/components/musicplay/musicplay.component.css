@@ -7,7 +7,7 @@
   width: 100%;
 }
 .img {
-  background: url(/assets/img/bgms.jpg) no-repeat center/cover;
+  background: url(/src/assets/img/bgms.jpg) no-repeat center/cover;
   filter: blur(80px);
   opacity: .4;
   width: 100%;
