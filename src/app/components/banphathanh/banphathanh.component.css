@@ -2,7 +2,22 @@
   padding: 0;
   margin: 0;
   width: 100%;
+  height: 100vh;
   overflow: hidden;
+  position: relative;
+}
+.background_bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+.background_bg img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(30px);
 }
 .background .hinh{
   overflow: hidden;
@@ -12,7 +27,6 @@
   height: 100vh;
   z-index: -1;
   opacity: .5;
-  background: url(/src/assets/img/bai1.jpg) no-repeat center/cover;
 }
 .background .hinh img{
   width: 100%;

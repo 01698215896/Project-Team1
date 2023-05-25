@@ -10,7 +10,7 @@ export class GenresComponent {
   constructor(private router: Router){}
 
   link(){
-    this.router.navigate(['product'])
+    this.router.navigate(['listalbum'])
 
   }
 }

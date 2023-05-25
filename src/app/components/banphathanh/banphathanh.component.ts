@@ -40,7 +40,6 @@ export class BanphathanhComponent implements OnInit {
     });
     this.service.fetchapi('vietnam').subscribe((res) => {
       this.datasvn = res;
-      console.log(this.datasvn);
     });
     this.service.fetchapi('quocte').subscribe((res) => {
       this.datasqt = res;
@@ -48,7 +47,6 @@ export class BanphathanhComponent implements OnInit {
   }
 
   play(linkApi: string, id: number) {
-    console.log(id);
     this.service.fetchapiMS(linkApi, id).subscribe((res) => {
       console.log(res);
       const song = res;
@@ -72,7 +70,7 @@ export class BanphathanhComponent implements OnInit {
   }
 
   check() {
-    if (sessionStorage.getItem('username')) {
+    if (localStorage.getItem('username')) {
       this.toastr.success('Download Successfully', 'Success', {
         toastClass: 'toast-custom',
       });

@@ -1,4 +1,7 @@
 <div class="background">
+  <div class="background_bg">
+    <img src="assets/img/bai1.jpg" alt="">
+  </div>
   <div class="hinh">
     <img [src]="currentSongimg" alt="" />
   </div>
@@ -56,7 +59,7 @@
                 <div class="play">
                   <i class="fa-solid fa-circle-play" (click)="play('vietnam',q.id)"></i>
                   <a href="{{ q.url }}" download="{{ q.name }}"><i class="fa-solid fa-download" (click)="check()"></i></a>
-                </div>
+                </div>  
               </div>
             </li>
           </ul>

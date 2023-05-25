@@ -38,7 +38,7 @@
           >
         </li>
         <li>
-          <a routerLink="/genres">
+          <a routerLink="/oldsong">
             <i class="fa-solid fa-music"></i>
             <p class="none">Old Song</p></a
           >
@@ -57,7 +57,7 @@
         </li>
         <li>
           <a routerLink="/product"
-            ><i class="fa-brands fa-intercom"></i>
+            ><i class="fa-solid fa-film"></i>
             <p class="none">PlayList</p></a
           >
         </li>
@@ -88,7 +88,9 @@
       </div>
 
       <div class="respo" #block>
-        <button *ngIf="!isUserLoggedIn" routerLink="/login" class="btnn">Login</button>
+        <button *ngIf="!isUserLoggedIn" routerLink="/login" class="btnn">
+          Login
+        </button>
       </div>
       <div class="profile" style="margin-left: 40px" #check>
         <div class="imgUser">
@@ -108,32 +110,40 @@
   </div>
 </div>
 <div class="chatbox">
-  <div class="bodychatbox"  #open>
+  <div class="bodychatbox" #open>
     <div class="titlechat">
       <div class="titlechatbox">
         <div class="hinh_title">
-          <img src="assets/img/bai1.jpg" alt="">
+          <img src="assets/img/bai1.jpg" alt="" />
         </div>
-
       </div>
-      <h1 style="font-size: 18px; font-weight: 500; color: #9b4de0;">ChatBox Sound Club</h1>
-      <button (click)="closechat()" style="background: none;border: none;"><i class="fa-solid fa-circle-xmark" style="width: 30px;height: 30px;font-size: 18px; color: #9b4de0;"></i></button>
+      <h1 style="font-size: 18px; font-weight: 500; color: #9b4de0">
+        ChatBox Sound Club
+      </h1>
+      <button (click)="closechat()" style="background: none; border: none">
+        <i
+          class="fa-solid fa-circle-xmark"
+          style="width: 30px; height: 30px; font-size: 18px; color: #9b4de0"
+        ></i>
+      </button>
     </div>
-    <form  #sendform="ngForm" (ngSubmit)="sendmessage(sendform.value);sendform.reset()">
+    <form
+      #sendform="ngForm"
+      (ngSubmit)="sendmessage(sendform.value); sendform.reset()"
+    >
       <div class="showchat" *ngIf="checkopen">
-        <div class="showchat1" *ngFor="let x of message" >
-          {{x.message}}
+        <div class="showchat1" *ngFor="let x of message">
+          {{ x.message }}
         </div>
       </div>
       <div class="send_btn">
-        <input type="text" ngModel name="message" placeholder="Message...">
+        <input type="text" ngModel name="message" placeholder="Message..." />
         <button type="submit">Send</button>
       </div>
     </form>
   </div>
   <div class="iconchatbox">
-    <button id="btn_chatbox" (click)="openchat()"  > Chat Now</button>
-    
+    <button id="btn_chatbox" (click)="openchat()">Chat Now</button>
   </div>
 </div>
 <router-outlet></router-outlet>

@@ -6,8 +6,21 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: url(/src/assets/img/bg2.jpg) no-repeat center/cover;
     padding: 0 30px;
+    position: relative;
+  }
+  .box_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .box_bg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .box1 {
     position: relative;
@@ -21,6 +34,7 @@
   }
   .formIP1{
     margin: 10px 0;
+    overflow: hidden;
   }
 
    h1 {
@@ -49,6 +63,7 @@
     justify-content: space-evenly;
     margin: 15px 0;
    position: relative;
+   flex-wrap: wrap;
   }
    .avt1 {
     width: 100px;
@@ -58,6 +73,7 @@
     cursor: pointer;
     transition: transform 0.3s ease;
 border: 2px solid #9b4de0;   
+margin: 10px 0;
 }
 
   
@@ -106,3 +122,26 @@ border: 2px solid #9b4de0;
     transform: scale(105%);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   }
+
+@media screen and (max-width: 480px) {
+  .box{
+    height: unset;
+  }
+  h1{
+    font-size: 25px;
+    font-weight: 600;
+  }
+  form{
+    width: 100%;
+  }
+  input{
+    padding-left: 40px;
+    font-size: 15px;
+  }
+  button{
+    margin: 10px 0;
+  }
+  .box1{
+    padding: 10px;
+  }
+}

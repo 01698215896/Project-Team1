@@ -21,6 +21,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { MediaComponent } from './components/media/media.component';
 import { GenresComponent } from './components/genres/genres.component';
 import { MusicplayComponent } from './components/musicplay/musicplay.component';
+import { OldsongComponent } from './components/oldsong/oldsong.component';
+import { ListalbumComponent } from './components/listalbum/listalbum.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { MusicplayComponent } from './components/musicplay/musicplay.component';
     MediaComponent,
     GenresComponent,
     MusicplayComponent,
+    OldsongComponent,
+    ListalbumComponent,
   ],
   imports: [
     BrowserModule,

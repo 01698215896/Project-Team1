@@ -1,0 +1,37 @@
+<div class="containers">
+  <div class="containerss">
+    <div class="bgimg">
+      <img src="assets/img/4.jpg" alt="" />
+    </div>
+    <div class="showlist">
+      <h1>List Music Album</h1>
+      <div class="bao">
+        <div class="listItem" *ngFor="let i of list" (click)="play(i.id)">
+          <div class="listItem_img">
+            <img src="{{ i.img }}" alt="" />
+          </div>
+          <div class="listItem_name">
+            <p>{{ i.name }}</p>
+          </div>
+          <div class="listItem_time">
+            <p>4:30</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="showbox">
+      <div class="playimg">
+        <img [src]="img" alt="">
+      </div>
+      <div class="playtitle">
+        <h2 style="font-weight: 700; font-size: 25px;">{{name}}</h2>
+        <p>{{title}}</p>
+      </div>
+      <div class="souce" style="display: none;">
+        <audio [src]="url"  controls autoplay>
+          <source type="audio/mpeg" />
+        </audio>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,6 +15,8 @@ import { AlbumComponent } from './components/album/album.component';
 import { MediaComponent } from './components/media/media.component';
 import { GenresComponent } from './components/genres/genres.component';
 import { MusicplayComponent } from './components/musicplay/musicplay.component';
+import { OldsongComponent } from './components/oldsong/oldsong.component';
+import { ListalbumComponent } from './components/listalbum/listalbum.component';
 
 const routes: Routes = [
   { path: '', component: TopsearchComponent },
@@ -26,9 +28,13 @@ const routes: Routes = [
   { path: 'topsearch', component: TopsearchComponent },
   { path: 'admin', component: AdminComponent, canActivate: [CheckuserGuard], pathMatch: 'prefix'},
   { path: 'product', component: ProductComponent , canActivate: [CheckuserGuard], pathMatch: 'prefix'}, 
+  // { path: 'admin', component: AdminComponent},
+  // { path: 'product', component: ProductComponent }, 
   { path: 'showlisttrending', component: ShowlisttrendingComponent }, 
+  { path: 'listalbum', component: ListalbumComponent }, 
   { path: 'album', component: AlbumComponent }, 
   { path: 'profile', component: ProfileComponent }, 
+  { path: 'oldsong', component: OldsongComponent }, 
   { path: 'media', component: MediaComponent }, 
   { path: 'genres', component: GenresComponent }, 
   { path: 'musicplay', component: MusicplayComponent }, 

@@ -1,0 +1,132 @@
+
+.containerss{
+    padding-top: 90px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap:20px;
+    position: relative;
+}
+.bgimg{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    filter: blur(20px);
+    z-index: -1;
+}
+.bgimg img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+.showlist{
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(20px);
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+    border-radius: 15px;
+    padding: 15px;
+}
+h1 {
+    background: linear-gradient(to left, #9b4de0, #aa06a5da);
+    width: fit-content;
+    font-weight: 700;
+    margin: 15px auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+  }
+  p{
+    margin: 0;
+  }
+  .listItem_img{
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  .listItem_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .bao{
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  .bao::-webkit-scrollbar {
+    width: 5px;
+  }
+  .bao::-webkit-scrollbar-thumb {
+    background-color: #565555;
+    border-radius: 30px;
+  }
+  .listItem{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 10% 80% 10%; 
+    cursor: pointer;   
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 15px;
+    transition: .3s ease-in-out;
+    overflow: hidden;
+  }
+  .listItem_name{
+    margin-left: 15px;
+  }
+  .listItem_name{
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .listItem_time{
+    text-align: center;
+  }
+  .listItem:hover{
+    background: #00000022;
+  }
+  .playimg{
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  animation: identifier 6s infinite linear;
+
+  }
+  .playimg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+  }
+  .playtitle{
+    text-align: center;
+    margin: 25px auto;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    width: 80%;
+    height: 250px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.playtitle::-webkit-scrollbar {
+    width: 5px;
+  }
+  .playtitle::-webkit-scrollbar-thumb {
+    background-color: #565555;
+    border-radius: 30px;
+  }
+  @keyframes identifier {
+    0% { 
+      transform: rotate(0);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }

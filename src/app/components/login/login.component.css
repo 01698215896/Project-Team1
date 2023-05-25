@@ -1,8 +1,7 @@
 .containerss {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(#9b4de03f, #aa06a5da),
-    url(/src/assets/img/bg.jpg) no-repeat center/cover;
+
   font-family: "Cookie", cursive;
   font-size: 200px;
   text-align: center;
@@ -12,6 +11,31 @@
   justify-content: center;
   line-height: 170px;
   text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+.containerss_bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.containerss_bg::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#9b4de03f, #aa06a5da);
+
+}
+.containerss_bg img{
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
 }
 .loginbox {
   display: grid;
@@ -27,8 +51,20 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: url(/src/assets/img/bg2.jpg) no-repeat center/cover;
   padding: 0 30px;
+  position: relative;
+}
+.box_bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left: 0;
+}
+.box_bg img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .box1 {
   width: 100%;
