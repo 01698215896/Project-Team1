@@ -153,8 +153,23 @@ audio::-webkit-media-controls-panel {
   display: none;
 }
 
-.profile {
+.profile, .admin {
   display: none;
+  z-index: 100;
+}
+.admin button{
+  border-radius: 20px;
+  padding: 5px 20px;
+  background: none;
+  border: 3px solid #9b4de0;
+  color: #9b4de0;
+  font-weight: 400;
+  font-size: 20px;
+  transition: .3s ease-in-out;
+}
+.admin button:hover{
+  background: #9b4de0;
+  color: #fff;
 }
 .profile:hover .box_option {
   transform: translateX(0);

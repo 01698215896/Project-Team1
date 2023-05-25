@@ -1,71 +1,142 @@
 <div class="containers">
-    <div class="formAdim">
-      <div class="bg">
-        <img src="assets/img/bgadmin.jpg" alt="">
-      </div>
-        <h1>
-          User Management</h1>
-        <button class="btn btn-outline-primary my-3" (click)="add()"  > Add New User</button>
-        <div class="listUser">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Password</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Admin/User</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let o of data1; let i = index " > 
-                    <td>{{i + 1}}</td>
-                    <td>{{o.firstName}}</td>
-                    <td>{{o.lastName}}</td>
-                    <td>{{o.id}}</td>
-                    <td>{{o.password}}</td>
-                    <td>{{o.email}}</td>
-                    <td ><p>{{o.id}}</p></td>
-                    <td><button class="ii" (click)="edituser(o.id)">Edit</button>|<button class="ii" (click)="delete(o.id)">Delete</button></td>
-                  </tr>
-                 
-                </tbody>
-              </table>
-        </div>
-        <div class="tabAdd" #toggleElement *ngIf="!isUserLoggedIn">
-          <div class="showadd">
-            <div id="taomoiform" >
-              <form #registerForm="ngForm" (ngSubmit)="newuser(registerForm)">
-                <div class="formIP">
-                  <input type="text" name="firstName" [(ngModel)]="selectedUser.firstName" placeholder="Firstname..." style="padding-left: 10px;margin-right: 10px;">
-                  <input type="text" name="lastName" [(ngModel)]="selectedUser.lastName" placeholder="Lastname..." style="padding-left: 10px;margin-left: 10px;">
-                </div>
-                <div class="formIP">
-                  <i class="fa-solid fa-user"></i>
-                  <input type="text" name="id" [(ngModel)]="selectedUser.id" placeholder="Username..." >
-                </div>
-                <div class="formIP">
-                  <i class="fa-solid fa-envelope"></i>
-                  <input type="email" name="email" [(ngModel)]="selectedUser.email" placeholder="Email...">
-                </div>
-                <div class="formIP">
-                  <i class="fa-solid fa-key"></i>
-                  <input type="password" name="password" [(ngModel)]="selectedUser.password" placeholder="Password...">
-                </div>
-                <div class="link">
-                  <button class="nnn" (click)="cancel()">Cancel</button>
-                  <button type="submit" class="nnn" *ngIf="check1">Add User</button>
-                  <button type="submit" class="nnn" *ngIf="!check1" (click)="update1(registerForm)">Update User</button>
-                </div>
-              </form>
-                            
-          </div> 
-          </div>
-        </div>
+  <div class="bg">
+    <img src="assets/img/bgadmin.jpg" alt="" />
+  </div>
+  <div class="formAdim">
+    <h1>User Management</h1>
+    <button class="btn btn-outline-primary my-3" (click)="add()">
+      Add New User
+    </button>
+    <div class="listUser none">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Email</th>
+            <th scope="col">Admin/User</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let o of data1; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ o.firstName }}</td>
+            <td>{{ o.lastName }}</td>
+            <td>{{ o.id }}</td>
+            <td>{{ o.password }}</td>
+            <td>{{ o.email }}</td>
+            <td>
+              <p>{{ o.id }}</p>
+            </td>
+            <td>
+              <button class="ii" (click)="edituser(o.id)">Edit</button>|<button
+                class="ii"
+                (click)="delete(o.id)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
+    <div class="listuser" >
+     
+      <div class="user"  *ngFor="let o of data1; let i = index">
+       <div class="profilename">
+        <h3>First Name: </h3>
+        <h3>{{ o.firstName }}</h3>
+       </div>
+       <div class="profilename">
+        <h3>Last Name: </h3>
+        <h3>{{ o.lastName }}</h3>
+       </div>
+       <div class="profilename">
+        <h3>UserName: </h3>
+        <h3>{{ o.id }}</h3>
+       </div>
+       <div class="profilename">
+        <h3>Password: </h3>
+        <h3>{{ o.password }}</h3>
+       </div>
+       <div class="profilename">
+        <h3>Email: </h3>
+        <h3>{{ o.email }}</h3>
+       </div>
+       <div class="" style="text-align: center;">
 
+         <button class="ii tt" (click)="edituser(o.id)">Edit</button>|<button class="ii nn" (click)="delete(o.id)"> Delete</button>
+       </div>
+      </div>
+    </div>
+
+    <div class="tabAdd" #toggleElement *ngIf="!isUserLoggedIn">
+      <div class="showadd">
+        <div id="taomoiform">
+          <form #registerForm="ngForm" (ngSubmit)="newuser(registerForm)">
+            <div class="formIP">
+              <input
+                type="text"
+                name="firstName"
+                [(ngModel)]="selectedUser.firstName"
+                placeholder="Firstname..."
+                style="padding-left: 10px; margin-right: 10px"
+              />
+              <input
+                type="text"
+                name="lastName"
+                [(ngModel)]="selectedUser.lastName"
+                placeholder="Lastname..."
+                style="padding-left: 10px; margin-left: 10px"
+              />
+            </div>
+            <div class="formIP">
+              <i class="fa-solid fa-user"></i>
+              <input
+                type="text"
+                name="id"
+                [(ngModel)]="selectedUser.id"
+                placeholder="Username..."
+              />
+            </div>
+            <div class="formIP">
+              <i class="fa-solid fa-envelope"></i>
+              <input
+                type="email"
+                name="email"
+                [(ngModel)]="selectedUser.email"
+                placeholder="Email..."
+              />
+            </div>
+            <div class="formIP">
+              <i class="fa-solid fa-key"></i>
+              <input
+                type="password"
+                name="password"
+                [(ngModel)]="selectedUser.password"
+                placeholder="Password..."
+              />
+            </div>
+            <div class="link">
+              <button class="nnn" (click)="cancel()">Cancel</button>
+              <button type="submit" class="nnn" *ngIf="check1">Add User</button>
+              <button
+                type="submit"
+                class="nnn"
+                *ngIf="!check1"
+                (click)="update1(registerForm)"
+              >
+                Update User
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

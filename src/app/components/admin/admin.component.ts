@@ -17,6 +17,7 @@ import { ListMucsicService } from 'src/app/services/list-mucsic.service';
 })
 export class AdminComponent implements OnInit {
   data1: Array<User> = new Array<User>();
+  data2: Array<User> = new Array<User>();
   public resetForm() {
     this.selectedUser = {
       firstName: '',
@@ -48,6 +49,9 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.service.getData().subscribe((data) => {
       this.data1 = data;
+    });
+    this.service.getData().subscribe((data) => {
+      this.data2 = data;
     });
   }
   delete(id: string) {

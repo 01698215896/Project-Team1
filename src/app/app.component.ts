@@ -1,4 +1,10 @@
-import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Renderer2,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -15,9 +21,11 @@ export interface Message {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  img: string = '';
   isUserLoggedIn = false;
   message: Message[] = [];
   chatform: any;
+  user: any;
   checkopen = false;
   constructor(
     private toastrService: ToastrService,
@@ -33,11 +41,23 @@ export class AppComponent implements OnInit {
 
   @ViewChild('block', { static: true }) block!: ElementRef;
   @ViewChild('check', { static: true }) check!: ElementRef;
+  @ViewChild('check1', { static: true }) check1!: ElementRef;
   @ViewChild('open', { static: true }) open!: ElementRef;
 
   ngOnInit(): void {
     if (localStorage.getItem('username')) {
       this.addStyles();
+    }
+    if (localStorage.getItem('idUser')) {
+      const img = localStorage.getItem('idUser');
+      this.service.getData1(img).subscribe((data) => {
+        this.user = data;
+        this.img = this.user.img;
+      });
+    }
+    if(localStorage.getItem('idUser') == 'admin'){
+    this.renderer.setStyle(this.check1.nativeElement, 'display', 'block');
+
     }
   }
 
@@ -63,7 +83,7 @@ export class AppComponent implements OnInit {
       message: sendform.message,
     });
 
-    this.service.sendmessage(sendform.message).subscribe(res => {
+    this.service.sendmessage(sendform.message).subscribe((res) => {
       console.log(res);
       this.message.push({
         type: 'client',
@@ -71,12 +91,16 @@ export class AppComponent implements OnInit {
       });
     });
   }
-  openchat(){
+  openchat() {
     this.renderer.setStyle(this.open.nativeElement, 'display', 'block');
     this.checkopen = true;
   }
-  closechat(){
+  closechat() {
     this.renderer.setStyle(this.open.nativeElement, 'display', 'none');
-
   }
+  admin(){
+    this.router.navigate(['admin']);
+  }
+
+  
 }
