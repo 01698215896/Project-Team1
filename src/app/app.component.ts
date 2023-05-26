@@ -49,9 +49,11 @@ export class AppComponent implements OnInit {
       this.addStyles();
     }
     if (localStorage.getItem('idUser')) {
-      const img = localStorage.getItem('idUser');
-      this.service.getData1(img).subscribe((data) => {
+      const id = localStorage.getItem('idUser');
+      this.service.getData1(id).subscribe((data) => {
+        console.log(data);
         this.user = data;
+
         this.img = this.user.img;
         console.log(this.img);
       });
