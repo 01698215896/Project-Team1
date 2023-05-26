@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
       this.service.getData1(id).subscribe((data) => {
         console.log(data);
         this.user = data;
-
+        
         this.img = this.user.img;
         console.log(this.img);
       });

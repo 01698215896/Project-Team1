@@ -69,12 +69,10 @@ export class ProfileComponent implements OnInit {
       this.twitter = this.showDataUser.twitter;
       this.youtube = this.showDataUser.youtube;
       this.insta = this.showDataUser.insta;
+      this.img = this.showDataUser.img;
     });
     
-    const img = sessionStorage.getItem('img');
-    if (img) {
-      this.img = img;
-    }
+  
   }
   add() {
  
