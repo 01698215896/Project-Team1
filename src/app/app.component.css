@@ -206,7 +206,7 @@ ul >li:hover> a.ee {
 }
 
 .box_option {
-  width: 120px;
+  width: fit-content;
   height: fit-content;
   background: #130c1c;
   position: absolute;

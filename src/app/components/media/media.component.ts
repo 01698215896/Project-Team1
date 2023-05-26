@@ -44,8 +44,6 @@ export class MediaComponent implements OnInit {
       this.toastr.success('Update User successfully', 'Success', {
         toastClass: 'toast-custom',
       });
-
-    
     window.location.href = '';
     
   }
@@ -53,7 +51,9 @@ export class MediaComponent implements OnInit {
   clickimg(img: string) {
     this.face = img;
     const idd = localStorage.getItem('idUser');
-    this.service.update(idd, this.face).subscribe((data) => {});
+    this.service.update(idd, this.face).subscribe((data) => {
+      console.log(data);
+    });
     sessionStorage.setItem('img', this.face);
   }
 }
