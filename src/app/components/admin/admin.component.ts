@@ -118,9 +118,6 @@ export class AdminComponent implements OnInit {
         this.service.getData().subscribe((data) => {
           this.data1 = data;
         });
-        this.toast.success('Add New User successfully', 'Success', {
-          toastClass: 'toast-custom',
-        });
       });
     this.toast.success('Update User successfully', 'Success', {
       toastClass: 'toast-custom',

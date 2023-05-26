@@ -48,12 +48,12 @@ export class MediaComponent implements OnInit {
     
   }
 
-  clickimg(img: string) {
-    this.face = img;
+  clickimg(img1: string) {
+    const img = img1
+    console.log(img);
     const idd = localStorage.getItem('idUser');
-    this.service.update(idd, this.face).subscribe((data) => {
+    this.service.update(idd, img).subscribe((data) => {
       console.log(data);
     });
-    sessionStorage.setItem('img', this.face);
   }
 }
