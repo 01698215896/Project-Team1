@@ -49,7 +49,7 @@ export class MediaComponent implements OnInit {
       this.service.update(idd, {img : img}).subscribe((data) => {
         console.log(data);
       });
-    // window.location.href = '';
+    window.location.href = '';
     
   }
 
