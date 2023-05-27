@@ -1,0 +1,120 @@
+.containers{
+    padding: 100px 80px 0 80px;
+    position: relative;
+}
+.bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: blur(40px);
+}
+.bg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+footer{
+    width: 100%;
+    backdrop-filter: blur(40px);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+}
+.bao{
+    width: 100%;
+    margin: 0px auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.bao h2{
+
+    font-size: 30px;
+    color: #333;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+}
+.bao li{
+    list-style: none;
+    color: #333;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 400;
+    transition: 0.3s ease-in-out;
+}
+.bao li a{
+    text-decoration: none;
+    color: #333;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: 400;
+    transition: 0.3s ease-in-out;
+    display: block;
+
+}
+.bao i{
+    margin-right: 10px;
+    font-size: 15px;
+    color: #333;
+}
+.bao li a:hover{
+    transform: scale(105%);
+}
+.flex{
+    display: flex;
+}
+.flex1{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.quick{
+    border-right: 2px solid #333;
+}
+.follow{
+    margin-left: 20px;
+}
+footer h1{
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    margin: 30px 0;
+}
+.map{
+    margin: 0 auto;
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+.map iframe{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 480px) {
+    .containers{
+        padding-left: 10px;
+        padding-right: 35px;
+    }
+    .bao{
+        grid-template-columns: 100%;
+    }
+    .quick{
+        border: none;
+    }
+    .follow{
+        margin-left: 0;
+        margin-top: 15px;
+    }
+    .flex div li{
+        font-size: 14px;
+    }
+    .flex1 div li a{
+        font-size: 14px;
+    }
+    
+}

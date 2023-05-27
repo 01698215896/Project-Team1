@@ -10,7 +10,9 @@ export class AlbumComponent {
 
   constructor(private router: Router){}
 
-  link(){
+  link(data: string){
+    sessionStorage.setItem('theloai',data)
+    
     this.router.navigate(['listalbum'])
 
   }

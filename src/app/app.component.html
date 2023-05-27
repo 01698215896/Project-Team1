@@ -7,65 +7,78 @@
     </div>
     <div class="showNav">
       <ul class="ooo">
-        <li class="active">
-          <a routerLink="/trending">
-            <i class="fa-solid fa-house"></i>
-            <p class="none">Trending Now</p></a
-          >
+        <li routerLink="/trending" [class.active]="activeTab === 0" (click)="setActiveTab(0)">
+      <div style="display: flex; align-items: center;">
+        <i class="fa-solid fa-house"></i>
+        <p class="none">Trending Now</p>
+      
+      </div>
         </li>
-        <li>
-          <a routerLink="/listtrending"
-            ><i class="fa-solid fa-sliders"></i>
-            <p class="none">Top Charts</p></a
-          >
+        <li routerLink="/listtrending" [class.active]="activeTab === 1" (click)="setActiveTab(1)">
+          <div style="display: flex; align-items: center;">
+            <i class="fa-solid fa-sliders"></i>
+            <p class="none">Top Charts</p>
+            </div>
         </li>
-        <li>
-          <a routerLink="/banphathanh">
+        <li routerLink="/banphathanh" [class.active]="activeTab === 2" (click)="setActiveTab(2)">
+          <div style="display: flex; align-items: center;">
             <i class="fa-solid fa-spinner"></i>
-            <p class="none">New Releases</p></a
-          >
+            <p class="none">New Releases</p>
+            </div>
         </li>
-        <li>
-          <a routerLink="/album"
-            ><i class="fa-solid fa-camera-retro"></i>
+        <li routerLink="/album" [class.active]="activeTab === 3" (click)="setActiveTab(3)">
+          <div style="display: flex; align-items: center;">
+            <i class="fa-solid fa-camera-retro"></i>
             <p class="none">Latest Albums</p>
-          </a>
+            </div>
         </li>
-        <li>
-          <a routerLink="/genres"
-            ><i class="fa-brands fa-teamspeak"></i>
-            <p class="none">Genres</p></a
-          >
+        <li routerLink="/genres" [class.active]="activeTab === 4" (click)="setActiveTab(4)">
+          <div style="display: flex; align-items: center;">
+            <i class="fa-brands fa-teamspeak"></i>
+            <p class="none">Genres</p>
+            </div>
         </li>
-        <li>
-          <a routerLink="/oldsong">
+        <li routerLink="/oldsong" [class.active]="activeTab === 5" (click)="setActiveTab(5)">
+          <div style="display: flex; align-items: center;">
             <i class="fa-solid fa-music"></i>
-            <p class="none">Old Song</p></a
-          >
+            <p class="none">Old Song</p>
+            </div>
         </li>
-        <li>
-          <a routerLink="/toparti"
-            ><i class="fa-solid fa-chart-simple"></i>
+        <li routerLink="/toparti" [class.active]="activeTab === 6" (click)="setActiveTab(6)">
+          <div style="display: flex; align-items: center;">
+            <i class="fa-solid fa-chart-simple"></i>
             <p class="none">Top Artists</p>
-          </a>
+            </div>
         </li>
-        <li>
-          <a routerLink="/topsearch"
-            ><i class="fa-brands fa-intercom"></i>
-            <p class="none">Top Searched Songs</p></a
-          >
+        <li routerLink="/topsearch" [class.active]="activeTab === 7" (click)="setActiveTab(7)">
+          <div style="display: flex; align-items: center;">
+            <i class="fa-brands fa-intercom"></i>
+            <p class="none">Top Searched Songs</p>
+            </div>
         </li>
-        <li>
-          <a routerLink="/product"
-            ><i class="fa-solid fa-film"></i>
-            <p class="none">PlayList</p></a
-          >
+        <li routerLink="/product" [class.active]="activeTab === 8" (click)="setActiveTab(8)">
+          <div style="display: flex; align-items: center;">
+            <i class="fa-solid fa-film"></i>
+            <p class="none">PlayList</p>
+            </div>
         </li>
       </ul>
     </div>
     <div class="login">
-      <ul class="border1" class="none">
-        <li><a href="">LANGUAGES</a></li>
+      <ul class="border1 none" >
+        <li class="lan">LANGUAGES
+          <div class="chon">
+            <a href="" class="active">VN</a>
+            <a href="">EN</a>
+
+          </div>
+        </li>
+       
+      </ul>
+    </div>
+    <div class="login">
+      <ul class="border1 none" >
+        <li routerLink="contact"  class="con">About US</li>
       </ul>
     </div>
   </div>
@@ -82,9 +95,24 @@
         <i class="fa-solid fa-arrow-right"></i>
       </div>
 
-      <div class="searchIP">
+      <div class="searchIP" >
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" placeholder="Search..." />
+        <input type="search" placeholder="Search..." (input)="filterData(searchInput.value)" #searchInput (click)="showSearchResults = true"  />
+        <div class="box_search" #open1>
+          <h3>Bạn Muốn Tìm Bản Nhạc Nào</h3>
+          <div class="baobao">
+
+            <div class="itembox" *ngFor="let r of (showSearchResults ? filteredSearch : showsearch)" (click)="linkplay(r.id)">
+              <div class="itembox-img">
+                <img src="{{r.img}}" alt="">
+              </div>
+              <div class="itembox-title">
+                <p>{{r.name}}</p>
+                <p>{{r.casy}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="respo" #block>
@@ -100,12 +128,15 @@
           <img [src]="img" alt="" />
         </div>
         <div class="box_option">
-          <div class="box_option-arrow"></div>
           <div class="box_option-text">
-            <ul>
-              <li><a class="ee" href="" routerLink="profile"> Profile </a></li>
-              <li><a class="ee eee" href="" routerLink="admin" #check1 > User Management </a></li>
-              <li><a class="ee" href="" (click)="logout()"> Logout </a></li>
+            <ul class="rtr">
+              <li routerLink="profile">Profile </li>
+              <div class="admin">
+                <li (click)="admin()" >
+                    User Management
+                  </li>
+                </div>
+              <li (click)="logout()">Logout </li>
             </ul>
           </div>
         </div>
@@ -122,7 +153,7 @@
         </div>
       </div>
       <h1 style="font-size: 18px; font-weight: 500; color: #9b4de0">
-        ChatBox Sound Club
+        ChatBox SoundBlast
       </h1>
       <button (click)="closechat()" style="background: none; border: none">
         <i

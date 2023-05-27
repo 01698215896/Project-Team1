@@ -48,6 +48,7 @@ export class LoginComponent {
   login(loginf: NgForm) {
     this.service.getUser(loginf.value.id).subscribe((data) => {
       this.testuers = data;
+      
 
       if (this.testuers.password == loginf.value.password) {
         this.toastr.success('Login Success', 'Success', {
@@ -59,7 +60,7 @@ export class LoginComponent {
 
       }
 
-      if (!this.testuers.face) {
+      if (!this.testuers.img) {
         this.router.navigate(['media']);
       } else {
         window.location.href = '';

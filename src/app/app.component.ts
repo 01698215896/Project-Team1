@@ -21,12 +21,18 @@ export interface Message {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  activeTab = 0;
+
   img: string = '';
   isUserLoggedIn = false;
   message: Message[] = [];
   chatform: any;
   user: any;
   checkopen = false;
+  showsearch: any;
+  music: any;
+  filteredSearch: any;
+  showSearchResults: boolean = false;
   constructor(
     private toastrService: ToastrService,
     private router: Router,
@@ -43,6 +49,7 @@ export class AppComponent implements OnInit {
   @ViewChild('check', { static: true }) check!: ElementRef;
   @ViewChild('check1', { static: true }) check1!: ElementRef;
   @ViewChild('open', { static: true }) open!: ElementRef;
+  @ViewChild('open1', { static: true }) open1!: ElementRef;
 
   ngOnInit(): void {
     if (localStorage.getItem('username')) {
@@ -51,19 +58,20 @@ export class AppComponent implements OnInit {
     if (localStorage.getItem('idUser')) {
       const id = localStorage.getItem('idUser');
       this.service.getData1(id).subscribe((data) => {
-        console.log(data);
         this.user = data;
-        
         this.img = this.user.img;
-        console.log(this.img);
       });
     }
-    if(localStorage.getItem('idUser') == 'admin'){
-    this.renderer.setStyle(this.check1.nativeElement, 'display', 'block');
-
-    }
+    if (localStorage.getItem('idUser') == 'admin') {
+      this.renderer.setStyle(this.check1.nativeElement, 'display', 'block');
+    } 
+    this.service.fetchapi1().subscribe((res) => {
+      this.showsearch = res;
+    });
+  };
+  setActiveTab(index: number) {
+    this.activeTab = index;
   }
-
   addStyles() {
     this.renderer.setStyle(this.check.nativeElement, 'display', 'block');
     this.renderer.setStyle(this.block.nativeElement, 'display', 'none');
@@ -78,6 +86,7 @@ export class AppComponent implements OnInit {
     this.isUserLoggedIn = false;
     this.renderer.setStyle(this.check.nativeElement, 'display', 'none');
     this.renderer.setStyle(this.block.nativeElement, 'display', 'block');
+    this.router.navigate(['']);
   }
 
   sendmessage(sendform: Message) {
@@ -87,7 +96,6 @@ export class AppComponent implements OnInit {
     });
 
     this.service.sendmessage(sendform.message).subscribe((res) => {
-      console.log(res);
       this.message.push({
         type: 'client',
         message: (res as any).message,
@@ -101,9 +109,20 @@ export class AppComponent implements OnInit {
   closechat() {
     this.renderer.setStyle(this.open.nativeElement, 'display', 'none');
   }
-  admin(){
+  admin() {
     this.router.navigate(['admin']);
   }
 
-  
+  linkplay(id: number) {
+    this.service.fetchapi1a(id).subscribe((data) => {
+      this.music = data;
+      sessionStorage.setItem('musicplay', JSON.stringify(this.music));
+    });
+    this.router.navigate(['musicplay']);
+  }
+  filterData(value: string) {
+    this.filteredSearch = this.showsearch.filter((item: { name: string }) =>
+      item.name.toLowerCase().includes(value.toLowerCase())
+    );
+  }
 }

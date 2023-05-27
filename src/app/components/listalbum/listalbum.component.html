@@ -6,7 +6,7 @@
     <div class="showlist">
       <h1>List Music Album</h1>
       <div class="bao">
-        <div class="listItem" *ngFor="let i of list" (click)="play(i.id)">
+        <div class="listItem" *ngFor="let i of list" (click)="play(i.id, i.img,i.name, i.title,i.url  )">
           <div class="listItem_img">
             <img src="{{ i.img }}" alt="" />
           </div>
@@ -14,17 +14,17 @@
             <p>{{ i.name }}</p>
           </div>
           <div class="listItem_time">
-            <p>4:30</p>
+            <p>{{i.time}}</p>
           </div>
         </div>
       </div>
     </div>
     <div class="showbox">
       <div class="playimg">
-        <img [src]="img" alt="">
+        <img [src]="name" alt="">
       </div>
       <div class="playtitle">
-        <h2 style="font-weight: 700; font-size: 25px;">{{name}}</h2>
+        <h2 style="font-weight: 700; font-size: 25px;">{{img}}</h2>
         <p>{{title}}</p>
       </div>
       <div class="souce" style="display: none;">

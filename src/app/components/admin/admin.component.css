@@ -167,9 +167,6 @@ button.nnn {
   color: #fff;
   margin:  20px;
 }
-.listUser{
-  display: none;
-}
 
 button.nnn:nth-child(1) {
   background: none;

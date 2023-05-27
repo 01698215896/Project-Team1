@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 
 import { Chart, registerables } from 'chart.js';
+import { ToastrService } from 'ngx-toastr';
 import { ListMucsic } from 'src/app/models/list-mucsic';
 import { ListMucsicService } from 'src/app/services/list-mucsic.service';
 Chart.register(...registerables);
@@ -22,14 +23,15 @@ export class ListtrendingComponent implements OnInit {
   url: string = '';
   casy: string = '';
   id: number =0;
-
+  Showlist: any;
   currentSongimg: string = '';
   @ViewChild('css', { static: true }) css!: ElementRef;
 
   constructor(
     private service: ListMucsicService,
     private renderer: Renderer2,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
   list1: Array<ListMucsic> = new Array<ListMucsic>();
   user: { name: string; vote: number }[] = [];
@@ -107,5 +109,48 @@ export class ListtrendingComponent implements OnInit {
 
   product(id:number){
     this.router.navigate(['musicplay'])
+  }
+  
+  check() {
+    if (localStorage.getItem('username')) {
+      this.toastr.success('Download Successfully', 'Success', {
+        toastClass: 'toast-custom',
+      });
+      return true;
+    } else {
+      this.router.navigate(['login']);
+      return false;
+    }
+  }
+  addlist(data: string, id: number ) {
+    if (localStorage.getItem('idUser')) {
+      this.service.fetchapiMS(data, id).subscribe((res) => {
+        this.Showlist = res;
+        const newMusic = {
+          img: this.Showlist.img,
+          name: this.Showlist.name,
+          url: this.Showlist.url,
+          casy: this.Showlist.casy,
+          title: this.Showlist.title,
+        };
+
+        const id = localStorage.getItem('idUser');
+
+        this.service.getUser(id).subscribe((user) => {
+          const updatedList = user.listmusic.concat(newMusic);
+
+          this.service
+            .update(id, { listmusic: updatedList })
+            .subscribe((data) => {
+              console.log(data);
+              this.toastr.success('Add music success', 'Success', {
+                toastClass: 'toast-custom',
+              });
+            });
+        });
+      });
+    }else{
+      this.router.navigate(['login']);
+    }
   }
 }

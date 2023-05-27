@@ -1,77 +1,128 @@
 <div class="containers">
-    <div class="slideShow">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner" >
-              <div class="carousel-item active">
-                <img src="assets/img/bai1.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="assets/img/bai2.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="assets/img/bai3.jpg" class="d-block w-100" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-          <div class="title" style="display: flex; justify-content: center;">
-              <h1 style="color: #fff;font-size: 30px; margin:20px 0; font-weight: 700;  " class="gradient" >Top Searched Songs</h1>
-          </div>    
-
-    </div>
-
-    <div class="listSearch" >
-      <div class="listItem" *ngFor="let n of imgShow" (click)="playM(n.id)">
-        <div class="title">
-          <div class="id">
-            <p>{{n.id}}</p>
+  <div class="slideShow">
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets/img/bai1.jpg" class="d-block w-100" alt="..." />
         </div>
-        <div class="img">
-            <img src="{{n.img}}" alt="">
+        <div class="carousel-item">
+          <img src="assets/img/bai2.jpg" class="d-block w-100" alt="..." />
         </div>
-        <div class="text" >
-            <p style="margin: 0;">{{n.name}}</p>
-            <p>{{n.casy}}</p>
-        </div>
-        </div>
-        <div class="des none" style="color: #ffffff60;">
-          <p style="margin: 0;">{{n.name}}</p>
-        </div>
-        <div class="time none"style="color: #ffffff60;">
-          <p style="margin: 0; text-align: right;padding-right: 15px;">4:40</p>
+        <div class="carousel-item">
+          <img src="assets/img/bai3.jpg" class="d-block w-100" alt="..." />
         </div>
       </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+    <div class="title" style="display: flex; justify-content: center">
+      <h1
+        style="color: #fff; font-size: 30px; margin: 20px 0; font-weight: 700"
+        class="gradient"
+      >
+        Top Searched Songs
+      </h1>
+    </div>
+  </div>
+
+  <div class="listSearch">
+    <div class="listItem" *ngFor="let n of imgShow" (click)="playM(n.id)">
+      <div class="title">
+        <div class="id">
+          <p>{{ n.id }}</p>
+        </div>
+        <div class="img">
+          <img src="{{ n.img }}" alt="" />
+        </div>
+        <div class="text">
+          <p style="margin: 0">{{ n.name }}</p>
+          <p>{{ n.casy }}</p>
+        </div>
+      </div>
+      <div class="des none" style="color: #ffffff60">
+        <p style="margin: 0">{{ n.name }}</p>
+      </div>
+      <div class="time none" style="color: #ffffff60">
+        <p style="margin: 0; text-align: right; padding-right: 15px">{{n.time}}</p>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="newPlay" #css (click)="product(id)">
+<div class="newPlay" #css>
   <div class="containers">
     <div class="bao1">
-      <div class="bao11">
+      <div class="bao11" (click)="product(id)">
         <div class="img1">
           <img [src]="currentSongimg" alt="" />
         </div>
         <div class="text1">
-          <p style="color: #fff; margin: 0; padding: 0; font-size: 18px; font-weight: 400;">{{ currentSong }}</p>
-          <p style="color: #ffffff6d;">{{casy}}</p>
+          <p
+            style="
+              color: #fff;
+              margin: 0;
+              padding: 0;
+              font-size: 18px;
+              font-weight: 400;
+            "
+          >
+            {{ currentSong }}
+          </p>
+          <p style="color: #ffffff6d">{{ casy }}</p>
         </div>
       </div>
       <div class="souce">
-        <audio [src]="url" controls autoplay>
+        <audio [src]="url" controls autoplay class="none">
           <source type="audio/mpeg" />
         </audio>
+        <div class="iconlike">
+          <a href="{{ url }}" download="{{ currentSong }}"
+            ><i class="fa-solid fa-download" (click)="check()"></i
+          ></a>
+          <i class="fa-solid fa-heart" (click)="addlist(id)"></i>
+        </div>
       </div>
     </div>
   </div>

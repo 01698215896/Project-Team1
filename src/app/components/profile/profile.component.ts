@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 
 import { User } from '../../models/user-music';
 import { ToastrService } from 'ngx-toastr';
+import { ListMucsic } from 'src/app/models/list-mucsic';
 
 @Component({
   selector: 'app-profile',
@@ -51,6 +52,8 @@ export class ProfileComponent implements OnInit {
   showDataUser: any;
   showDataMedia: any;
   showDataImg: any;
+  listMucsic: Array<ListMucsic> = new Array<ListMucsic>();
+
 
   ngOnInit(): void {
     
@@ -70,6 +73,10 @@ export class ProfileComponent implements OnInit {
       this.youtube = this.showDataUser.youtube;
       this.insta = this.showDataUser.insta;
       this.img = this.showDataUser.img;
+    });
+    const id = localStorage.getItem('idUser');
+    this.service.getData1(id).subscribe((data) => {
+      this.listMucsic = data.listmusic;
     });
     
   

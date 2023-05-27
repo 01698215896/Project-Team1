@@ -93,8 +93,9 @@ h3.h3style{
   margin-top: 30px;
 }
 .listItem {
+  width: 100%;
   display: grid;
-  grid-template-columns: 50% 40% 10%;
+  grid-template-columns: 80% 10% 10%;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
@@ -202,7 +203,7 @@ h3.h3style{
   font-size: 18px;
 }
 audio {
-  width: 80%;
+  width: 70%;
 }
 audio::-webkit-media-controls-panel {
   background: linear-gradient(to right, #9b4de0, #aa06a5da);
@@ -300,5 +301,14 @@ audio::-webkit-media-controls-panel {
     position: absolute;
     z-index: -10;
     filter: blur(20px);
+  }
+  .none{
+    display: none;
+  }
+  .iconlike{
+    margin:0 auto;
+  }
+  .iconlike i{
+    padding: 6px;
   }
 }

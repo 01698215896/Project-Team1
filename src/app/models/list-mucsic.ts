@@ -1,6 +1,7 @@
 export class ListMucsic {
   id: number = 0;
   vote: number = 0;
+  time: string = "";
   name: string = '';
   color: string = '';
   url: string = '';

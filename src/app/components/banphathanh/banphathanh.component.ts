@@ -23,7 +23,7 @@ export class BanphathanhComponent implements OnInit {
   casy: string = '';
   url: string = '';
   id: number = 0;
-
+  Showlist: any;
   currentSongimg: string = '';
 
   @ViewChild('css', { static: true }) css!: ElementRef;
@@ -69,6 +69,12 @@ export class BanphathanhComponent implements OnInit {
     
   }
 
+ 
+
+  product(id: number) {
+    this.router.navigate(['musicplay']);
+  }
+  
   check() {
     if (localStorage.getItem('username')) {
       this.toastr.success('Download Successfully', 'Success', {
@@ -80,8 +86,29 @@ export class BanphathanhComponent implements OnInit {
       return false;
     }
   }
-
-  product(id: number) {
-    this.router.navigate(['musicplay']);
+  addlist(id: number) {
+    this.service.playmusic(id).subscribe(res => {
+      this.Showlist = res;
+      const newMusic = {
+        img: this.Showlist.img,
+        name: this.Showlist.name,
+        url: this.Showlist.url,
+        casy: this.Showlist.casy,
+        title: this.Showlist.title,
+      };
+  
+      const id = localStorage.getItem('idUser');
+  
+      this.service.getUser(id).subscribe(user => {
+        const updatedList = user.listmusic.concat(newMusic);
+  
+        this.service.update(id, { listmusic: updatedList }).subscribe(data => {
+          console.log(data);
+          this.toastr.success("Add music success", "Success", {
+            toastClass: 'toast-custom',
+          });
+        });
+      });
+    });
   }
 }

@@ -16,9 +16,10 @@ import { ListMucsicService } from 'src/app/services/list-mucsic.service';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  // list: any;
+  list: any;
   currentSong: string = '';
   casy: string = '';
+  time: string = '';
   url: string = '';
   id:number = 0;
   currentSongimg: string = '';
@@ -32,27 +33,40 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.service.fetchapi1().subscribe((data) => {
-      this.listMucsic = data;
+    const id = localStorage.getItem('idUser');
+    this.service.getData1(id).subscribe((data) => {
+      this.listMucsic = data.listmusic;
     });
   }
-  showmusic(id: number) {
-    this.service.playmusic1('tatca',id).subscribe((data) => {
-      this.currentSong = data.name;
-      this.url = data.img;
-      this.currentSongimg = data.url;
-      this.casy = data.casy;
-      sessionStorage.setItem('musicplay', JSON.stringify(data));
+  showmusic(name: string) {
+    console.log(name);
+    const idd = localStorage.getItem('idUser');
+  
+    this.service.getData1(idd).subscribe((data) => {
+      this.list = data.listmusic;
+      const selectedMusic = this.list.find((music: { name: string; }) => music.name === name);
+  
+      if (selectedMusic) {
+        this.currentSong = selectedMusic.name;
+        this.url = selectedMusic.img;
+        this.currentSongimg = selectedMusic.url;
+        this.casy = selectedMusic.casy;
+        this.time = selectedMusic.time;
+        sessionStorage.setItem('musicplay', JSON.stringify(data));
+  
+        this.renderer.setStyle(
+          this.css.nativeElement,
+          'transform',
+          'translateX(0)'
+        );
+      }
     });
+  }
+  
 
-    this.renderer.setStyle(
-      this.css.nativeElement,
-      'transform',
-      'translateX(0)'
-    );
-  }
+
   check() {
-    if (sessionStorage.getItem('username')) {
+    if (localStorage.getItem('idUser')) {
       this.toastr.success('Download Successfully', 'Success',{toastClass:'toast-custom'})
       return true;
     } else {

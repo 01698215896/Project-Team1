@@ -3,7 +3,7 @@
     <div class="itemProduct">
       <div class="img">
         <div class="imgao">
-          <img src="assets/img/bai1.jpg" alt="">
+          <img src="assets/img/bai1.jpg" alt="" />
         </div>
         <img [src]="url" />
       </div>
@@ -31,7 +31,7 @@
         <div
           class="listItem"
           *ngFor="let t of listMucsic"
-          (click)="showmusic(t.id)"
+          (click)="showmusic(t.name)"
         >
           <div class="title">
             <div class="id">
@@ -45,17 +45,13 @@
               <p>{{ t.casy }}</p>
             </div>
           </div>
-          <div class="none">
-            <div class="des none" style="color: #ffffff60">
-              <p style="margin: 0">{{ t.name }}</p>
-            </div>
-            <div class="time none" style="color: #ffffff60">
-              <p style="margin: 0; text-align: right; padding-right: 15px">
-                4:40
+          
+            <div class="time ">
+              <p style="color: #ffffff60;margin: 0; text-align: right; padding-right: 15px">
+                {{t.time}}
               </p>
             </div>
-  
-          </div>
+          
         </div>
       </div>
     </div>
@@ -81,9 +77,10 @@
             </p>
             <p style="color: #ffffff6d">{{ casy }}</p>
           </div>
+          
         </div>
         <div class="souce">
-          <audio [src]="currentSongimg" controls autoplay>
+          <audio [src]="currentSongimg" controls autoplay class="none">
             <source type="audio/mpeg" />
           </audio>
         </div>

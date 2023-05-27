@@ -11,6 +11,11 @@ export class GenresComponent {
 
   link(){
     this.router.navigate(['listalbum'])
+  }
+  link1(data: string){
+    sessionStorage.setItem('theloai',data)
+    
+    this.router.navigate(['listalbum'])
 
   }
 }

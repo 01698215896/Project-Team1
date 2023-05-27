@@ -17,10 +17,12 @@ import { GenresComponent } from './components/genres/genres.component';
 import { MusicplayComponent } from './components/musicplay/musicplay.component';
 import { OldsongComponent } from './components/oldsong/oldsong.component';
 import { ListalbumComponent } from './components/listalbum/listalbum.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: TopsearchComponent },
   { path: 'banphathanh', component: BanphathanhComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'trending', component: TrendingComponent },
   { path: 'listtrending', component: ListtrendingComponent},

@@ -23,6 +23,7 @@ import { GenresComponent } from './components/genres/genres.component';
 import { MusicplayComponent } from './components/musicplay/musicplay.component';
 import { OldsongComponent } from './components/oldsong/oldsong.component';
 import { ListalbumComponent } from './components/listalbum/listalbum.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ListalbumComponent } from './components/listalbum/listalbum.component';
     MusicplayComponent,
     OldsongComponent,
     ListalbumComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

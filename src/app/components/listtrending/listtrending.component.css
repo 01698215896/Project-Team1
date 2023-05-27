@@ -126,12 +126,27 @@ h1 {
   font-size: 18px;
 }
 audio {
-  width: 80%;
+  width: 70%;
 }
 audio::-webkit-media-controls-panel {
   background: linear-gradient(to right, #9b4de0, #aa06a5da);
 }
 
+.iconlike{
+  margin-left: 30px;
+}
+.iconlike i{
+  padding: 10px;
+  color: #aa06a5da;
+  border: 2px solid #aa06a5da;
+  margin: 0 10px;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+.iconlike i:hover{
+  background: #aa06a5da;
+  color: #fff;
+}
 @media screen and (max-width: 820px) {
   .id p {
     padding: 0;
@@ -182,11 +197,11 @@ audio::-webkit-media-controls-panel {
     white-space: none;
   }
   .newPlay {
-    width: 50%;
+    width: 60%;
     bottom: 10px;
     right: 10px;
     left: unset;
-    padding: 12px;
+    padding: 8px;
     border-radius: 10px;
     border-left: 4px solid #aa06a5da;
     cursor: pointer;
@@ -205,5 +220,14 @@ audio::-webkit-media-controls-panel {
     position: absolute;
     z-index: -10;
     filter: blur(20px);
+  }
+  .none{
+    display: none;
+  }
+  .iconlike{
+    margin:0 auto;
+  }
+  .iconlike i{
+    padding: 6px;
   }
 }

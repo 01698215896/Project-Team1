@@ -52,9 +52,6 @@ export class ListMucsicService {
     return this.http.post('https://odd-gold-bighorn-sheep-boot.cyclic.app/users',data);
   }
   
-
-  
-
   updatalink(id: string,data: any): Observable<any> {
     return this.http.put('https://odd-gold-bighorn-sheep-boot.cyclic.app/users/' + id, data);
   }
@@ -76,6 +73,7 @@ export class ListMucsicService {
   checklogin(){
     return localStorage.getItem('username');
   }
+  
   deleteuser(id : any): Observable <any>{
     return this.http.delete('https://odd-gold-bighorn-sheep-boot.cyclic.app/users/'+ id);
   }

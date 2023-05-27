@@ -1,4 +1,5 @@
 import { Component , OnInit} from '@angular/core';
+import { ListMucsicService } from 'src/app/services/list-mucsic.service';
 
 @Component({
   selector: 'app-musicplay',
@@ -12,22 +13,22 @@ export class MusicplayComponent implements OnInit {
   url: string='';
   img: string='';
 
+  constructor(private service: ListMucsicService){}
   ngOnInit(): void {
-   
     const listmedia = sessionStorage.getItem('musicplay');
     if (listmedia) {
       const list = JSON.parse(listmedia);
-      console.log(list)
       this.name = list.name;
       this.casy = list.casy;
       this.title = list.title;
       this.img = list.img;
       this.url = list.url;
-      console.log(this.url)
       return list;
       
     }
   }
+
+  
   
 
 }

@@ -6,6 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ListMucsic } from 'src/app/models/list-mucsic';
 import { ListMucsicService } from 'src/app/services/list-mucsic.service';
 
@@ -17,6 +18,7 @@ import { ListMucsicService } from 'src/app/services/list-mucsic.service';
 export class TopsearchComponent implements OnInit {
    check1 = false;
 
+  Showlist: any;
   imgShow: Array<ListMucsic> = [];
   currentSong: string = '';
   id: number = 0;
@@ -28,7 +30,8 @@ export class TopsearchComponent implements OnInit {
   constructor(
     private dt: ListMucsicService,
     private renderer: Renderer2,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService,
   ) {}
   ngOnInit(): void {
     this.dt.getApi().subscribe((res) => {
@@ -50,7 +53,6 @@ export class TopsearchComponent implements OnInit {
   playM(id: number) {
     this.dt.playmusic(id).subscribe((res) => {
       const song = res;
-      console.log(song);
       this.currentSong = song.name;
       this.id = song.id;
       this.url = song.url;
@@ -70,4 +72,42 @@ export class TopsearchComponent implements OnInit {
   product(id: number) {
     this.router.navigate(['musicplay']);
   }
+  
+  check() {
+    if (localStorage.getItem('username')) {
+      this.toastr.success('Download Successfully', 'Success', {
+        toastClass: 'toast-custom',
+      });
+      return true;
+    } else {
+      this.router.navigate(['login']);
+      return false;
+    }
+  }
+  addlist(id: number) {
+    this.dt.playmusic(id).subscribe(res => {
+      this.Showlist = res;
+      const newMusic = {
+        img: this.Showlist.img,
+        name: this.Showlist.name,
+        url: this.Showlist.url,
+        casy: this.Showlist.casy,
+        title: this.Showlist.title,
+      };
+  
+      const id = localStorage.getItem('idUser');
+  
+      this.dt.getUser(id).subscribe(user => {
+        const updatedList = user.listmusic.concat(newMusic);
+  
+        this.dt.update(id, { listmusic: updatedList }).subscribe(data => {
+          console.log(data);
+          this.toastr.success("Add music success", "Success", {
+            toastClass: 'toast-custom',
+          });
+        });
+      });
+    });
+  }
+  
 }

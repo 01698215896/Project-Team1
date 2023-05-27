@@ -17,18 +17,19 @@ export class ListalbumComponent implements OnInit {
   constructor(private service: ListMucsicService){}
 
   ngOnInit(): void {
-    this.service.fetchapi1().subscribe(data =>{
-      this.list = data
-    })
+    const data = sessionStorage.getItem('theloai');
+    if(data){
+      this.service.fetchapi(data).subscribe(data =>{
+        this.list = data
+      })
+    }
   }
-  play(id: number){
-    this.service.fetchapi1a(id).subscribe(data =>{
-      this.listss = data;
-      this.name = this.listss.name;
-      this.url = this.listss.url;
-      this.img = this.listss.img;
-      this.title = this.listss.title;
-    })
+  play(id: number, name:string, img:string, title:string, url:string){
+      this.name = name;
+      this.url = url;
+      this.img = img;
+      this.title = title;
+      console.log(this.img, this.name, this.url);
   }
 
 }
