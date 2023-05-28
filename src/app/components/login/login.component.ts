@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
 
   register(registerForm: FormGroup) {
     if (registerForm.valid) {
-      if( registerForm.value.password !== registerForm.value.confirmpassword){
+      if( registerForm.value.password !== registerForm.value.confirmPassword){
         this.toastr.error('Confirmpassword không đúng', 'Error', {
           toastClass: 'toast-custom',
         });
