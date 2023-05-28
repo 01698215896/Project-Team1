@@ -18,19 +18,21 @@
         <div class="chung">
 
                 <div id="loginform" *ngIf="activeTab === 0">
-                    <form #loginf="ngForm" (ngSubmit)="login(loginf)">
-                        <div class="formIP">
+                    <form   [formGroup]="formlogin" (submit)="login(formlogin)">
+                        <div class="formIP" [class.error]="formlogin.controls['id'].dirty && formlogin.hasError('required', 'id')">
                             <i class="fa-solid fa-user"></i>
-                            <input type="text" name="id" ngModel placeholder="Username..." required>
+                            <input type="text"  formControlName="id"  placeholder="Username..." >
                         </div>
+                        <small *ngIf="formlogin.controls['id'].dirty && formlogin.hasError('required', 'id')" class="text-danger">Username required</small>
                         <div class="formIP">
                             <i class="fa-solid fa-key"></i>
-                            <input type="password" name="password" ngModel placeholder="Password..." required>
+                            <input type="password"  formControlName="password"  placeholder="Password..." >
                         </div>
+                        <small *ngIf="formlogin.controls['password'].dirty && formlogin.hasError('required', 'password')" class="text-danger">Password required</small>
                         <div class="link">
-                            <button type="submit">Login</button>
+                            <button type="submit" >Login</button>
                            <div class="div">
-                            <a href="">Login Account <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="#taomoiform">Register Account <i class="fa-solid fa-arrow-right"></i></a>
                            </div> 
                         </div>
                     </form>
@@ -38,31 +40,41 @@
             
            
                 <div id="taomoiform" *ngIf="activeTab === 1">
-                    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+                    <form  (ngSubmit)="register(formres)"  [formGroup]="formres">
                         <div class="formIP">
-                            <input type="text" name="firstName" ngModel placeholder="Firstname..." style="padding-left: 10px;margin-right: 10px;">
-                            <input type="text" name="lastName" ngModel placeholder="Lastname..." style="padding-left: 10px;margin-left: 10px;">
+                            <input type="text" formControlName="firstName"  placeholder="Firstname..." style="padding-left: 10px;margin-right: 10px;">
+                            <input type="text" formControlName="lastName"  placeholder="Lastname..." style="padding-left: 10px;margin-left: 10px;">
                         </div>
+                        <small *ngIf="formres.controls['firstName'].dirty && formres.hasError('required', 'firstName')" class="text-danger">Fistname & Lastname required</small>
+
                         <div class="formIP">
                             <i class="fa-solid fa-user"></i>
-                            <input type="text" name="id" ngModel placeholder="Username...">
+                            <input type="text" formControlName="id"  placeholder="Username...">
                         </div>
+                        <small *ngIf="formres.controls['id'].dirty && formres.hasError('required', 'id')" class="text-danger">Username required</small>
+
                         <div class="formIP">
                             <i class="fa-solid fa-envelope"></i>
-                            <input type="email" name="email" ngModel placeholder="Email...">
+                            <input type="email" formControlName="email"  placeholder="Email...">
                         </div>
+                        <small *ngIf="formres.controls['email'].dirty && formres.hasError('required', 'email')" class="text-danger">Email required</small>
+
+                        <div class="formIP" [class.error]="formres.controls['password'].dirty && formres.hasError('required', 'password')">
+                            <i class="fa-solid fa-key"></i>
+                            <input type="password" formControlName="password"  placeholder="Password...">
+                        </div>
+                        <small *ngIf="formres.controls['password'].dirty && formres.hasError('required', 'password')" class="text-danger">Password required</small>
+
                         <div class="formIP">
                             <i class="fa-solid fa-key"></i>
-                            <input type="password" name="password" ngModel placeholder="Password...">
+                            <input type="password" formControlName="confirmPassword"  placeholder="Confirm Password...">
                         </div>
-                        <div class="formIP">
-                            <i class="fa-solid fa-key"></i>
-                            <input type="password" name="confirmPassword" ngModel placeholder="Confirm Password...">
-                        </div>
+                        <small *ngIf="formres.controls['confirmPassword'].dirty && formres.hasError('required', 'confirmPassword')" class="text-danger">ConfirmPassword required</small>
+                        
                         <div class="link">
                             <button type="submit">Register</button>
                            <div class="div">
-                            <a href="">Login Account <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="#loginform">Login Account <i class="fa-solid fa-arrow-right"></i></a>
                            </div> 
                         </div>
                     </form>

@@ -10,7 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { TrendingComponent } from './components/trending/trending.component';
 import { ListtrendingComponent } from './components/listtrending/listtrending.component';
 import { TopartiComponent } from './components/toparti/toparti.component';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ToastrModule} from 'ngx-toastr';
 import { ProductComponent } from './components/product/product.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -57,6 +57,7 @@ import { ContactComponent } from './components/contact/contact.component';
       positionClass: 'toast-top-right',
       // preventDuplicates: true,
     }),
+    ReactiveFormsModule,
     
   ],
   providers: [],

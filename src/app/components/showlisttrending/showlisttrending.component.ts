@@ -65,7 +65,9 @@ export class ShowlisttrendingComponent implements OnInit {
       sessionStorage.setItem('musicplay', JSON.stringify(data));
     });
   }
-  linkproduct() {
+  linkproduct(data:string) {
+    sessionStorage.setItem('theloai',data)
+
     this.router.navigate(['listalbum']);
   }
   product(id: number) {

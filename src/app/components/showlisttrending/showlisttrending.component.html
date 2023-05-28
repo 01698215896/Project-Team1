@@ -6,7 +6,7 @@
     <div class="list_album">
       <h2>Nổi Bật</h2>
       <div class="item">
-        <div class="item1" (click)="linkproduct()">
+        <div class="item1" (click)="linkproduct('tatca')">
           <div class="item1_img">
             <img src="assets/img/bai3.jpg" alt="" />
           </div>
@@ -15,7 +15,7 @@
             <p>Tổng hợp nhiều ca sỹ</p>
           </div>
         </div>
-        <div class="item1" (click)="linkproduct()">
+        <div class="item1" (click)="linkproduct('list1')">
           <div class="item1_img">
             <img src="assets/img/bai7.jpg" alt="" />
           </div>
@@ -24,7 +24,7 @@
             <p>Tổng hợp nhiều ca sỹ</p>
           </div>
         </div>
-        <div class="item1" (click)="linkproduct()">
+        <div class="item1" (click)="linkproduct('list3')">
           <div class="item1_img">
             <img src="assets/img/bai5.jpg" alt="" />
           </div>
@@ -33,7 +33,7 @@
             <p>Tổng hợp nhiều ca sỹ</p>
           </div>
         </div>
-        <div class="item1" (click)="linkproduct()">
+        <div class="item1" (click)="linkproduct('list2')">
           <div class="item1_img">
             <img src="assets/img/bai9.jpg" alt="" />
           </div>
@@ -73,7 +73,7 @@
     <div class="bao1">
       <div class="bao11" (click)="product(id)">
         <div class="img1">
-          <img [src]="currentSongimg" alt="" />
+          <img [src]="url" alt="" />
         </div>
         <div class="text1">
           <p
@@ -91,11 +91,11 @@
         </div>
       </div>
       <div class="souce">
-        <audio [src]="url" controls autoplay class="none">
+        <audio [src]="currentSongimg" controls autoplay class="none">
           <source type="audio/mpeg" />
         </audio>
         <div class="iconlike">
-          <a href="{{ url }}" download="{{ currentSong }}"
+          <a href="{{ currentSongimg }}" download="{{ currentSong }}"
             ><i class="fa-solid fa-download" (click)="check()"></i
           ></a>
           <i class="fa-solid fa-heart" (click)="addlist(id)"></i>

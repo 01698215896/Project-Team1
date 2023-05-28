@@ -230,6 +230,7 @@ audio::-webkit-media-controls-panel {
   
   .carousel-inner{
     height: 220px;
+    z-index: -1;
   }
   .title{
     justify-content: left;

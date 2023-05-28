@@ -67,13 +67,17 @@
   object-fit: cover;
 }
 .box1 {
+  margin-top: 40px;
   width: 100%;
-  padding: 30px;
+  padding: 10px 30px;
   position: relative;
   z-index: 2;
   backdrop-filter: blur(50px);
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+small{
+  margin-left: 15px;
 }
 
 .title {
@@ -81,13 +85,13 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   align-items: center;
 }
 .title h1 {
   font-weight: 600;
   font-size: 30px;
-  margin: 0 20px;
+  margin: 0 10px;
 }
 .title h1.active {
   border-bottom: 3px solid #aa06a5da;
@@ -100,11 +104,11 @@
 
 input {
   width: 100%;
-  padding: 10px 60px;
+  padding: 8px 8px 8px 45px;
   border-radius: 10px;
   outline: none;
   border: 1px solid #bdbdbd;
-  font-size: 18px;
+  font-size: 16px;
 }
 .formIP {
   display: flex;
@@ -114,8 +118,8 @@ input {
 
 .formIP i {
   position: absolute;
-  font-size: 18px;
-  padding: 15px;
+  font-size: 16px;
+  padding: 10px;
   border-right: 1px solid #bdbdbd;
 }
 .link {
@@ -127,7 +131,7 @@ button {
   padding: 5px;
   font-weight: 700;
   border-radius: 10px;
-  margin: 20px 0 50px 0;
+  margin: 20px 0;
   border: none;
   outline: none;
   font-size: 30px;
@@ -179,5 +183,17 @@ a i {
   }
   .containerss {
     display: none;
+  }
+  button {
+    width: 200px;
+    background: linear-gradient(to right, #9b4de0, #aa06a5da);
+    font-weight: 600;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    transition: 0.3s ease-in-out;
+    color: #fff;
   }
 }
