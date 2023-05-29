@@ -1,0 +1,43 @@
+<div class="containers">
+    <div class="containerss">
+        <div class="containerss_bg">
+            <img src="assets/img/1.jpg" alt="">
+        </div>
+        <div class="content">
+            <div class="room">
+               
+                <div class="room_user">
+                    <div class="room_user1">
+                        <div class="room_user-avt">
+                            <img src="assets/img/bai1.jpg" alt="">
+                        </div>
+                        <div class="name">
+                            <p>hoang tien</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room_online">
+                    <h3>Room Chat</h3>
+                </div>
+                <div class="logout">
+                    <button>Out Room</button>
+                </div>
+            </div>
+            <div class="khungchat">
+                <div class="message" *ngFor="let data of output">
+                  <div class="client">
+                    <p>{{ data }}</p>
+                  </div>
+                  
+                </div>
+              
+                <div class="inputsend">
+                  <input type="text" placeholder="Nhập tin nhắn..." name="message" [(ngModel)]="message">
+                  <button (click)="sendmsg()"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+              </div>
+              
+        </div>
+    </div>
+</div>

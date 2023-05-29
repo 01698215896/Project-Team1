@@ -50,16 +50,16 @@ export class LoginComponent implements OnInit {
   register(registerForm: FormGroup) {
     if (registerForm.valid) {
       if( registerForm.value.password !== registerForm.value.confirmPassword){
+        console.log(registerForm.value.password, registerForm.value.confirmPassword)
         this.toastr.error('Confirmpassword không đúng', 'Error', {
           toastClass: 'toast-custom',
         });
-        return;
       }
       this.service.getData().subscribe(data => {
         if(registerForm.value.id !== data.id) {
           this.service
             .pushData(registerForm.value)
-            .subscribe((data) => console.log(data));
+            .subscribe();
           registerForm.reset();
           this.toastr.success('Registered successfully', 'Success', {
             toastClass: 'toast-custom',

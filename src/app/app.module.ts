@@ -24,6 +24,8 @@ import { MusicplayComponent } from './components/musicplay/musicplay.component';
 import { OldsongComponent } from './components/oldsong/oldsong.component';
 import { ListalbumComponent } from './components/listalbum/listalbum.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { RoomchatComponent } from './components/roomchat/roomchat.component';
+import { ListMucsicService } from './services/list-mucsic.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { ContactComponent } from './components/contact/contact.component';
     OldsongComponent,
     ListalbumComponent,
     ContactComponent,
+    RoomchatComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,7 @@ import { ContactComponent } from './components/contact/contact.component';
     ReactiveFormsModule,
     
   ],
-  providers: [],
+  providers:  [ListMucsicService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

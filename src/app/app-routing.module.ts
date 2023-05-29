@@ -18,6 +18,7 @@ import { MusicplayComponent } from './components/musicplay/musicplay.component';
 import { OldsongComponent } from './components/oldsong/oldsong.component';
 import { ListalbumComponent } from './components/listalbum/listalbum.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { RoomchatComponent } from './components/roomchat/roomchat.component';
 
 const routes: Routes = [
   { path: '', component: TopsearchComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'trending', component: TrendingComponent },
+  { path: 'roomchat', component: RoomchatComponent },
   { path: 'listtrending', component: ListtrendingComponent},
   { path: 'toparti', component: TopartiComponent },
   { path: 'topsearch', component: TopsearchComponent },
