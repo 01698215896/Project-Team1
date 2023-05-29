@@ -46,40 +46,20 @@ export class LoginComponent implements OnInit {
     this.activeTab = index;
   }
 
-
   register(registerForm: FormGroup) {
     if (registerForm.valid) {
-      if( registerForm.value.password !== registerForm.value.confirmPassword){
-        console.log(registerForm.value.password, registerForm.value.confirmPassword)
-        this.toastr.error('Confirmpassword không đúng', 'Error', {
-          toastClass: 'toast-custom',
-        });
-      }
-      this.service.getData().subscribe(data => {
-        if(registerForm.value.id !== data.id) {
-          this.service
-            .pushData(registerForm.value)
-            .subscribe();
-          registerForm.reset();
-          this.toastr.success('Registered successfully', 'Success', {
-            toastClass: 'toast-custom',
-          });
-        }else{
-          this.toastr.error('Username đã tồn tại', 'Error', {
-            toastClass: 'toast-custom',
-          });
-        }
-
-      })
+      this.service.pushData(registerForm.value).subscribe();
+      registerForm.reset();
+      this.toastr.success('Registered successfully', 'Success', {
+        toastClass: 'toast-custom',
+      });
     } else {
       this.validateAll(registerForm);
-    
     }
   }
 
   login(loginf: FormGroup) {
-
-    if(loginf.valid){
+    if (loginf.valid) {
       console.log(loginf.value);
       this.service.getUser(loginf.value.id).subscribe((data) => {
         this.testuers = data;
@@ -96,11 +76,9 @@ export class LoginComponent implements OnInit {
           window.location.href = '';
         }
       });
-  
-    }else{
+    } else {
       this.validateAll(loginf);
     }
-
   }
 
   private validateAll(form: FormGroup) {

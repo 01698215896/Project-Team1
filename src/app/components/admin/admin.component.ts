@@ -48,6 +48,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getData().subscribe((data) => {
+      console.log(data);
       this.data1 = data;
     });
     this.service.getData().subscribe((data) => {

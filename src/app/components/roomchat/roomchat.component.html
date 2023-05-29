@@ -1,7 +1,10 @@
 <div class="containers">
     <div class="containerss">
         <div class="containerss_bg">
-            <img src="assets/img/1.jpg" alt="">
+            <img src="assets/img/3.jpg" alt="">
+        </div>
+        <div class="containerss_bg">
+            <img src="{{img}}" alt="">
         </div>
         <div class="content">
             <div class="room">
@@ -9,16 +12,41 @@
                 <div class="room_user">
                     <div class="room_user1">
                         <div class="room_user-avt">
-                            <img src="assets/img/bai1.jpg" alt="">
+                            <img src="{{img1}}" alt="">
                         </div>
                         <div class="name">
-                            <p>hoang tien</p>
+                            <p>{{name}}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="room_online">
-                    <h3>Room Chat</h3>
+                    <h3>Thay Đổi Hình Nền</h3>
+                    <div class="formIP">
+                    
+                        <!-- img -->
+                        
+                        <div class="avt1"[class.active]="activeTab === 0" (click)="setActiveTab(0)">
+                            <img src="assets/img/1.jpg" name="img" alt="" (click)="clickimg('assets/img/1.jpg')">
+                            
+                        </div>
+                        <div class="avt1"[class.active]="activeTab === 1" (click)="setActiveTab(1)">
+                            <img src="assets/img/2.jpg" name="img" alt="" (click)="clickimg('assets/img/2.jpg')">
+                        </div>
+                        <div class="avt1"[class.active]="activeTab === 2" (click)="setActiveTab(2)">
+                            <img src="assets/img/3.jpg" name="img" alt="" (click)="clickimg('assets/img/3.jpg')">
+                        </div>
+                        <div class="avt1"[class.active]="activeTab === 3" (click)="setActiveTab(3)">
+                            <img src="assets/img/4.jpg" name="img" alt="" (click)="clickimg('assets/img/4.jpg')">
+                        </div>
+                        <div class="avt1"[class.active]="activeTab === 5" (click)="setActiveTab(5)">
+                            <img src="assets/img/6.jpg" name="img" alt="" (click)="clickimg('assets/img/6.jpg')">
+                        </div>
+                        <div class="avt1"[class.active]="activeTab === 6" (click)="setActiveTab(6)">
+                            <img src="assets/img/7.jpg" name="img" alt="" (click)="clickimg('assets/img/7.jpg')">
+                        </div>
+                        
+                      </div>
                 </div>
                 <div class="logout">
                     <button>Out Room</button>

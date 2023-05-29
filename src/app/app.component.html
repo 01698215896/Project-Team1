@@ -11,7 +11,6 @@
       <div style="display: flex; align-items: center;">
         <i class="fa-solid fa-house"></i>
         <p class="none">Trending Now</p>
-      
       </div>
         </li>
         <li routerLink="/listtrending" [class.active]="activeTab === 1" (click)="setActiveTab(1)">
@@ -76,9 +75,12 @@
        
       </ul>
     </div>
-    <div class="login">
+    <div class="login login1">
       <ul class="border1 none" >
         <li routerLink="contact"  class="con">About US</li>
+      </ul>
+      <ul class="border1 none" >
+        <li routerLink="roomchat"  class="con">Message</li>
       </ul>
     </div>
   </div>

@@ -1,136 +1,169 @@
-.containerss{
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    padding-top: 80px;
+.containerss {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding-top: 80px;
 }
-.containerss_bg{
-    position: absolute;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+.containerss_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-.containerss_bg img{
-    width: 100%;
-    height: 100%;
-    filter: blur(10px);
-    object-fit: cover;
+.containerss_bg img {
+  width: 100%;
+  height: 100%;
+  filter: blur(10px);
+  object-fit: cover;
 }
-.content{
-    margin: 0 auto;
-   width: 90%;
-   height:95%;
-   box-shadow: 0 0 15px rgba(0,0,0,.4);
-   backdrop-filter: blur(50px);
-   border-radius: 15px;
-    overflow: hidden;
-   display: grid;
-   grid-template-columns: 30% 70%;
+.content {
+  margin: 0 auto;
+  width: 90%;
+  height: 95%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(50px);
+  border-radius: 15px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 30% 70%;
 }
-.room{
-    width: 100%;
-    height: 100%;
-    background: #aa06a5da;
-    padding: 15px;
+.room {
+  width: 100%;
+  height: 100%;
+  background: #aa06a5da;
+  padding: 15px;
 }
 
-.khungchat{
-    padding: 15px 20px;
-    position: relative;
+.khungchat {
+  padding: 15px 20px;
+  position: relative;
 }
-.room_user{
-    margin-bottom: 30px;
-    position: relative;
+.room_user {
+  padding: 10px;
+  
+  position: relative;
+  border-bottom: 2px solid #fff;
 }
-.room_user-avt{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid #fff;
-   
+.room_user-avt {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #fff;
 }
-.room_user1{
-    display: flex;
-    align-items: center;
+.room_user1 {
+  display: flex;
+  align-items: center;
 }
-.name p{
-    margin: 0;
-    margin-left: 15px;
-    font-weight: 500;
-    font-size: 20px;
-    color: #fff;
+.name p {
+  margin: 0;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 20px;
+  color: #fff;
 }
-.room_user-avt img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.room_user-avt img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.room_online{
-    font-size: 25px;
-    font-weight: 600;
+.room_online {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  margin-top: 20px;
 }
-.logout{
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+.logout {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
-.logout button{
-    color: #fff;
-    border-radius: 15px;
-    padding: 5px 20px;
-    background: none;
-    border: 1px solid #fff;
-    font-weight: 500;
-    font-size: 20px;
-    transition: .3s ease-in-out;
+.logout button {
+  color: #fff;
+  border-radius: 15px;
+  padding: 5px 20px;
+  background: none;
+  border: 1px solid #fff;
+  font-weight: 500;
+  font-size: 20px;
+  transition: 0.3s ease-in-out;
 }
-.logout button:hover{
-    background: #fff;
-    color: #aa06a5da;
+.logout button:hover {
+  background: #fff;
+  color: #aa06a5da;
 }
-.inputsend{
-    position: absolute;
-    bottom: 10px;
-    left: 30px;
-    width: 90%;
-    border-radius: 30px;
-    display: flex;
-    padding: 0 20px;
-    border: 1px solid #333;
+.inputsend {
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+  width: 90%;
+  border-radius: 30px;
+  display: flex;
+  padding: 0 20px;
+  border: 1px solid #333;
 }
-.inputsend input{
-    width: 100%;
-    border: none;
-    outline: none;
-    background: none;
-    padding: 10px;
+.inputsend input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 10px;
 }
-.inputsend button{
-    background: none;
-    border: none;
+.inputsend button {
+  background: none;
+  border: none;
 }
-.inputsend button i{
-    font-size: 18px;
-    color: rgba(0, 0, 255, 0.614);
+.inputsend button i {
+  font-size: 18px;
+  color: rgba(0, 0, 255, 0.614);
 }
-p{
-    margin: 0;
+p {
+  margin: 0;
 }
-.message{
+.message {
 }
-.client, .user{
-    width: fit-content;
-    background: rgba(0, 0, 255, 0.542);
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 30px;
-    margin: 3px;
+.client,
+.user {
+  width: fit-content;
+  background: rgba(0, 0, 255, 0.542);
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 30px;
+  margin: 3px;
 }
-.user{
-    background: #3333338d;
-    color: #fff;
-    float: right;
+.user {
+  background: #3333338d;
+  color: #fff;
+  float: right;
+}
+
+.formIP {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 15px 0;
+  position: relative;
+  flex-wrap: wrap;
+}
+.avt1 {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: 2px solid #9b4de0;
+  margin: 10px;
+}
+
+.avt1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.avt1.active {
+  border: 4px solid #9b4de0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }

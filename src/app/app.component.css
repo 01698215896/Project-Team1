@@ -29,7 +29,7 @@ ul.ooo > li {
   padding: 15px 10px;
   cursor: pointer;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   display: block;
   align-items: center;
   margin: 5px 0;
@@ -125,7 +125,7 @@ ul.border1 li.con{
   font-weight: 400;
   font-size: 20px;
   text-align: center;
-  width: 60%;
+  width: 130px;
 }
 
 ul.border1:hover li.con {
@@ -498,6 +498,10 @@ ul.rtr> li{
 }
 ul.rtr >li:hover{
   color: #9b4de0;
+}
+
+.login1{
+  display: flex;
 }
 
 /* responsive */

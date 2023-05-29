@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable,Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { ListMucsic } from '../models/list-mucsic';
 import { User } from '../models/user-music';
 import { Socket, SocketOptions, io } from 'socket.io-client';
@@ -13,12 +13,13 @@ export class ListMucsicService {
   socket: Socket = io('https://apichatrealtime.onrender.com');
   messageSubject: Subject<any> = new Subject<any>();
 
-  constructor(private http: HttpClient) {this.setupSocketConnection();}
-  emitmsg( data: string){
-    this.socket.emit('my message', data);
-    
+  constructor(private http: HttpClient) {
+    this.setupSocketConnection();
   }
- 
+  emitmsg(data: string) {
+    this.socket.emit('my message', data);
+  }
+
   onmsg(): Observable<any> {
     return this.messageSubject.asObservable();
   }
