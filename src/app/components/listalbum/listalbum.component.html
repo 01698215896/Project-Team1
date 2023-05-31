@@ -23,12 +23,20 @@
       <div class="playimg">
         <img [src]="name" alt="">
       </div>
+       <div class="loibaihat ann">
+        <ul>
+          <li *ngFor="let lyric of lyrics" [class.current]="lyric.highlighted">{{ lyric.text }}</li>
+        </ul>
+      </div>
+      <div class="playtext">
+        
+      </div>
       <div class="playtitle">
         <h2 style="font-weight: 700; font-size: 25px;">{{img}}</h2>
         <p>{{title}}</p>
       </div>
-      <div class="souce" style="display: none;">
-        <audio [src]="url"  controls autoplay>
+      <div class="souce" style="display: none;" >
+        <audio [src]="url"  controls autoplay #audioPlayer (timeupdate)="updateLyrics(audioPlayer)">
           <source type="audio/mpeg" />
         </audio>
       </div>

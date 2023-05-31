@@ -94,7 +94,37 @@ footer h1{
     height: 100%;
     object-fit: cover;
 }
-
+#lyrics {
+    text-align: center;
+    margin-top: 20px;
+    height: 80px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #lyrics ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #lyrics li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  
+  #lyrics li.current {
+    opacity: 1;
+    font-weight: bold;
+  }
+  
+  
+  
+  
 @media screen and (max-width: 480px) {
     .containers{
         padding-left: 10px;
@@ -118,3 +148,4 @@ footer h1{
     }
     
 }
+

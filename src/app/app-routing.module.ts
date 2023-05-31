@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'trending', component: TrendingComponent },
-  { path: 'roomchat', component: RoomchatComponent },
+  { path: 'roomchat', component: RoomchatComponent , canActivate: [CheckuserGuard], pathMatch: 'prefix'},
   { path: 'listtrending', component: ListtrendingComponent},
   { path: 'toparti', component: TopartiComponent },
   { path: 'topsearch', component: TopsearchComponent },

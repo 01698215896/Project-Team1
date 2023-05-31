@@ -59,6 +59,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(loginf: FormGroup) {
+    console.log(loginf.value.id);
     if (loginf.valid) {
       console.log(loginf.value);
       this.service.getUser(loginf.value.id).subscribe((data) => {
@@ -67,9 +68,10 @@ export class LoginComponent implements OnInit {
           this.toastr.success('Login Success', 'Success', {
             toastClass: 'toast-custom',
           });
-          localStorage.setItem('username', 'true');
-          localStorage.setItem('idUser', this.testuers.id);
+         
         }
+        localStorage.setItem('username', 'true');
+        localStorage.setItem('idUser', loginf.value.id);
         if (!this.testuers.img) {
           this.router.navigate(['media']);
         } else {
@@ -79,6 +81,7 @@ export class LoginComponent implements OnInit {
     } else {
       this.validateAll(loginf);
     }
+ 
   }
 
   private validateAll(form: FormGroup) {

@@ -105,13 +105,13 @@ h1 {
   }
   .playtitle{
     text-align: center;
-    margin: 25px auto;
+    margin: 0 auto;
     backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     width: 80%;
-    height: 250px;
+    height: 200px;
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -122,6 +122,47 @@ h1 {
     background-color: #565555;
     border-radius: 30px;
   }
+
+
+
+  
+.loibaihat{
+  width: 400px;
+  height: 80px;
+  backdrop-filter: blur(100px);
+  border-radius: 15px;
+  padding: 15px;
+  overflow: hidden;
+  text-align: center;
+  overflow-y: scroll;
+  margin: 15px auto;
+}
+.loibaihat::-webkit-scrollbar {
+  width: 5px;
+}
+.loibaihat::-webkit-scrollbar-thumb {
+  background-color: #bdbdbd;
+  border-radius: 30px;
+}
+
+.loibaihat  ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.loibaihat  li {
+  margin-bottom: 10px;
+  font-size: 18px;
+  transition: opacity 0.5s ease-in-out;
+  opacity: .5;
+}
+
+.loibaihat  li.current {
+  color: #fff;
+  opacity: 1;
+  font-weight: 500;
+}
   @keyframes identifier {
     0% { 
       transform: rotate(0);
@@ -139,5 +180,17 @@ h1 {
     }
     .bgimg{
       height: 100%;
+    }
+    .ann{
+      display: block;
+      width: 90%;
+      height: 80px;
+      margin: 15px auto;
+      padding: 6px;
+  
+    }
+    .loibaihat  li {
+      font-size: 16px;
+     
     }
   }

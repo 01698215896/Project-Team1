@@ -89,9 +89,7 @@
 <div class="search">
   <div class="containers">
     <div class="containerss">
-      <div class="logo bb">
-        <a routerLink=""><p style="color: #fff">Sound Club</p></a>
-      </div>
+      
       <div class="arrow">
         <i class="fa-solid fa-arrow-left"></i>
         <i class="fa-solid fa-arrow-right"></i>
@@ -125,7 +123,10 @@
       <div class="admin" #check1>
         <button (click)="admin()" class="none">User Management</button>
       </div>
-      <div class="profile" style="margin-left: 40px" #check>
+      <div  >
+        <button id="chat" routerLink="roomchat"><i class="fa-solid fa-message"></i></button>
+      </div>
+      <div class="profile" style="margin-left: 20px" #check>
         <div class="imgUser">
           <img [src]="img" alt="" />
         </div>

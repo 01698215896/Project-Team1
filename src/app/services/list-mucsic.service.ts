@@ -12,11 +12,12 @@ import { environment } from 'environment';
 export class ListMucsicService {
   socket: Socket = io('https://apichatrealtime.onrender.com');
   messageSubject: Subject<any> = new Subject<any>();
+  message: string = '';
 
   constructor(private http: HttpClient) {
     this.setupSocketConnection();
   }
-  emitmsg(data: string) {
+  emitmsg(data: any) {
     this.socket.emit('my message', data);
   }
 
@@ -27,9 +28,15 @@ export class ListMucsicService {
   setupSocketConnection() {
     this.socket = io('https://apichatrealtime.onrender.com');
     this.socket.on('my broadcast', (data) => {
-      this.messageSubject.next(data);
+      console.log(data);
+      if (data !== this.message) {
+        this.messageSubject.next(data);
+      }
     });
   }
+
+
+
   getApi(): Observable<Array<ListMucsic>> {
     return this.http.get<Array<ListMucsic>>(
       'https://apiuser-self.vercel.app/listMucsic'
@@ -48,6 +55,11 @@ export class ListMucsicService {
 
   fetchapi(data: string): Observable<Array<ListMucsic>> {
     return this.http.get<Array<ListMucsic>>(
+      'https://apiuser-self.vercel.app/' + data
+    );
+  }
+  fetchapi111(data: string): Observable<any>{
+    return this.http.get<any>(
       'https://apiuser-self.vercel.app/' + data
     );
   }
@@ -141,6 +153,4 @@ export class ListMucsicService {
   }
 }
 
-function setupSocketConnection() {
-  throw new Error('Function not implemented.');
-}
+

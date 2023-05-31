@@ -14,4 +14,5 @@ export class ListMucsic {
   youtube: string = '';
   title: string = '';
   insta: string = '';
+  timeplay = [];
 }
