@@ -54,6 +54,9 @@ footer{
     display: block;
 
 }
+.ii{
+    margin-left: 40px;
+}
 .bao i{
     margin-right: 10px;
     font-size: 15px;
@@ -123,7 +126,35 @@ footer h1{
   }
   
   
-  
+  @media screen and (max-width: 820px) {
+    .containers{
+        padding-left: 10px;
+        padding-right: 35px;
+    }
+    .ii{
+        margin-left: 0;
+    }
+    .bao{
+        grid-template-columns: 100%;
+    }
+    .quick{
+        border: none;
+    }
+    .follow{
+        margin-left: 0;
+        margin-top: 15px;
+    }
+    .flex div li{
+        font-size: 14px;
+    }
+    .flex1 div li a{
+        font-size: 14px;
+    }
+    .flex{
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+  }
   
 @media screen and (max-width: 480px) {
     .containers{

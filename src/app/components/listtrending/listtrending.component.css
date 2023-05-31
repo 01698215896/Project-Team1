@@ -153,11 +153,11 @@ audio::-webkit-media-controls-panel {
   }
 
   .newPlay {
-    width: 50%;
-    bottom: 110px;
+    width: 60%;
+    bottom: 80px;
     right: 10px;
     left: unset;
-    padding: 12px;
+    padding: 8px;
     border-radius: 10px;
     border-left: 4px solid #aa06a5da;
     cursor: pointer;
@@ -168,7 +168,7 @@ audio::-webkit-media-controls-panel {
   }
     audio{
     height: 30px;
-    width: 100%;
+    width: 80%;
   }
   .img1{
     width: 100%;
@@ -176,6 +176,9 @@ audio::-webkit-media-controls-panel {
     position: absolute;
     z-index: -10;
     filter: blur(20px);
+  }
+  .iconlike{
+    display: flex;
   }
 }
 

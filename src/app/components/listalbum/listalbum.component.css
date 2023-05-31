@@ -73,6 +73,7 @@ h1 {
     border-radius: 15px;
     transition: .3s ease-in-out;
     overflow: hidden;
+    position: relative;
   }
   .listItem_name{
     margin-left: 15px;
@@ -163,6 +164,36 @@ h1 {
   opacity: 1;
   font-weight: 500;
 }
+
+.listItem:hover .icon{
+  transform: translateX(0);
+  opacity: 1;
+}
+.icon {
+  
+  transform: translateX(200%);
+  opacity: 0;
+  position: absolute;
+  z-index: 100;
+  
+  right: 60px;
+  transition: transform  0.3s ease-in-out;
+}
+ .icon i {
+  font-size: 16px;
+  color: #333;
+  margin: 0 10px;
+  border: 1px solid #333;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .3s ease-in;
+}
+ .icon i:hover {
+  background-color: #333;
+  color: #fff;
+}
+
   @keyframes identifier {
     0% { 
       transform: rotate(0);
@@ -171,7 +202,27 @@ h1 {
       transform: rotate(360deg);
     }
   }
-
+  @media screen and (max-width: 820px) {
+    .containerss{
+      grid-template-columns: 100%;
+        
+      }
+      .bgimg{
+        height: 100%;
+      }
+      .ann{
+        display: block;
+        width: 90%;
+        height: 80px;
+        margin: 15px auto;
+        padding: 6px;
+    
+      }
+      .loibaihat  li {
+        font-size: 16px;
+       
+      }
+  }
 
   @media screen and (max-width: 480px) {
     .containerss{

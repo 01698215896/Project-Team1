@@ -6,24 +6,35 @@
     <div class="showlist">
       <h1>List Music Album</h1>
       <div class="bao">
-        <div class="listItem" *ngFor="let i of list" (click)="play(i.id, i.img,i.name, i.title,i.url  )">
-          <div class="listItem_img">
-            <img src="{{ i.img }}" alt="" />
+        <div class="menu">
+          <div class="listItem" *ngFor="let i of list" (click)="play(i.id, i.img,i.name, i.title,i.url  )">
+            <div class="listItem_img">
+              <img src="{{ i.img }}" alt="" />
+            </div>
+            <div class="listItem_name">
+              <p>{{ i.name }}</p>
+            </div>
+            <div class="listItem_time">
+              <p>{{i.time}}</p>
+            </div>
+            <div class="icon">
+              
+              <i class="fa-solid fa-heart" (click)="addlist('tatca', i.id)"></i>
+              <a href="{{ i.url }}" download="{{ i.name }}"><i class="fa-solid fa-download" (click)="check()"></i></a>
+            </div>
           </div>
-          <div class="listItem_name">
-            <p>{{ i.name }}</p>
-          </div>
-          <div class="listItem_time">
-            <p>{{i.time}}</p>
-          </div>
+
         </div>
+       
+        
+        
       </div>
     </div>
     <div class="showbox">
       <div class="playimg">
         <img [src]="name" alt="">
       </div>
-       <div class="loibaihat ann">
+      <div class="loibaihat ann" #lyricList>
         <ul>
           <li *ngFor="let lyric of lyrics" [class.current]="lyric.highlighted">{{ lyric.text }}</li>
         </ul>

@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="box_content">
-      <div class="loibaihat">
+      <div class="loibaihat" #lyricList>
         <ul>
           <li *ngFor="let lyric of lyrics" [class.current]="lyric.highlighted">{{ lyric.text }}</li>
         </ul>

@@ -282,7 +282,76 @@ h1{
   color: #333;
 }
 
-@media screen and (max-width: 820px) {}
+@media screen and (max-width: 820px) {
+  .containerss{
+    grid-template-columns: 100%;
+    height: 100%;
+  }
+  .usertitle{
+    grid-template-rows: 100%;
+    display: block;
+    padding-right: 30px;
+  }
+  input{
+    height: 30px;
+    padding: 5px 5px 5px 40px;
+    font-size: 15px;
+  }
+  button.nnn {
+    width: 120px;
+    background: linear-gradient(to right, #9b4de0, #aa06a5da);
+    padding: 5px;
+    font-weight: 500;
+    border-radius: 10px;
+    margin: 10px 10px 20px 10px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    transition: 0.3s ease-in-out;
+    color: #fff;
+  }
+  .tabAdd{
+    position: fixed;
+    top: 40px;
+    left: 20px;
+    width: 90%;
+    height: 90%;
+  }
+  .formIP i {
+    position: absolute;
+    height: 30px;
+    font-size: 15px;
+    padding: 10px;
+    border-right: 1px solid #bdbdbd;
+  }
+  .thongtin{
+    height: fit-content;
+  }
+  .listItem{
+    grid-template-columns: 100%;
+    text-align: center;
+    margin: 10px 0;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  }
+  .title{
+    flex-direction: column;
+  }
+  .img {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  .none{
+    display: none;
+  }
+  .text p:nth-child(1) {
+    font-weight: 600;
+  }
+  .baobao{
+    padding: 15px;
+  }
+}
 
 @media screen and (max-width: 480px) {
   .containerss{

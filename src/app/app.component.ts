@@ -125,4 +125,13 @@ export class AppComponent implements OnInit {
       item.name.toLowerCase().includes(value.toLowerCase())
     );
   }
+  left(){
+    history.back();
+  }
+  rigth(){
+    history.forward();
+  }
+
+
+  
 }

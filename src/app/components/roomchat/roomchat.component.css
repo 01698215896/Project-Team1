@@ -213,6 +213,8 @@ button.an{
   overflow: hidden;
   overflow-y: scroll;
   padding: 10px;
+  transform: translateX(1000%);
+  transition: transform .3s ease-in-out;
 }
 .boxlist::-webkit-scrollbar {
   width: 5px;
@@ -224,8 +226,12 @@ button.an{
 .cha{
   position: relative;
 }
+.cha:hover .boxlist{
+  transform: translateX(0);
+}
 
 @media screen and (max-width: 820px) {
+  
   .none{
     display: none;
   }
@@ -328,7 +334,6 @@ button.an{
     border: 3px solid #9b4de0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
-
 }
 @media screen and (max-width: 480px) {
   .none{
