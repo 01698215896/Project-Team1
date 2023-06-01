@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ListMucsic } from 'src/app/models/list-mucsic';
@@ -8,12 +8,24 @@ interface Lyric {
   text: string;
   highlighted: boolean;
 }
+
+interface Song {
+  name: string;
+  casy: string;
+  title: string;
+  img: string;
+  url: string;
+  timeplay: Lyric[];
+}
 @Component({
   selector: 'app-listalbum',
   templateUrl: './listalbum.component.html',
   styleUrls: ['./listalbum.component.css']
 })
 export class ListalbumComponent implements OnInit {
+  isPlaying: boolean = true;
+  currentSongIndex: number = 0; 
+  songs: Song[] = []; 
   @ViewChild('lyricList') lyricListRef!: ElementRef<HTMLUListElement>;
   lyrics: Lyric[] = [];
 
@@ -30,12 +42,21 @@ export class ListalbumComponent implements OnInit {
 
   ngOnInit(): void {
     const data = sessionStorage.getItem('theloai');
-    if(data){
-      this.service.fetchapi111(data).subscribe(data =>{
-        this.list = data
-
-
-      })
+    if (data) {
+      this.service.fetchapi111(data).subscribe(data => {
+        this.list = data;
+        this.songs = this.list.map((item: ListMucsic) => {
+          return {
+            name: item.name,
+            casy: item.casy,
+            title: item.title,
+            img: item.img,
+            url: item.url,
+            timeplay: item.timeplay
+          };
+        });
+        this.loadSong();
+      });
     }
   }
   play(id: number, name:string, img:string, title:string, url:string){
@@ -81,7 +102,6 @@ export class ListalbumComponent implements OnInit {
             const containerHeight = lyricList.clientHeight;
             const lyricHeight = currentLyricElement.clientHeight;
             const scrollPosition = currentLyricElement.offsetTop - (containerHeight / 2) + (lyricHeight / 2);
-            console.log(scrollPosition)
             lyricList.scrollTo({ top: scrollPosition, behavior: 'smooth' });
           }
         } else {
@@ -128,7 +148,6 @@ export class ListalbumComponent implements OnInit {
           this.service
             .update(id, { listmusic: updatedList })
             .subscribe((data) => {
-              console.log(data);
               this.toastr.success('Add music success', 'Success', {
                 toastClass: 'toast-custom',
               });
@@ -150,5 +169,55 @@ export class ListalbumComponent implements OnInit {
       return false;
     }
   }
-
+  pauseSong() {
+    const audioPlayer = document.getElementById('audioPlayer') as HTMLAudioElement;
+    audioPlayer.pause();
+    this.isPlaying = false;
+  }
+  
+  playSong() {
+    const audioPlayer = document.getElementById('audioPlayer') as HTMLAudioElement;
+    audioPlayer.play();
+    this.isPlaying = true;
+  }
+  
+  nextSong() {
+    this.currentSongIndex++;
+    if (this.currentSongIndex >= this.songs.length) {
+      this.currentSongIndex = 0;
+    }
+    this.loadSong();
+  }
+  
+  prevSong() {
+    this.currentSongIndex--;
+    if (this.currentSongIndex < 0) {
+      this.currentSongIndex = this.songs.length - 1;
+    }
+    this.loadSong();
+  }
+  
+  loadSong() {
+    const song = this.songs[this.currentSongIndex];
+    console.log(song);
+  
+    this.name = song.img;
+    this.title = song.title;
+    this.img = song.name;
+    this.url = song.url;
+    this.timeplay = song.timeplay;
+  
+    // Duyệt qua mảng timeplay và chuyển đổi thành mảng của các đối tượng Lyric
+    this.lyrics = this.timeplay.map((timeplay: any) => {
+      return {
+        time: timeplay.time,
+        text: timeplay.text,
+        highlighted: false
+      };
+    });
+  
+    const audioPlayer = document.getElementById('audioPlayer') as HTMLAudioElement;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
 }

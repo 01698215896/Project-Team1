@@ -12,7 +12,7 @@ body {
   margin-left: 370px;
 }
 .toast-custom {
-  width: 300px;
+  width: fit-content;
 
   background-color: rgba(255, 0, 0, 0.8);
   padding: 10px 20px;

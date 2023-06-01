@@ -136,7 +136,7 @@ input {
   height: fit-content;
 }
 .listUser{
-  height: 500px;
+  height: 350px;
   overflow: hidden;
   overflow-y: auto;
 }

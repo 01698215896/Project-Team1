@@ -114,7 +114,9 @@
           </div>
         </div>
       </div>
-
+      <div class="annn" >
+        <button id="chat" routerLink="roomchat"><i class="fa-solid fa-message"></i></button>
+      </div>
       <div class="respo" #block>
         <button *ngIf="!isUserLoggedIn" routerLink="/login" class="btnn">
           Login
@@ -123,9 +125,7 @@
       <div class="admin" #check1>
         <button (click)="admin()" class="none">User Management</button>
       </div>
-      <div class="annn" >
-        <button id="chat" routerLink="roomchat"><i class="fa-solid fa-message"></i></button>
-      </div>
+     
       <div class="profile" style="margin-left: 20px" #check>
         <div class="imgUser">
           <img [src]="img" alt="" />

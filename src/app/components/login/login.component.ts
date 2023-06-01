@@ -47,11 +47,22 @@ export class LoginComponent implements OnInit {
   }
 
   register(registerForm: FormGroup) {
+    console.log(registerForm.value.id);
     if (registerForm.valid) {
-      this.service.pushData(registerForm.value).subscribe();
-      registerForm.reset();
-      this.toastr.success('Registered successfully', 'Success', {
-        toastClass: 'toast-custom',
+      this.service.getData1(registerForm.value.id).subscribe((data) => {
+        console.log(data)
+        if (registerForm.value.id == data.id) {
+          this.toastr.error('User da ton tai', 'error', {
+            toastClass: 'toast-custom',
+          });
+
+        } else {
+          this.service.pushData(registerForm.value).subscribe();
+          registerForm.reset();
+          this.toastr.success('Registered successfully', 'Success', {
+            toastClass: 'toast-custom',
+          });
+        }
       });
     } else {
       this.validateAll(registerForm);
@@ -59,16 +70,18 @@ export class LoginComponent implements OnInit {
   }
 
   login(loginf: FormGroup) {
-    console.log(loginf.value.id);
     if (loginf.valid) {
-      console.log(loginf.value);
       this.service.getUser(loginf.value.id).subscribe((data) => {
         this.testuers = data;
+        
         if (this.testuers.password == loginf.value.password) {
           this.toastr.success('Login Success', 'Success', {
             toastClass: 'toast-custom',
           });
-         
+        }else{
+          this.toastr.error('Username or Password khong dung', 'Erroe', {
+            toastClass: 'toast-custom',
+          });
         }
         localStorage.setItem('username', 'true');
         localStorage.setItem('idUser', loginf.value.id);
@@ -81,7 +94,6 @@ export class LoginComponent implements OnInit {
     } else {
       this.validateAll(loginf);
     }
- 
   }
 
   private validateAll(form: FormGroup) {

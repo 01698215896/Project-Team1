@@ -7,12 +7,25 @@ interface Lyric {
   highlighted: boolean;
 }
 
+interface Song {
+  name: string;
+  casy: string;
+  title: string;
+  img: string;
+  url: string;
+  timeplay: Lyric[];
+}
+
 @Component({
   selector: 'app-musicplay',
   templateUrl: './musicplay.component.html',
   styleUrls: ['./musicplay.component.css']
 })
 export class MusicplayComponent implements OnInit {
+  isPlaying: boolean = true;
+  currentSongIndex: number = 0; 
+  songs: Song[] = []; // Khởi tạo mảng songs
+
   @ViewChild('lyricList') lyricListRef!: ElementRef<HTMLUListElement>;
   lyrics: Lyric[] = [];
   name: string = '';
@@ -42,6 +55,16 @@ export class MusicplayComponent implements OnInit {
           text: timeplay.text,
           highlighted: false
         };
+      });
+
+      // Thêm bài hát hiện tại vào mảng songs
+      this.songs.push({
+        name: this.name,
+        casy: this.casy,
+        title: this.title,
+        img: this.img,
+        url: this.url,
+        timeplay: this.timeplay
       });
     }
   }
@@ -94,4 +117,55 @@ export class MusicplayComponent implements OnInit {
       });
     }
   }
+  
+  pauseSong() {
+    const audioPlayer = document.getElementById('audioPlayer') as HTMLAudioElement;
+    audioPlayer.pause();
+    this.isPlaying = false;
+  }
+  
+  playSong() {
+    const audioPlayer = document.getElementById('audioPlayer') as HTMLAudioElement;
+    audioPlayer.play();
+    this.isPlaying = true;
+  }
+  
+  // nextSong() {
+  //   this.currentSongIndex++;
+  //   if (this.currentSongIndex >= this.songs.length) {
+  //     this.currentSongIndex = 0;
+  //   }
+  //   this.loadSong();
+  // }
+  
+  // prevSong() {
+  //   this.currentSongIndex--;
+  //   if (this.currentSongIndex < 0) {
+  //     this.currentSongIndex = this.songs.length - 1;
+  //   }
+  //   this.loadSong();
+  // }
+  
+  // loadSong() {
+  //   const song = this.songs[this.currentSongIndex];
+  //   this.name = song.name;
+  //   this.casy = song.casy;
+  //   this.title = song.title;
+  //   this.img = song.img;
+  //   this.url = song.url;
+  //   this.timeplay = song.timeplay;
+  
+  //   // Duyệt qua mảng timeplay và chuyển đổi thành mảng của các đối tượng Lyric
+  //   this.lyrics = this.timeplay.map((timeplay: any) => {
+  //     return {
+  //       time: timeplay.time,
+  //       text: timeplay.text,
+  //       highlighted: false
+  //     };
+  //   });
+  
+  //   const audioPlayer = document.getElementById('audioPlayer') as HTMLAudioElement;
+  //   audioPlayer.load();
+  //   audioPlayer.play();
+  // }
 }

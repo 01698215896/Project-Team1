@@ -438,5 +438,7 @@ button.an{
     border: 3px solid #9b4de0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
-  
+  .baotext{
+    height: 380px;
+  }
 }
