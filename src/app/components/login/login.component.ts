@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
   register(registerForm: FormGroup) {
     console.log(registerForm.value.id);
     if (registerForm.valid) {
-      this.service.getData1(registerForm.value.id).subscribe((data) => {
+      this.service.getData().subscribe((data) => {
         console.log(data)
         if (registerForm.value.id == data.id) {
           this.toastr.error('User da ton tai', 'error', {

@@ -98,129 +98,132 @@
             </div>
           </div>
         </div>
-        <div class="logout ">
-            <div class="cha">
-                <button class="none">
-                  Listening To Music</button>
-                <button class="an"><i class="fa-solid fa-bars"></i></button>
-                <div class="boxlist">
-                    <h3>Thange Wallpaper</h3>
-                    <div class="formIP">
-                      <!-- img -->
-          
-                      <div
-                        class="avt1"
-                        [class.active]="activeTab === 0"
-                        (click)="setActiveTab(0)"
-                      >
-                        <img
-                          src="assets/img/1.jpg"
-                          name="img"
-                          alt=""
-                          (click)="clickimg('assets/img/1.jpg')"
-                        />
-                      </div>
-                      <div
-                        class="avt1"
-                        [class.active]="activeTab === 1"
-                        (click)="setActiveTab(1)"
-                      >
-                        <img
-                          src="assets/img/2.jpg"
-                          name="img"
-                          alt=""
-                          (click)="clickimg('assets/img/2.jpg')"
-                        />
-                      </div>
-                      <div
-                        class="avt1"
-                        [class.active]="activeTab === 2"
-                        (click)="setActiveTab(2)"
-                      >
-                        <img
-                          src="assets/img/3.jpg"
-                          name="img"
-                          alt=""
-                          (click)="clickimg('assets/img/3.jpg')"
-                        />
-                      </div>
-                      <div
-                        class="avt1"
-                        [class.active]="activeTab === 3"
-                        (click)="setActiveTab(3)"
-                      >
-                        <img
-                          src="assets/img/4.jpg"
-                          name="img"
-                          alt=""
-                          (click)="clickimg('assets/img/4.jpg')"
-                        />
-                      </div>
-                      <div
-                        class="avt1"
-                        [class.active]="activeTab === 5"
-                        (click)="setActiveTab(5)"
-                      >
-                        <img
-                          src="assets/img/6.jpg"
-                          name="img"
-                          alt=""
-                          (click)="clickimg('assets/img/6.jpg')"
-                        />
-                      </div>
-                      <div
-                        class="avt1"
-                        [class.active]="activeTab === 6"
-                        (click)="setActiveTab(6)"
-                      >
-                        <img
-                          src="assets/img/7.jpg"
-                          name="img"
-                          alt=""
-                          (click)="clickimg('assets/img/7.jpg')"
-                        />
-                      </div>
-                    </div>
-                    <div class="playmusic">
-                        <h3>Listening To Music</h3>
-                        <div class="showlist">
-                            <div class="item" *ngFor="let x of showlist" (click)="play(x.url)">
-                                <div class="hinh">
-                                    <img src="{{x.img}}" alt="">
-                                </div>
-                                <div class="ten"><p>{{x.name}}</p></div>
-                                <div class="thoigian">
-                                    <p>{{x.time}}</p>
-                                </div>
-                                
-                            </div>
-                            <audio [src]="url" controls autoplay style="display: none;">
-                              <source type="audio/mpeg" />
-                            </audio>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-      <div class="khungchat">
-        <div class="baotext">
+        <div class="logout">
+          <div class="cha">
+            <button class="none">Listening To Music</button>
+            <button class="an"><i class="fa-solid fa-bars"></i></button>
+            <div class="boxlist">
+              <h3>Thange Wallpaper</h3>
+              <div class="formIP">
+                <!-- img -->
 
-            <div class="message" *ngFor="let data of output">
-              <div class="client" *ngIf="!data.isSentByMe">
-                <div class="room_user r none">
-                  <div class="room_user1 u">
-                    <div class="room_user-avt t">
-                      <img [src]="data.sender.avatar" alt="" />
+                <div
+                  class="avt1"
+                  [class.active]="activeTab === 0"
+                  (click)="setActiveTab(0)"
+                >
+                  <img
+                    src="assets/img/1.jpg"
+                    name="img"
+                    alt=""
+                    (click)="clickimg('assets/img/1.jpg')"
+                  />
+                </div>
+                <div
+                  class="avt1"
+                  [class.active]="activeTab === 1"
+                  (click)="setActiveTab(1)"
+                >
+                  <img
+                    src="assets/img/2.jpg"
+                    name="img"
+                    alt=""
+                    (click)="clickimg('assets/img/2.jpg')"
+                  />
+                </div>
+                <div
+                  class="avt1"
+                  [class.active]="activeTab === 2"
+                  (click)="setActiveTab(2)"
+                >
+                  <img
+                    src="assets/img/3.jpg"
+                    name="img"
+                    alt=""
+                    (click)="clickimg('assets/img/3.jpg')"
+                  />
+                </div>
+                <div
+                  class="avt1"
+                  [class.active]="activeTab === 3"
+                  (click)="setActiveTab(3)"
+                >
+                  <img
+                    src="assets/img/4.jpg"
+                    name="img"
+                    alt=""
+                    (click)="clickimg('assets/img/4.jpg')"
+                  />
+                </div>
+                <div
+                  class="avt1"
+                  [class.active]="activeTab === 5"
+                  (click)="setActiveTab(5)"
+                >
+                  <img
+                    src="assets/img/6.jpg"
+                    name="img"
+                    alt=""
+                    (click)="clickimg('assets/img/6.jpg')"
+                  />
+                </div>
+                <div
+                  class="avt1"
+                  [class.active]="activeTab === 6"
+                  (click)="setActiveTab(6)"
+                >
+                  <img
+                    src="assets/img/7.jpg"
+                    name="img"
+                    alt=""
+                    (click)="clickimg('assets/img/7.jpg')"
+                  />
+                </div>
+              </div>
+              <div class="playmusic">
+                <h3>Listening To Music</h3>
+                <div class="showlist">
+                  <div
+                    class="item"
+                    *ngFor="let x of showlist"
+                    (click)="play(x.url)"
+                  >
+                    <div class="hinh">
+                      <img src="{{ x.img }}" alt="" />
                     </div>
-                    <div class="name a">
-                      <p class="oo">{{ data.sender.name }}</p>
+                    <div class="ten">
+                      <p>{{ x.name }}</p>
+                    </div>
+                    <div class="thoigian">
+                      <p>{{ x.time }}</p>
                     </div>
                   </div>
+                  <audio [src]="url" controls autoplay style="display: none">
+                    <source type="audio/mpeg" />
+                  </audio>
                 </div>
-                <p>{{ data.content }}</p>
               </div>
-              <!-- <div class="user" *ngIf="data.isSentByMe">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="khungchat">
+        <div class="baotext">
+          <div class="message" *ngFor="let data of output">
+            <div class="client" *ngIf="!data.isSentByMe">
+              <div class="room_user r none">
+                <div class="room_user1 u">
+                  <div class="room_user-avt t">
+                    <img [src]="data.sender.avatar" alt="" />
+                  </div>
+                  <div class="name a">
+                    <p class="oo">{{ data.sender.name }}</p>
+                  </div>
+                </div>
+              </div>
+              <p>{{ data.content }}</p>
+            </div>
+            <!-- <div class="user" *ngIf="data.isSentByMe">
                 <div class="room_user r">
                   <div class="room_user1 u">
                     <div class="room_user-avt t">
@@ -233,22 +236,20 @@
                 </div>
                 <p>{{ data.content }}</p>
               </div> -->
-    
-            </div>
+          </div>
         </div>
-        <form  (submit)="sendmsg()">
-        <div class="inputsend">
-
-                <input
-                  type="text"
-                  placeholder="Nhập tin nhắn..."
-                  name="message"
-                  [(ngModel)]="message"
-                />
-                <button type="submit">
-                  <i class="fa-solid fa-paper-plane"></i>
-                </button>
-            </div>
+        <form (submit)="sendmsg()">
+          <div class="inputsend">
+            <input
+              type="text"
+              placeholder="Nhập tin nhắn..."
+              name="message"
+              [(ngModel)]="message"
+            />
+            <button type="submit">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
         </form>
       </div>
     </div>
