@@ -21,7 +21,7 @@
 
         <div class="room_online none">
           <h3>Change Wallpaper</h3>
-          <div class="formIP">
+          <div class="formIP ">
             <!-- img -->
 
             <div
@@ -100,13 +100,39 @@
         </div>
         <div class="logout">
           <div class="cha">
-            <button class="none">Listening To Music</button>
+            <div class="dt">
+              <div class="playmusic playmusic1">
+                <h3>Listening To Music</h3>
+                <div
+                  class="showlist"
+                  
+                >
+                  <div
+                    class="item"
+                    *ngFor="let x of showlist"
+                    (click)="play(x.url)"
+                  >
+                    <div class="hinh">
+                      <img src="{{ x.img }}" alt="" />
+                    </div>
+                    <div class="ten">
+                      <p>{{ x.name }}</p>
+                    </div>
+                    <div class="thoigian">
+                      <p>{{ x.time }}</p>
+                    </div>
+                  </div>
+                  <audio [src]="url" controls autoplay style="display: none">
+                    <source type="audio/mpeg" />
+                  </audio>
+                </div>
+              </div>
+              <button class="hien">Listening To Music</button>
+            </div>
             <button class="an"><i class="fa-solid fa-bars"></i></button>
             <div class="boxlist">
               <h3>Thange Wallpaper</h3>
               <div class="formIP">
-                <!-- img -->
-
                 <div
                   class="avt1"
                   [class.active]="activeTab === 0"
@@ -182,7 +208,10 @@
               </div>
               <div class="playmusic">
                 <h3>Listening To Music</h3>
-                <div class="showlist">
+                <div
+                  class="showlist"
+                  
+                >
                   <div
                     class="item"
                     *ngFor="let x of showlist"
@@ -211,17 +240,16 @@
         <div class="baotext">
           <div class="message" *ngFor="let data of output">
             <div class="client" *ngIf="!data.isSentByMe">
-              <div class="room_user r none">
-                <div class="room_user1 u">
-                  <div class="room_user-avt t">
-                    <img [src]="data.sender.avatar" alt="" />
-                  </div>
-                  <div class="name a">
-                    <p class="oo">{{ data.sender.name }}</p>
-                  </div>
+             
+                <span>{{ data.sender.name }}</span>
+              <div class="r none">
+                <div class="room_user-avt t">
+                  <img [src]="data.sender.avatar" alt="" />
+                </div>
+                <div class="mess">
+                  <p>{{ data.content }}</p>
                 </div>
               </div>
-              <p>{{ data.content }}</p>
             </div>
             <!-- <div class="user" *ngIf="data.isSentByMe">
                 <div class="room_user r">
