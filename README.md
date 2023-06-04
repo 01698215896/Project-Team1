@@ -18,7 +18,7 @@ Student1455752 Vũ Phạm Trường Giang
 
 ============================
 
-eProject documentation at https://github.com/01698215896/Project-Team1.git
+eProject documentation at https://github.com/01698215896/Project-Team1/tree/e03059f5caf11998371863a4e9dbbda4b5de487d/document
 
 ============================
 

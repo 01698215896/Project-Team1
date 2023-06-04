@@ -2,7 +2,7 @@
   <div class="navbar1">
     <div class="logo">
       <a routerLink="/"
-        ><p style="color: #fff; margin-top: 20px">SoundBlast</p></a
+        ><p style="color: #fff; margin-top: 20px">{{ 'SoundBlast' | translate }}</p></a
       >
     </div>
     <div class="showNav">
@@ -10,65 +10,65 @@
         <li routerLink="/trending" [class.active]="activeTab === 0" (click)="setActiveTab(0)">
       <div style="display: flex; align-items: center;">
         <i class="fa-solid fa-house"></i>
-        <p class="none">Trending Now</p>
+        <p class="none"> {{ 'Trending Now' | translate }}</p>
       </div>
         </li>
         <li routerLink="/listtrending" [class.active]="activeTab === 1" (click)="setActiveTab(1)">
           <div style="display: flex; align-items: center;">
             <i class="fa-solid fa-sliders"></i>
-            <p class="none">Top Charts</p>
+            <p class="none">{{ 'Top Charts' | translate }}</p>
             </div>
         </li>
         <li routerLink="/banphathanh" [class.active]="activeTab === 2" (click)="setActiveTab(2)">
           <div style="display: flex; align-items: center;">
             <i class="fa-solid fa-spinner"></i>
-            <p class="none">New Releases</p>
+            <p class="none">{{ 'New Releases' | translate }}</p>
             </div>
         </li>
         <li routerLink="/album" [class.active]="activeTab === 3" (click)="setActiveTab(3)">
           <div style="display: flex; align-items: center;">
             <i class="fa-solid fa-camera-retro"></i>
-            <p class="none">Latest Albums</p>
+            <p class="none">{{ 'Latest Albums' | translate }}</p>
             </div>
         </li>
         <li routerLink="/genres" [class.active]="activeTab === 4" (click)="setActiveTab(4)">
           <div style="display: flex; align-items: center;">
             <i class="fa-brands fa-teamspeak"></i>
-            <p class="none">Genres</p>
+            <p class="none">{{ 'Genres' | translate }}</p>
             </div>
         </li>
         <li routerLink="/oldsong" [class.active]="activeTab === 5" (click)="setActiveTab(5)">
           <div style="display: flex; align-items: center;">
             <i class="fa-solid fa-music"></i>
-            <p class="none">Old Song</p>
+            <p class="none">{{ 'Old Song' | translate }}</p>
             </div>
         </li>
         <li routerLink="/toparti" [class.active]="activeTab === 6" (click)="setActiveTab(6)">
           <div style="display: flex; align-items: center;">
             <i class="fa-solid fa-chart-simple"></i>
-            <p class="none">Top Artists</p>
+            <p class="none">{{ 'Top Artists' | translate }}</p>
             </div>
         </li>
         <li routerLink="/topsearch" [class.active]="activeTab === 7" (click)="setActiveTab(7)">
           <div style="display: flex; align-items: center;">
             <i class="fa-brands fa-intercom"></i>
-            <p class="none">Top Searched Songs</p>
+            <p class="none">{{ 'Top Searched Songs' | translate }}</p>
             </div>
         </li>
         <li routerLink="/product" [class.active]="activeTab === 8" (click)="setActiveTab(8)">
           <div style="display: flex; align-items: center;">
             <i class="fa-solid fa-film"></i>
-            <p class="none">PlayList</p>
+            <p class="none">{{ 'PlayList' | translate }}</p>
             </div>
         </li>
       </ul>
     </div>
     <div class="login">
       <ul class="border1 none" >
-        <li class="lan">LANGUAGES
+        <li class="lan">{{ 'LANGUAGES' | translate }}
           <div class="chon">
-            <a href="" class="active">VN</a>
-            <a href="">EN</a>
+            <button  (click)="switchLanguage('vn',1)" [class.active]="activeTab1 === 1">VN</button>
+            <button  (click)="switchLanguage('en',0)" [class.active]="activeTab1 === 0">EN</button>
 
           </div>
         </li>
@@ -77,10 +77,10 @@
     </div>
     <div class="login login1">
       <ul class="border1 none" >
-        <li routerLink="contact"  class="con">About US</li>
+        <li routerLink="contact"  class="con">{{ 'About US' | translate }}</li>
       </ul>
       <ul class="border1 none" >
-        <li routerLink="roomchat"  class="con">Message</li>
+        <li routerLink="roomchat"  class="con">{{ 'Message' | translate }}</li>
       </ul>
     </div>
   </div>
@@ -99,7 +99,7 @@
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="search" placeholder="Search..." (input)="filterData(searchInput.value)" #searchInput (click)="showSearchResults = true"  />
         <div class="box_search" #open1>
-          <h3>Bạn Muốn Tìm Bản Nhạc Nào</h3>
+          <h3>{{'What Music Do You Want To Find' | translate}}</h3>
           <div class="baobao">
 
             <div class="itembox" *ngFor="let r of (showSearchResults ? filteredSearch : showsearch)" (click)="linkplay(r.id)">
@@ -119,11 +119,11 @@
       </div>
       <div class="respo" #block>
         <button *ngIf="!isUserLoggedIn" routerLink="/login" class="btnn">
-          Login
+          {{'Login' | translate}}
         </button>
       </div>
       <div class="admin" #check1>
-        <button (click)="admin()" class="none">User Management</button>
+        <button (click)="admin()" class="none">{{'User Management' | translate}}</button>
       </div>
      
       <div class="profile" style="margin-left: 20px" #check>
@@ -133,13 +133,24 @@
         <div class="box_option">
           <div class="box_option-text">
             <ul class="rtr">
-              <li routerLink="profile">Profile </li>
-              <div class="admin">
-                <li (click)="admin()" >
-                    User Management
+              <li routerLink="profile" >{{'Profile' | translate}} </li>
+             
+           
+                <li (click)="admin()" class="pppp" >
+                    {{'User Management' | translate}}
                   </li>
-                </div>
-              <li (click)="logout()">Logout </li>
+           
+              <li (click)="logout()">{{'Logout' | translate}}</li>
+              <li class="iiii">{{'LANGUAGES' | translate}} 
+                <ul class="conlg">
+                  <li>
+                    <button  (click)="switchLanguage('vn',1)" [class.active]="activeTab1 === 1">VN</button>
+                   
+                    <button  (click)="switchLanguage('en',0)" [class.active]="activeTab1 === 0">EN</button>
+                  </li>
+                 
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -176,7 +187,7 @@
       </div>
       <div class="send_btn">
         <input type="text" ngModel name="message" placeholder="Message..." />
-        <button type="submit">Send</button>
+        <button type="submit"> {{'Send' | translate}}</button>
       </div>
     </form>
   </div>

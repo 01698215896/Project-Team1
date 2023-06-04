@@ -3,9 +3,9 @@
     <img src="assets/img/bgadmin.jpg" alt="" />
   </div>
   <div class="formAdim">
-    <h1>User Management</h1>
+    <h1> {{ 'User Management' | translate }}</h1>
     <button class="btn btn-outline-primary my-3" (click)="add()">
-      Add New User
+     {{ 'Add New User' | translate }}
     </button>
     <div class="listUser block">
       <table class="table">
@@ -33,11 +33,11 @@
               <p>{{ o.id }}</p>
             </td>
             <td>
-              <button class="ii" (click)="edituser(o.id)">Edit</button>|<button
+              <button class="ii" (click)="edituser(o.id)">{{ 'Edit' | translate }}</button>|<button
                 class="ii"
                 (click)="delete(o.id)"
               >
-                Delete
+                {{ 'Delete' | translate }}
               </button>
             </td>
           </tr>

@@ -12,31 +12,41 @@
         </div>
       <div class="box1">
         <div class="title">
-          <h1  [class.active]="activeTab === 0" (click)="setActiveTab(0)">Login</h1>
-          <h1 [class.active]="activeTab === 1" (click)="setActiveTab(1)">Resgiter</h1>
+          <h1  [class.active]="activeTab === 0" (click)="setActiveTab(0)">{{ 'Login' | translate }}</h1>
+          <h1 [class.active]="activeTab === 1" (click)="setActiveTab(1)">{{ 'Resgiter' | translate }}</h1>
         </div>
         <div class="chung">
 
-                <div id="loginform" *ngIf="activeTab === 0">
-                    <form   [formGroup]="formlogin" (submit)="login(formlogin)">
-                        <div class="formIP" [class.error]="formlogin.controls['id'].dirty && formlogin.hasError('required', 'id')">
-                            <i class="fa-solid fa-user"></i>
-                            <input type="text"  formControlName="id"  placeholder="Username..." >
+            <div id="loginform" *ngIf="activeTab === 0">
+                <form [formGroup]="formlogin" (submit)="login(formlogin)">
+                    <div class="formIP" [class.error]="formlogin.controls['id'].dirty && formlogin.hasError('required', 'id')">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" formControlName="id" placeholder="Username...">
+                    </div>
+                    <small *ngIf="formlogin.controls['id'].dirty && formlogin.hasError('required', 'id')" class="text-danger">Username required</small>
+                    <div class="formIP">
+                        <i class="fa-solid fa-key"></i>
+                        <input type="password" formControlName="password" placeholder="Password...">
+                    </div>
+                    <small *ngIf="formlogin.controls['password'].dirty && formlogin.hasError('required', 'password')" class="text-danger">Password required</small>
+                    <div class="link">
+                        <button type="submit" [disabled]="isWaitingForResponse">
+                            <ng-container *ngIf="!isWaitingForResponse; else loadingAnimation">
+                                {{ 'Login' | translate }}
+                            </ng-container>
+                        </button>
+                        <ng-template #loadingAnimation>
+                            <div class="animation-container">
+                                <i class="fa-solid fa-spinner fa-spin" ></i>
+                            </div>
+                        </ng-template>
+                        <div class="div">
+                            <a href="#taomoiform">{{ 'Register Account' | translate }} <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
-                        <small *ngIf="formlogin.controls['id'].dirty && formlogin.hasError('required', 'id')" class="text-danger">Username required</small>
-                        <div class="formIP">
-                            <i class="fa-solid fa-key"></i>
-                            <input type="password"  formControlName="password"  placeholder="Password..." >
-                        </div>
-                        <small *ngIf="formlogin.controls['password'].dirty && formlogin.hasError('required', 'password')" class="text-danger">Password required</small>
-                        <div class="link">
-                            <button type="submit" >Login</button>
-                           <div class="div">
-                            <a href="#taomoiform">Register Account <i class="fa-solid fa-arrow-right"></i></a>
-                           </div> 
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
+            </div>
+            
             
            
                 <div id="taomoiform" *ngIf="activeTab === 1">
@@ -72,9 +82,19 @@
                         <small *ngIf="formres.controls['confirmPassword'].dirty && formres.hasError('required', 'confirmPassword')" class="text-danger">ConfirmPassword required</small>
                         
                         <div class="link">
-                            <button type="submit">Register</button>
-                           <div class="div">
-                            <a href="#loginform">Login Account <i class="fa-solid fa-arrow-right"></i></a>
+                            <!-- <button type="submit">{{ 'Resgiter' | translate }}</button> -->
+                            <button type="submit" [disabled]="isWaitingForResponse">
+                                <ng-container *ngIf="!isWaitingForResponse; else loadingAnimation">
+                                    {{ 'Resgiter' | translate }}
+                                </ng-container>
+                            </button>
+                            <ng-template #loadingAnimation>
+                                <div class="animation-container">
+                                    <i class="fa-solid fa-spinner fa-spin" ></i>
+                                </div>
+                            </ng-template>
+                            <div class="div">
+                            <a href="#loginform">{{ 'Login Account' | translate }} <i class="fa-solid fa-arrow-right"></i></a>
                            </div> 
                         </div>
                     </form>

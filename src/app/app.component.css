@@ -125,18 +125,20 @@ ul.border1 li.lan::before {
   margin-left: 25px;
   font-weight: 200;
 }
-.chon a {
+.chon button {
   border: 2px solid #9b4de0;
   border-radius: 5px;
   margin: 0 10px;
-  font-size: 16px;
+  font-size: 14px;
   padding: 4px;
   transition: 0.3s ease-in-out;
+  background: none;
+  color: #fff;
 }
-.chon a.active {
+.chon button.active {
   background: #9b4de0;
 }
-.chon a:hover {
+.chon button:hover {
   background: #9b4de0;
 }
 ul.border1 li.con {
@@ -518,11 +520,54 @@ ul.rtr > li:hover {
 
 .login1 {
   display: flex;
-}
+}tr
 button#chat{
   display: none;
 }
 .annn{
+  display: none;
+}
+
+ul.rtr > li ul.conlg li{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  justify-content: space-evenly;
+  z-index: 100;
+  background: #ffffff6d;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+ul.rtr > li.iiii{
+  margin-bottom: 30px;
+  display: none;
+}
+
+ul.rtr > li ul.conlg li button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #9b4de0;
+  width: 50px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 4px;
+  transition: 0.3s ease-in-out;
+  background: none;
+  color: #fff;
+  z-index: 1000;
+}
+ul.rtr > li ul.conlg li button.active {
+  background: #9b4de0;
+}
+ul.rtr > li ul.conlg li button:hover {
+  background: #9b4de0;
+}
+.pppp{
   display: none;
 }
 /* responsive */
@@ -646,9 +691,18 @@ button#chat{
   .annn{
     display: block;
   }
+  ul.rtr > li.iiii{
+    display: block;
+  }.pppp{
+    display: block;
+  }
 }
 
 @media screen and (max-width: 480px) {
+  ul.rtr > li.iiii, .pppp{
+    display: block;
+  }
+  
   .eee {
     display: block;
   }
@@ -720,8 +774,10 @@ button#chat{
 
   .respo button {
     width: fit-content;
-    padding: 0 8px;
+    padding: 6px 20px;
+    font-size: 15px;
   }
+ 
   .search {
     border-bottom: 1px solid #fff;
     padding: 0;

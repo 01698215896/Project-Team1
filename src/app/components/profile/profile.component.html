@@ -1,7 +1,7 @@
 <div class="containers">
   <div class="containerss">
     <div class="containerss_bg">
-      <img src="assets/img/bguser.jpg" alt="">
+      <img src="assets/img/bguser.jpg" alt="" />
     </div>
     <div class="user">
       <div class="userbao">
@@ -11,34 +11,43 @@
         <div class="usertext">
           <h1 class="h1"></h1>
           <p>Full Stack Developer</p>
-          <p>Ha Huy Giap, Quan 12, TP.HCM</p>
         </div>
-        <button (click)="add()">Edit Account</button>
+        <button (click)="add()">{{ 'Edit Account' | translate }}</button>
         <div class="icon">
-          <a href="{{ face }}"  target="_blank"><i class="fa-brands fa-facebook"></i></a>
-          <a href="{{ insta }}" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          <a href="{{ twitter }}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-          <a href="{{ git }}" target="_blank"><i class="fa-brands fa-github"></i></a>
-          <a href="{{ youtube }}" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="{{ face }}" target="_blank"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="{{ insta }}" target="_blank"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="{{ twitter }}" target="_blank"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a href="{{ git }}" target="_blank"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a href="{{ youtube }}" target="_blank"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
         </div>
       </div>
     </div>
     <div class="usertitle">
       <div class="thongtin">
-        <h1>Account User</h1>
+        <h1>{{ 'Account' | translate }}</h1>
         <table class="table">
           <tbody>
             <tr>
-              <th>Fullname</th>
+              <th>{{ 'Fullname' | translate }}</th>
               <td>{{ firstName }} {{ lastName }}</td>
             </tr>
 
             <tr>
-              <th>Username</th>
+              <th>{{ 'Username' | translate }}</th>
               <td>{{ id }}</td>
             </tr>
             <tr>
-              <th>Password</th>
+              <th>{{ 'Password' | translate }}</th>
               <td>{{ password }}</td>
             </tr>
             <tr>
@@ -50,90 +59,142 @@
       </div>
       <!-- (click)="showmusic(t.name )" -->
       <div class="thongtin1">
-        <h1>Playlist Musics</h1>
-        <div class="baobao">
-          <div
-          class="listItem"
-          *ngFor="let t of listMucsic"
-          
-        >
-          <div class="title">
-            <div class="id none">
-              <p><i class="fa-solid fa-music"></i></p>
+        <h1>{{ 'Playlist Music' | translate }}</h1>
+        <div class="baobao" *ngFor="let t of listMucsic">
+          <div class="listItem" >
+            <div class="title">
+              <div class="id none">
+                <p><i class="fa-solid fa-music"></i></p>
+              </div>
+              <div class="img">
+                <img src="{{ t.img }}" alt="" />
+              </div>
+              <div class="text">
+                <p style="margin: 0">{{ t.name }}</p>
+                <p>{{ t.casy }}</p>
+              </div>
             </div>
-            <div class="img">
-              <img src="{{ t.img }}" alt="" />
-            </div>
-            <div class="text">
-              <p style="margin: 0">{{ t.name }}</p>
-              <p>{{ t.casy }}</p>
+            <div class="bao11">
+
+              <div class="none">
+                <div class="time none" style="color: #333">
+                  <p style="margin: 0; text-align: right; padding-right: 15px">
+                    4:40
+                  </p>
+                </div>
+              </div>
+              <div class="xoa">
+                <button (click)="xoa(t.id)"><i class="fa-sharp fa-solid fa-trash"></i></button>
+              </div>
             </div>
           </div>
-          <div class="none">
-           
-            <div class="time none" style="color: #333">
-              <p style="margin: 0; text-align: right; padding-right: 15px">
-                4:40
-              </p>
-            </div>
-  
-          </div>
-        </div>
         </div>
       </div>
     </div>
-
 
     <div class="tabAdd" #toggleElement *ngIf="!isUserLoggedIn">
       <div class="showadd">
-        <div id="taomoiform" >
-          <form #registerForm="ngForm" >
+        <div id="taomoiform">
+          <form #registerForm="ngForm">
             <div class="formIP">
-              <input type="text" name="firstName" [(ngModel)]="selectedUser.firstName" placeholder="Firstname..." style="padding-left: 10px;margin-right: 10px;">
-              <input type="text" name="lastName" [(ngModel)]="selectedUser.lastName" placeholder="Lastname..." style="padding-left: 10px;margin-left: 10px;">
+              <input
+                type="text"
+                name="firstName"
+                [(ngModel)]="selectedUser.firstName"
+                placeholder="Firstname..."
+                style="padding-left: 10px; margin-right: 10px"
+              />
+              <input
+                type="text"
+                name="lastName"
+                [(ngModel)]="selectedUser.lastName"
+                placeholder="Lastname..."
+                style="padding-left: 10px; margin-left: 10px"
+              />
             </div>
             <div class="formIP">
               <i class="fa-solid fa-user"></i>
-              <input type="text" name="id" [(ngModel)]="selectedUser.id" placeholder="Username..." disabled>
+              <input
+                type="text"
+                name="id"
+                [(ngModel)]="selectedUser.id"
+                placeholder="Username..."
+                disabled
+              />
             </div>
             <div class="formIP">
               <i class="fa-solid fa-envelope"></i>
-              <input type="email" name="email" [(ngModel)]="selectedUser.email" placeholder="Email...">
+              <input
+                type="email"
+                name="email"
+                [(ngModel)]="selectedUser.email"
+                placeholder="Email..."
+              />
             </div>
             <div class="formIP">
               <i class="fa-solid fa-key"></i>
-              <input type="password" name="password" [(ngModel)]="selectedUser.password" placeholder="Password...">
+              <input
+                type="password"
+                name="password"
+                [(ngModel)]="selectedUser.password"
+                placeholder="Password..."
+              />
             </div>
             <div class="formIP">
               <i class="fa-brands fa-facebook"></i>
-              <input type="text" name="face" [(ngModel)]="selectedUser.face" placeholder="Facebook...">
+              <input
+                type="text"
+                name="face"
+                [(ngModel)]="selectedUser.face"
+                placeholder="Facebook..."
+              />
             </div>
             <div class="formIP">
               <i class="fa-brands fa-youtube"></i>
-              <input type="text" name="youtube" [(ngModel)]="selectedUser.youtube" placeholder="Youtube...">
+              <input
+                type="text"
+                name="youtube"
+                [(ngModel)]="selectedUser.youtube"
+                placeholder="Youtube..."
+              />
             </div>
             <div class="formIP">
               <i class="fa-brands fa-github"></i>
-              <input type="text" name="git" [(ngModel)]="selectedUser.git" placeholder="Github...">
+              <input
+                type="text"
+                name="git"
+                [(ngModel)]="selectedUser.git"
+                placeholder="Github..."
+              />
             </div>
             <div class="formIP">
               <i class="fa-brands fa-twitter"></i>
-              <input type="text" name="twitter" [(ngModel)]="selectedUser.twitter" placeholder="Twitter...">
+              <input
+                type="text"
+                name="twitter"
+                [(ngModel)]="selectedUser.twitter"
+                placeholder="Twitter..."
+              />
             </div>
             <div class="formIP">
               <i class="fa-brands fa-instagram"></i>
-              <input type="text" name="insta" [(ngModel)]="selectedUser.insta" placeholder="Instagram...">
+              <input
+                type="text"
+                name="insta"
+                [(ngModel)]="selectedUser.insta"
+                placeholder="Instagram..."
+              />
             </div>
             <div class="link">
               <button class="nnn" (click)="cancel()">Cancel</button>
-              
-              <button type="submit" class="nnn" (click)="update1(registerForm)">Update</button>
+
+              <button type="submit" class="nnn" (click)="update1(registerForm)">
+                Update
+              </button>
             </div>
           </form>
-                        
-      </div> 
+        </div>
       </div>
     </div>
-
   </div>
 </div>

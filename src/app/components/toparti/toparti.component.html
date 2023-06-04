@@ -1,17 +1,17 @@
 <div class="containers">
   <div class="toparti">
-    <h1>Top Artists</h1>
+    <h1>{{ 'Top Artists' | translate }}</h1>
     <div class="title">
       <ul >
         <li [class.active]="activeTab === 0" (click)="all('tatca', 0)" >
-          All
+          {{ 'All' | translate }}
         </li>
         <li (click)="all('vietnam', 1)" [class.active]="activeTab === 1">
-          Viet Nam
+          {{ 'Viet Nam' | translate }}
         </li>
         <li (click)="all('quocte', 2)" [class.active]="activeTab === 2" >
           
-International
+{{ 'International' | translate }}
         </li>
       </ul>
     </div>

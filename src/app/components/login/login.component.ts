@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  NgForm,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Toast, ToastrService } from 'ngx-toastr';
 import { ListMucsicService } from 'src/app/services/list-mucsic.service';
@@ -20,6 +14,7 @@ export class LoginComponent implements OnInit {
   testuers: any;
   formlogin!: FormGroup;
   formres!: FormGroup;
+  isWaitingForResponse = false; // Biến kiểm soát trạng thái đang chờ phản hồi từ API
 
   constructor(
     private service: ListMucsicService,
@@ -27,6 +22,7 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService,
     private fb: FormBuilder
   ) {}
+
   ngOnInit(): void {
     this.formlogin = this.fb.group({
       id: ['', Validators.required],
@@ -55,12 +51,14 @@ export class LoginComponent implements OnInit {
           this.toastr.error('User da ton tai', 'error', {
             toastClass: 'toast-custom',
           });
-
         } else {
-          this.service.pushData(registerForm.value).subscribe();
-          registerForm.reset();
-          this.toastr.success('Registered successfully', 'Success', {
-            toastClass: 'toast-custom',
+          this.isWaitingForResponse = true; // Đặt biến isWaitingForResponse thành true khi gửi yêu cầu
+          this.service.pushData(registerForm.value).subscribe(() => {
+            this.isWaitingForResponse = false; // Đặt biến isWaitingForResponse thành false khi nhận được phản hồi
+            registerForm.reset();
+            this.toastr.success('Registered successfully', 'Success', {
+              toastClass: 'toast-custom',
+            });
           });
         }
       });
@@ -71,14 +69,16 @@ export class LoginComponent implements OnInit {
 
   login(loginf: FormGroup) {
     if (loginf.valid) {
+      this.isWaitingForResponse = true; // Đặt biến isWaitingForResponse thành true khi gửi yêu cầu
       this.service.getUser(loginf.value.id).subscribe((data) => {
+        this.isWaitingForResponse = false; // Đặt biến isWaitingForResponse thành false khi nhận được phản hồi
         this.testuers = data;
         
         if (this.testuers.password == loginf.value.password) {
           this.toastr.success('Login Success', 'Success', {
             toastClass: 'toast-custom',
           });
-        }else{
+        } else {
           this.toastr.error('Username or Password khong dung', 'Erroe', {
             toastClass: 'toast-custom',
           });

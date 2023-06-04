@@ -118,7 +118,27 @@ h1{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.bao11{
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.bao11 .xoa{
+  margin-left: 20px;
+}
+.bao11 .xoa button{
+  background: none;
+  border: 2px solid red;
+  border-radius: 10px;
+  color: red;
+  width: 30px;
+  height: 30px;
+  transition: .3s ease-in-out;
+}
+.bao11 .xoa button:hover{
+  background: red;
+  color: #fff;
+}
 .tabAdd{
     background: #33333344;
     position: absolute;
@@ -228,7 +248,7 @@ h1{
 .listItem {
   width: 100%;
   display: grid;
-  grid-template-columns: 90% 10%;
+  grid-template-columns: 80% 20%;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;

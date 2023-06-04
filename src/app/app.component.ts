@@ -9,6 +9,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ListMucsicService } from './services/list-mucsic.service';
+import { TranslateService } from '@ngx-translate/core';
+
 
 export interface Message {
   type: string;
@@ -22,6 +24,7 @@ export interface Message {
 })
 export class AppComponent implements OnInit {
   activeTab = 0;
+  activeTab1 = 0;
 
   img: string = '';
   isUserLoggedIn = false;
@@ -37,7 +40,8 @@ export class AppComponent implements OnInit {
     private toastrService: ToastrService,
     private router: Router,
     private renderer: Renderer2,
-    private service: ListMucsicService
+    private service: ListMucsicService,
+    private translateService: TranslateService
   ) {
     if (localStorage.getItem('username')) {
       this.isUserLoggedIn = true;
@@ -87,6 +91,7 @@ export class AppComponent implements OnInit {
     this.renderer.setStyle(this.check.nativeElement, 'display', 'none');
     this.renderer.setStyle(this.block.nativeElement, 'display', 'block');
     this.router.navigate(['']);
+    location.reload();
   }
 
   sendmessage(sendform: Message) {
@@ -131,7 +136,9 @@ export class AppComponent implements OnInit {
   rigth(){
     history.forward();
   }
-
-
+  switchLanguage(language: string, index: number){
+    this.translateService.use(language);
+    this.activeTab1 = index;
+  }
   
 }

@@ -16,7 +16,7 @@
             style="text-decoration: none; color: #fff"
             download="{{ currentSong }}"
             (click)="check()"
-            >Download Now</a
+            >{{ 'Download Now' | translate }}</a
           >
         </button>
         
@@ -24,7 +24,7 @@
     </div>
     <div class="listproduct">
       <div class="listSearch">
-        <h3 class="h3style">Playlist Music</h3>
+        <h3 class="h3style"> {{ 'Playlist Music' | translate }}</h3>
         <div
           class="listItem"
           *ngFor="let t of listMucsic"

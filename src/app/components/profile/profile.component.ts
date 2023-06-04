@@ -109,4 +109,8 @@ export class ProfileComponent implements OnInit {
   cancel() {
     this.isUserLoggedIn = true;
   }
+
+  xoa(id: number) {
+    console.log(id)
+  }
 }

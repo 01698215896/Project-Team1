@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +26,16 @@ import { ListalbumComponent } from './components/listalbum/listalbum.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RoomchatComponent } from './components/roomchat/roomchat.component';
 import { ListMucsicService } from './services/list-mucsic.service';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// Thêm các import sau
+import { TranslateCompiler, TranslateParser } from '@ngx-translate/core';
+import { TranslateMessageFormatCompiler } from 'ngx-translate-messageformat-compiler';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -61,7 +71,19 @@ import { ListMucsicService } from './services/list-mucsic.service';
       // preventDuplicates: true,
     }),
     ReactiveFormsModule,
-    
+    TranslateModule.forRoot({
+      defaultLanguage: 'en', // Ngôn ngữ mặc định
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      compiler: {
+        provide: TranslateCompiler,
+        useClass: TranslateMessageFormatCompiler,
+        deps: [TranslateParser]
+      }
+    })
   ],
   providers:  [ListMucsicService],
   bootstrap: [AppComponent]
