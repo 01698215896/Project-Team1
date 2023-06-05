@@ -143,7 +143,7 @@ export class ListMucsicService {
   }
 
   sendmessage(message: string) {
-    return this.http.post('https://apichatbox-49dn.onrender.com/message', {
+    return this.http.post('https://chatbot-3dkb.onrender.com/message', {
       prompt: message,
     });
   }
