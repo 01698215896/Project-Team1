@@ -35,8 +35,6 @@ export class ListMucsicService {
     });
   }
 
-
-
   getApi(): Observable<Array<ListMucsic>> {
     return this.http.get<Array<ListMucsic>>(
       'https://apiuser-self.vercel.app/listMucsic'
@@ -58,10 +56,8 @@ export class ListMucsicService {
       'https://apiuser-self.vercel.app/' + data
     );
   }
-  fetchapi111(data: string): Observable<any>{
-    return this.http.get<any>(
-      'https://apiuser-self.vercel.app/' + data
-    );
+  fetchapi111(data: string): Observable<any> {
+    return this.http.get<any>('https://apiuser-self.vercel.app/' + data);
   }
   fetchapiMS(data: string, id: number): Observable<any> {
     return this.http.get('https://apiuser-self.vercel.app/' + data + '/' + id);
@@ -147,10 +143,8 @@ export class ListMucsicService {
   }
 
   sendmessage(message: string) {
-    return this.http.post('https://apichatbox.onrender.com/message', {
+    return this.http.post('https://apichatbox-49dn.onrender.com/message', {
       prompt: message,
     });
   }
 }
-
-
