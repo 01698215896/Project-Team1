@@ -90,8 +90,8 @@ export class AppComponent implements OnInit {
     this.isUserLoggedIn = false;
     this.renderer.setStyle(this.check.nativeElement, 'display', 'none');
     this.renderer.setStyle(this.block.nativeElement, 'display', 'block');
-    this.router.navigate(['']);
-    location.reload();
+    window.location.href='';
+    
   }
 
   sendmessage(sendform: Message) {
